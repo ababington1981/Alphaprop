@@ -59,7 +59,10 @@
     .space-y-5 > * + * { margin-top: 1.25rem; }
     .space-y-6 > * + * { margin-top: 1.5rem; }
     .w-full { width: 100%; }
-    .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
+    .max-w-7xl { max-width: min(96vw, 2200px) !important; margin-left: auto; margin-right: auto; }
+@media (min-width: 1536px) {
+  .lg\:grid-cols-2 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
     .p-2\.5 { padding: 0.625rem; }
     .p-3 { padding: 0.75rem; }
     .p-3\.5 { padding: 0.875rem; }
