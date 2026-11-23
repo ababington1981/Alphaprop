@@ -16294,6 +16294,8 @@ updateBetSlipCartWidget();
       const briefWhy = play.briefWhy || ((play.badge ? play.badge + ' — ' : '') + 'Sharp book consensus (' + sharpBookOdds + ') implies ' + parsedHitProb.toFixed(1) + '% vs. 54.25% 5-Pick Flex break-even.');
       const goblinDemonTag = play.goblinDemonTag || ('Standard Square (' + (play.ppOdds || '-119') + ' Implied)');
       const bestApp = play.bestApp || 'PrizePicks';
+      const rebootPushTag = play.rebootPushTag || '🛡️ Injury Reboot Protected • Half-Pt Push-Safe';
+      const ifBumpedNote = play.ifBumpedNote || ('Playable up to ' + (direction === 'MORE' ? +(dfsLine + 0.5).toFixed(1) : Math.max(0.5, +(dfsLine - 0.5).toFixed(1))) + ' ' + (play.stat || '') + '; pivot if bumped further.');
 
       const bump = Number(window.dfsHubState.lineBumps[play.id] || 0);
       const currentLine = +(dfsLine + bump).toFixed(1);
@@ -16350,6 +16352,8 @@ updateBetSlipCartWidget();
         briefWhy,
         goblinDemonTag,
         bestApp,
+        rebootPushTag,
+        ifBumpedNote,
         bump,
         currentLine,
         adjWinProb,
@@ -21034,13 +21038,55 @@ updateBetSlipCartWidget();
         },
 
         COACH_PRESSER_INTEL: {
-          p1: { coach: 'Sean Payton (DEN)', quote: 'Confirmed Jonah Coleman\'s 82% snap share & 17-4 carry edge entering the bye; expects fresh legs against Las Vegas.', impactBadge: '🔥 Off-Bye RB1 Bellcow', verified: true },
-          p2: { coach: 'Jonathan Gannon (ARI)', quote: 'Emphasized quick-rhythm throws to Trey McBride in 17 mph Arrowhead wind against Kansas City\'s blitz.', impactBadge: '💨 Wind TE Funnel', verified: true },
-          p3: { coach: 'Ben Johnson (CHI)', quote: 'Noted Soldier Field rain & wind forecast; committed to leaning on D\'Andre Swift behind Chicago\'s #4 OL.', impactBadge: '🌧️ Rain Run-Heavy Script', verified: true },
-          p6: { coach: 'Andy Reid (KC)', quote: 'Ruled Kenneth Walker III, RG Trey Smith & RT Jaylon Moore OUT; praised Emmett Johnson\'s 22-car, 101-yd breakout.', impactBadge: '🔥 22+ Touch Bellcow Confirmed', verified: true },
-          p8: { coach: 'Sean McDermott (BUF)', quote: 'Highlighted James Cook III\'s 5.2 YPC efficiency and physical run-game control as a -16.5 home favorite.', impactBadge: '💨 -16.5 Clock-Kill Script', verified: true }
+          p1: {
+            coachName: "Dan Quinn (WAS)",
+            coachTrustLabel: "Verified MNF Gameplan (90% Trust)",
+            presserWindow: "MNF Kickoff • 8:15 PM ET (CIN @ WAS)",
+            tier: "TIER 1 SLOT FUNNEL",
+            exactQuote: "Washington plans to feature Stefon Diggs in heavy slot motion (62% slot rate) to attack Cincinnati's bottom-5 slot coverage.",
+            statImpact: "+14% Slot Funnel Boost • Proj 59.3 Rec Yds vs. 49.5 Line"
+          },
+          p2: {
+            coachName: "Zac Taylor (CIN)",
+            coachTrustLabel: "Lead-Back Trust (89% Trust)",
+            presserWindow: "MNF Kickoff • 8:15 PM ET (CIN @ WAS)",
+            tier: "TIER 1 LIGHT BOX",
+            exactQuote: "Cincinnati committed to Chase Brown as primary early-down and goal-line runner against Washington's Two-High light boxes (70%).",
+            statImpact: "4.68 Adj YPC • Proj 62.4 Rush Yds vs. 45.5 Line (CIN -6.5)"
+          },
+          p3: {
+            coachName: "Zac Taylor (CIN)",
+            coachTrustLabel: "Alpha Target Lock (93% Trust)",
+            presserWindow: "MNF Kickoff • 8:15 PM ET (CIN @ WAS)",
+            tier: "TIER 1 ALPHA WOPR",
+            exactQuote: "Ja'Marr Chase leads the Week 11 slate in WOPR (0.75) in tonight's 54.5-total MNF shootout.",
+            statImpact: "11.0 Proj Targets • Proj 104.2 Rec Yds vs. 92.5 Line"
+          },
+          p4: {
+            coachName: "Dan Quinn (WAS)",
+            coachTrustLabel: "Mobile QB Scramble Green Light (88% Trust)",
+            presserWindow: "MNF Kickoff • 8:15 PM ET (CIN @ WAS)",
+            tier: "TIER 1 SCRAMBLE SPOT",
+            exactQuote: "Jayden Daniels is cleared without rushing restrictions against Cincinnati's 44% Man / 38% Pressure defense.",
+            statImpact: "+7.7 Scramble Yds • Proj 37.2 Rush Yds vs. 29.5 Line"
+          },
+          p5: {
+            coachName: "Zac Taylor (CIN)",
+            coachTrustLabel: "Red-Zone Alpha (91% Trust)",
+            presserWindow: "MNF Kickoff • 8:15 PM ET (CIN @ WAS)",
+            tier: "TIER 1 RZ TD",
+            exactQuote: "Ja'Marr Chase holds a 34% Cincinnati red-zone target share in the highest projected total of Week 11 (54.5).",
+            statImpact: "Hold-Adjusted Anytime TD Edge • 1.0u Official Play"
+          },
+          p6: {
+            coachName: "Zac Taylor (CIN)",
+            coachTrustLabel: "Goal-Line Bellcow (88% Trust)",
+            presserWindow: "MNF Kickoff • 8:15 PM ET (CIN @ WAS)",
+            tier: "TIER 1 GL TD",
+            exactQuote: "Chase Brown commands 72% of Cincinnati's inside-the-5 carries as a -6.5 road favorite.",
+            statImpact: "Goal-Line Touch Monopoly • 0.5u Anytime TD Play"
+          }
         },
-
         AVALANCHE_UNDER_SNIPERS: [
           {
             id: 'b1', isMainVip: false, avalancheScore: 91,
