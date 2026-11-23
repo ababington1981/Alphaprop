@@ -1178,7 +1178,16 @@
       border-color: #6ee7b7 !important;
       color: #ffffff !important;
     }
-  </style>
+  
+/* === EASY-READ DESKTOP TYPOGRAPHY & WIDESCREEN LEGIBILITY UPGRADE === */
+html { font-size: 16.5px; }
+body { font-variant-numeric: tabular-nums; }
+.text-\[9px\] { font-size: 11.5px !important; line-height: 1.35 !important; }
+.text-\[10px\] { font-size: 12.5px !important; line-height: 1.35 !important; }
+.text-\[11px\] { font-size: 13.5px !important; line-height: 1.4 !important; }
+.text-xs { font-size: 0.875rem !important; line-height: 1.4 !important; }
+
+</style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-slate-950 global-quick-view-active exp-mode-quick">
 
@@ -20915,41 +20924,21 @@ updateBetSlipCartWidget();
         ],
 
         PROP_SYNDICATE_META: {
-          p1: { l10: [0, 39, 54, 41, 57], epmAllowZone: [64, 96], refCrew: 'Empower Field (5.5 mph Calm • LV #32 RB Run D)', pinnacleOdds: -124, staleBook: true, dist: 'LN', macroTag: '💎 +4.0 Yd Lag • 🐎 Off Bye RB1', macroStyle: 'bg-amber-400/20 text-amber-300 border-amber-400/50', hasMacroSynergy: true },
-          p2: { l10: [6, 7, 6, 5, 8, 7, 6, 7, 6, 5], epmAllowZone: [6, 9], refCrew: 'Arrowhead Stadium (17 mph Wind • KC #3 TE Targets)', pinnacleOdds: -165, staleBook: true, dist: 'NB', macroTag: '💨 17 mph Wind • 🎯 12 Straight 5+ Rec', macroStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', hasMacroSynergy: true },
-          p3: { l10: [68, 74, 81, 65, 56, 43, 44, 78, 69, 31], epmAllowZone: [64, 92], refCrew: 'Soldier Field (14.1 mph + 80% Rain • CHI #4 OL)', pinnacleOdds: -122, staleBook: true, dist: 'LN', macroTag: '🌧️ 80% Rain • 🧱 CHI #4 OL vs #27 NO', macroStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', hasMacroSynergy: true },
-          p4: { l10: [2, 3, 1, 2, 4, 0, 0, 3, 3, 8], epmAllowZone: [3, 5], refCrew: 'AT&T Stadium (Dome • DAL #32 RB Rec Allowed)', pinnacleOdds: -158, staleBook: true, dist: 'NB', macroTag: '🏟️ Dome • 🟢 Copula #3 Checkdown', macroStyle: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40', hasMacroSynergy: true },
-          p5: { l10: [4, 5, 3, 6, 4, 5, 2, 4, 3, 5], epmAllowZone: [3, 6], refCrew: 'Empower Field (LV 54 OL vs DEN 26 Sacks)', pinnacleOdds: -155, staleBook: true, dist: 'NB', macroTag: '🧱 Trench Checkdown • 🟢 Copula #4', macroStyle: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40', hasMacroSynergy: true },
-          p6: { l10: [18, 22, 19, 26, 29, 24, 31, 48, 64, 101], epmAllowZone: [86, 118], refCrew: 'Arrowhead Stadium (Kenneth Walker III OUT)', pinnacleOdds: -124, staleBook: true, dist: 'LN', macroTag: '🔥 Walker III OUT • 💥 22 Car / 101 Yds', macroStyle: 'bg-amber-400/20 text-amber-300 border-amber-400/50', hasMacroSynergy: true },
-          p7: { l10: [3, 4, 2, 5, 3, 4, 2, 3, 4, 3], epmAllowZone: [3, 5], refCrew: 'Soldier Field (NO LT+C OUT • -0.50s TTT)', pinnacleOdds: -118, staleBook: true, dist: 'NB', macroTag: '🧱 NO LT+C OUT • 🌧️ 80% Rain Dump-Off', macroStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/40', hasMacroSynergy: true },
-          p8: { l10: [88, 112, 94, 106, 79, 118, 96, 104, 86, 108], epmAllowZone: [92, 126], refCrew: 'Highmark Stadium (11.4 mph Calm • BUF -16.5)', pinnacleOdds: -124, staleBook: true, dist: 'LN', macroTag: '💨 BUF -16.5 Clock-Kill • 105.7 YPG', macroStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', hasMacroSynergy: true },
-          p9: { l10: [14, 22, 19, 28, 16, 24, 21, 18, 26, 23], epmAllowZone: [20, 34], refCrew: 'Soldier Field (NO LT+C OUT • -0.50s TTT)', pinnacleOdds: -122, staleBook: true, dist: 'LN', macroTag: '🏃 QB Scramble • 🧱 NO LT+C OUT', macroStyle: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40', hasMacroSynergy: true },
-          p10: { l10: [58, 72, 64, 51, 84, 67, 55, 79, 68, 37], epmAllowZone: [50, 78], refCrew: 'Arrowhead Stadium (+5.0 Yd PrizePicks Lag)', pinnacleOdds: -125, staleBook: true, dist: 'LN', macroTag: '💎 +5.0 Yd PP Lag • 🎯 63.5 Rec YPG', macroStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/40', hasMacroSynergy: true },
-          b1: { l10: [248, 271, 255, 232, 289, 261, 244, 237, 348], epmAllowZone: [215, 252], refCrew: 'Arrowhead Stadium (17 mph Wind Cliff • KC -16.5)', pinnacleOdds: -122, staleBook: false, dist: 'LN', macroTag: '📉 17 mph Wind Under • 0.00u Bubble', macroStyle: 'bg-rose-500/20 text-rose-300 border-rose-500/40', hasMacroSynergy: true },
-          b2: { l10: [74, 68, 82, 59, 91, 64, 77, 53, 61, 58], epmAllowZone: [46, 67], refCrew: 'Soldier Field (NO LT+C OUT + 80% Rain)', pinnacleOdds: -120, staleBook: false, dist: 'LN', macroTag: '🧱 Vertical Trench Fade • 0.00u Bubble', macroStyle: 'bg-rose-500/20 text-rose-300 border-rose-500/40', hasMacroSynergy: true },
-          b3: { l10: [218, 196, 224, 189, 212, 205, 194, 228, 187, 198], epmAllowZone: [175, 206], refCrew: 'SoFi Stadium (LAC PFF #32 OL • LT+C IR)', pinnacleOdds: -120, staleBook: false, dist: 'LN', macroTag: '🧱 LAC #32 OL Under • 0.00u Bubble', macroStyle: 'bg-rose-500/20 text-rose-300 border-rose-500/40', hasMacroSynergy: true },
-          b4: { l10: [76, 89, 94, 68, 102, 84, 79, 91, 88, 153], epmAllowZone: [78, 108], refCrew: 'Ford Field Dome (TB #1 Rush D • 79.1 YPG)', pinnacleOdds: -118, staleBook: false, dist: 'LN', macroTag: '🛡️ TB #1 Rush D Hold • 0.00u Bubble', macroStyle: 'bg-amber-500/20 text-amber-300 border-amber-500/40', hasMacroSynergy: true },
-          b5: { l10: [284, 312, 276, 298, 265, 318, 291, 304, 288, 409], epmAllowZone: [275, 325], refCrew: 'Northwest Stadium (MNF • 54.5 Total)', pinnacleOdds: -120, staleBook: false, dist: 'LN', macroTag: '🌙 MNF 54.5 Shootout • 0.00u Bubble', macroStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/40', hasMacroSynergy: true }
+          p1: { l10: [64, 58, 72, 46, 81, 55, 68, 52, 77, 61], epmAllowZone: [54, 84], refCrew: 'Northwest Stadium (Calm 6 mph • CIN Bottom-5 Slot CB)', pinnacleOdds: -118, staleBook: true, dist: 'LN', macroTag: '🎯 62% Slot Funnel • 🔥 MNF 54.5 Total', macroStyle: 'bg-amber-400/20 text-amber-300 border-amber-400/50', hasMacroSynergy: true },
+          p2: { l10: [58, 74, 49, 62, 83, 41, 67, 54, 71, 59], epmAllowZone: [52, 78], refCrew: 'Northwest Stadium (WAS 70% Two-High Light Boxes)', pinnacleOdds: -120, staleBook: true, dist: 'LN', macroTag: '💥 Light-Box RB1 • CIN -6.5 Favorite', macroStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', hasMacroSynergy: true },
+          p3: { l10: [112, 86, 134, 98, 74, 118, 105, 91, 129, 96], epmAllowZone: [96, 132], refCrew: 'Northwest Stadium (MNF 54.5 Shootout • 0.75 WOPR)', pinnacleOdds: -122, staleBook: true, dist: 'LN', macroTag: '⚡ 0.75 WOPR Alpha • MNF 54.5 Total', macroStyle: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40', hasMacroSynergy: true },
+          p4: { l10: [38, 44, 27, 51, 34, 22, 46, 39, 31, 42], epmAllowZone: [32, 52], refCrew: 'Northwest Stadium (CIN 44% Man / 38% Pressure)', pinnacleOdds: -119, staleBook: true, dist: 'LN', macroTag: '🏃 Mobile QB vs Man • +6.5 Pass Script', macroStyle: 'bg-purple-500/20 text-purple-300 border-purple-500/40', hasMacroSynergy: true },
+          p5: { l10: [1, 0, 2, 1, 0, 1, 1, 0, 2, 1], epmAllowZone: [1, 2], refCrew: 'Northwest Stadium (34% CIN Red-Zone Target Share)', pinnacleOdds: -125, staleBook: true, dist: 'NB', macroTag: '🏈 RZ Alpha TD • MNF 54.5 Total', macroStyle: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', hasMacroSynergy: true },
+          p6: { l10: [1, 1, 0, 1, 1, 0, 1, 0, 1, 1], epmAllowZone: [1, 2], refCrew: 'Northwest Stadium (72% CIN Goal-Line Carry Share)', pinnacleOdds: -115, staleBook: true, dist: 'NB', macroTag: '🏈 Goal-Line Bellcow • CIN -6.5', macroStyle: 'bg-amber-400/20 text-amber-300 border-amber-400/50', hasMacroSynergy: true }
         },
-
         PROP_SPLIT_LOGS: {
-          p1: { l5: [0, 39, 54, 41, 57], h2h: [41, 54, 57], teammateOutLabel: 'Home / Off-Bye RB1 Lead (82% Snap • 17-4 Carries)', teammateOutLogs: [39, 54, 41, 57], dfsLine: 67.5, dfsPlatform: 'PrizePicks (+4.0 Yd Lag!)', isDfsSmash: true, dfsNote: '💎 +4.0-Yd Soft Derivative Lag: 67.5 PrizePicks vs 71.5 bet365 vs #32 LV run D!' },
-          p2: { l5: [6, 7, 6, 5, 8], h2h: [6, 7, 8, 6, 7], teammateOutLabel: 'As +7+ Underdog vs Blitz (5/5 Over 5.5 Rec • 6.8 Avg)', teammateOutLogs: [6, 7, 6, 7, 8], dfsLine: 5.5, dfsPlatform: 'PrizePicks / FanDuel', isDfsSmash: true, dfsNote: '🎯 12 straight games with 5+ receptions; 17 mph Arrowhead wind funnels short TE targets!' },
-          p3: { l5: [43, 44, 78, 69, 31], h2h: [68, 74, 78, 69, 65], teammateOutLabel: 'As Home Favorite / Rain Script (4/5 Over 63.5 • 70.8 Avg)', teammateOutLogs: [68, 74, 78, 69, 65], dfsLine: 63.5, dfsPlatform: 'PrizePicks (+2.0 Yd Lag!)', isDfsSmash: true, dfsNote: '🌧️ CHI -10.5 home favorite in 80% Soldier Field rain behind #4 OL vs #27 NO run D!' },
-          p4: { l5: [0, 0, 3, 3, 8], h2h: [3, 3, 4, 3, 8], teammateOutLabel: 'vs Pass-Rush / Trailing Scripts (4/5 Over 2.5 Rec • 4.2 Avg)', teammateOutLogs: [3, 3, 4, 3, 8], dfsLine: 2.5, dfsPlatform: 'PrizePicks / Copula #3', isDfsSmash: true, dfsNote: '🟢 8 catches last week vs JAX; Dallas allows #1 most RB receptions in NFL!' },
-          p5: { l5: [5, 2, 4, 3, 5], h2h: [4, 5, 4, 3, 5], teammateOutLabel: '7 of 10 Games w/ 4+ Catches vs Heavy Pass Rush', teammateOutLogs: [4, 5, 4, 5, 5], dfsLine: 3.5, dfsPlatform: 'PrizePicks / Copula #4', isDfsSmash: true, dfsNote: '🧱 DEN 26-sack pass rush forces dump-offs; Jeanty has 4+ catches in 7 of 10 games!' },
-          p6: { l5: [24, 31, 48, 64, 101], h2h: [88, 92, 101], teammateOutLabel: 'As KC RB1 w/ Walker III OUT (22 Car, 101 Yds, 2 TDs!)', teammateOutLogs: [88, 92, 101], dfsLine: 87.5, dfsPlatform: 'PrizePicks / FanDuel (85.5)', isDfsSmash: true, dfsNote: '🔥 Kenneth Walker III OUT again; 85.5 on FanDuel vs #28 Arizona rush defense!' },
-          p7: { l5: [4, 2, 3, 4, 3], h2h: [3, 4, 3, 4, 3], teammateOutLabel: 'With NO LT+C OUT (-0.50s TTT Trench Checkdowns)', teammateOutLogs: [3, 4, 3, 4, 5], dfsLine: 3.5, dfsPlatform: 'PrizePicks / FanDuel (2.5)', isDfsSmash: true, dfsNote: '🧱 Saints missing LT Fuaga, backup LT Richards & C McCoy (-0.50s TTT) in 80% rain!' },
-          p8: { l5: [118, 96, 104, 86, 108], h2h: [94, 106, 118, 96, 108], teammateOutLabel: 'Home Favorite Scripts (5/5 Over 90.5 • 104.4 Avg)', teammateOutLogs: [94, 106, 118, 96, 108], dfsLine: 91.5, dfsPlatform: 'FanDuel (90.5) / PrizePicks', isDfsSmash: true, dfsNote: '💨 105.7 Rush YPG (5.2 YPC) behind #3 BUF OL as a -16.5 home favorite vs 1-8 Miami!' },
-          p9: { l5: [24, 21, 18, 26, 23], h2h: [22, 24, 26, 23], teammateOutLabel: 'Under Quick Pressure (NO LT+C OUT • 8.5% Scramble Rate)', teammateOutLogs: [22, 24, 26, 23], dfsLine: 22.5, dfsPlatform: 'FanDuel (18.5) / PrizePicks', isDfsSmash: true, dfsNote: '🏃 Leads Saints in rushing (187 yds); 18.5 on FanDuel with LT+C OUT in 80% rain!' },
-          p10: { l5: [67, 55, 79, 68, 37], h2h: [62, 74, 58, 66, 61], teammateOutLabel: 'As +7+ Underdog (5/5 Over 49.5 • 69.2 Avg)', teammateOutLogs: [67, 55, 79, 68, 77], dfsLine: 49.5, dfsPlatform: 'PrizePicks (+5.0 Yd Lag!)', isDfsSmash: true, dfsNote: '💎 Massive +5.0-Yd Discrepancy: 49.5 PrizePicks vs 54.5 bet365!' },
-          b1: { l5: [289, 261, 244, 237, 348], h2h: [232, 244, 237], teammateOutLabel: '15+ mph Wind Games (4/5 Under 250.5 • 235.4 Avg)', teammateOutLogs: [232, 244, 237], dfsLine: 250.5, dfsPlatform: '0.00u Wind Under Watch', isDfsSmash: false, dfsNote: '💨 17 mph Arrowhead wind + KC -16.5 caps 2H passing attempts (0.00u Bubble).' },
-          b2: { l5: [64, 77, 53, 61, 58], h2h: [59, 61, 58], teammateOutLabel: 'With NO LT+C OUT (13.2 aDOT Vertical Fade)', teammateOutLogs: [53, 61, 58], dfsLine: 66.5, dfsPlatform: '0.00u Trench Under Watch', isDfsSmash: false, dfsNote: '🧱 -0.50s TTT cliff + 80% rain slashes deep vertical targets (0.00u Bubble).' },
-          b3: { l5: [205, 194, 228, 187, 198], h2h: [189, 194, 187, 198], teammateOutLabel: 'Behind #32 OL (LT+C on IR • 81% Hampton Carry Share)', teammateOutLogs: [189, 194, 187, 198], dfsLine: 203.5, dfsPlatform: '0.00u Trench Under Watch', isDfsSmash: false, dfsNote: '🧱 Chargers LT+C on IR; run-heavy Omarion Hampton script caps Herbert (0.00u Bubble).' },
-          b4: { l5: [84, 79, 91, 88, 153], h2h: [76, 84, 79], teammateOutLabel: 'vs Top-5 Rush Defenses (TB #1 at 79.1 YPG)', teammateOutLogs: [76, 84, 79], dfsLine: 85.5, dfsPlatform: '0.00u Scheme Hold', isDfsSmash: false, dfsNote: '🛡️ TB #1 rush defense holds Gibbs Rush Yds at 0.00u; target Gibbs Rec Yds instead!' },
-          b5: { l5: [318, 291, 304, 288, 409], h2h: [298, 304, 288, 409], teammateOutLabel: 'In 50+ O/U Games (4/4 Over 285.5 • 324.8 Avg)', teammateOutLogs: [298, 304, 288, 409], dfsLine: 302.5, dfsPlatform: '255+ Alt-Floor Armed', isDfsSmash: false, dfsNote: '🌙 MNF 54.5 O/U vs #31 WAS pass defense; 255+ Pass Yds Alt-Floor locked.' }
+          p1: { l5: [55, 68, 52, 77, 61], h2h: [68, 74, 59], teammateOutLabel: 'Slot Alignment vs. Bottom-10 Slot CBs (8/10 Over 49.5 • 63.4 Avg)', teammateOutLogs: [64, 58, 72, 81, 55, 68, 52, 77, 61], dfsLine: 49.5, dfsPlatform: 'PrizePicks / DraftKings', isDfsSmash: true, dfsNote: '🎯 MNF 54.5 Shootout + 62% Slot Funnel vs. CIN secondary!' },
+          p2: { l5: [41, 67, 54, 71, 59], h2h: [62, 74, 58], teammateOutLabel: 'vs. Two-High Light Boxes (9/10 Over 45.5 • 61.8 Avg)', teammateOutLogs: [58, 74, 49, 62, 83, 67, 54, 71, 59], dfsLine: 45.5, dfsPlatform: 'PrizePicks / FanDuel', isDfsSmash: true, dfsNote: '💥 CIN -6.5 road favorite script vs. WAS 70% light-box fronts!' },
+          p3: { l5: [118, 105, 91, 129, 96], h2h: [112, 124, 98], teammateOutLabel: 'Games w/ Total >= 49.5 (7/10 Over 92.5 • 104.3 Avg)', teammateOutLogs: [112, 134, 98, 118, 105, 129, 96], dfsLine: 92.5, dfsPlatform: 'DraftKings / PrizePicks', isDfsSmash: true, dfsNote: '⚡ 0.75 WOPR + 11.0 targets/gm in highest total of Week 11 (54.5)!' },
+          p4: { l5: [22, 46, 39, 31, 42], h2h: [44, 38, 35], teammateOutLabel: 'vs. 40%+ Man Coverage Defenses (8/10 Over 29.5 • 37.4 Avg)', teammateOutLogs: [38, 44, 51, 34, 46, 39, 31, 42], dfsLine: 29.5, dfsPlatform: 'DraftKings / Underdog', isDfsSmash: true, dfsNote: '🏃 CIN 44% Man + 38% Pressure creates prime scramble lanes!' },
+          p5: { l5: [1, 1, 0, 2, 1], h2h: [1, 1], teammateOutLabel: 'MNF / Primetime RZ Target Share (7/10 Scored TD)', teammateOutLogs: [1, 2, 1, 1, 1, 2, 1], dfsLine: 0.5, dfsPlatform: 'DraftKings / FanDuel', isDfsSmash: true, dfsNote: '🏈 34% red-zone target share in 54.5 total shootout!' },
+          p6: { l5: [0, 1, 0, 1, 1], h2h: [1, 1], teammateOutLabel: 'As Favorite -5.5 or Larger (7/10 Scored TD)', teammateOutLogs: [1, 1, 1, 1, 1, 1, 1], dfsLine: 0.5, dfsPlatform: 'DraftKings / FanDuel', isDfsSmash: true, dfsNote: '🏈 72% goal-line carry share for CIN (-6.5 favorite)!' }
         },
-
         V9_PROP_MARKET_META: {
           p1: { pulseWave: 'PULSE_1', pulseBadge: '🌅 Wave 1: Early Soft-Derivative Lock', pulseStyle: 'bg-emerald-500/20 text-emerald-200 border border-emerald-400/50', shotZonePill: '🏈 Usage: 82% Snap Share • 17-4 Carry Lead Off Bye', defSchemePill: '🧱 DEN OL 73 vs LV DL 46 (#32 RB Run Defense)', schemeAdvantage: '+4.0 Yd PrizePicks Lag (67.5 vs 71.5 bet365)', trueScoreDelta: 'DEN -10.5 Calm 5.5 mph Air', altFloorTarget: '50+ Rush Yds (-420)', altLadderTarget: '85+ Rush Yds (+190)', evScore: '+12.4% EV', clvSignal: '🔥 Steamed to 71.5 on bet365' },
           p2: { pulseWave: 'PULSE_1', pulseBadge: '🌅 Wave 1: Wind TE Funnel Lock', pulseStyle: 'bg-emerald-500/20 text-emerald-200 border border-emerald-400/50', shotZonePill: '🏈 Route Share: 88% Routes • 6.4 aDOT • 12 Straight 5+ Rec', defSchemePill: '💨 17 mph Arrowhead Wind + KC #3 TE Targets (9.1/gm)', schemeAdvantage: 'Short-Area Checkdown Funnel (+16.5 Script)', trueScoreDelta: 'ARI +16.5 Trailing Pass Script', altFloorTarget: '4+ Rec (-430)', altLadderTarget: '7+ Rec (+175)', evScore: '+11.6% EV', clvSignal: '🔥 12 Straight 5+ Rec Games' },
@@ -21116,35 +21105,18 @@ updateBetSlipCartWidget();
 
         liveTracking: {
           activeQuarter: 'PRE',
-          gameClock: '🏈 NFL WEEK 11 WAVE 2 LOCKED (Mon Nov 23 • Gridiron Edge+ v4.0) • 12 Sun/Mon Games Armed (First Kickoff Sun 12:00 PM CT)',
-          espnSyncSource: 'Gridiron Edge+ v4.0 • Live PrizePicks + Sharp Book Sync (NFL Week 11 • Nov 22–23, 2026)',
+          gameClock: '🏈 MNF WEEK 11 FINALE LOCKED (Mon Nov 23 • Gridiron Edge+ v4.4) • CIN @ WAS Kickoff 8:15 PM ET (Sun 12–9 Graded in Tab 7)',
+          espnSyncSource: 'Gridiron Edge+ v4.4 • Live MNF CIN @ WAS Odds + Sharp Sync (Mon Nov 23, 2026)',
           liveGamesScoreMap: {},
           props: {
-            p1: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 3:25 PM CT (LV @ DEN • DEN -10.5)', boxLine: '⭐ #1 Soft Derivative: Line 67.5 Rush Yds (+4.0 Yd PP Lag vs 71.5 bet365 • 82% Snap Off Bye)' },
-            p2: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (ARI @ KC • 17 mph Wind)', boxLine: 'Line 5.5 Receptions (12 Straight 5+ Rec Games • KC #3 TE Targets)' },
-            p3: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (NO @ CHI • 80% Rain)', boxLine: 'Line 63.5 Rush Yds (64.0 YPG • #4 CHI OL vs #27 NO Run D)' },
-            p4: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (TEN @ DAL • Dome 54.5 O/U)', boxLine: 'Line 2.5 Receptions (Copula #3 Leg • DAL #1 Most RB Rec Allowed)' },
-            p5: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 3:25 PM CT (LV @ DEN • Empower Field)', boxLine: 'Line 3.5 Receptions (Copula #4 Leg • 4+ Rec in 7 of 10 Games)' },
-            p6: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (ARI @ KC • Walker III OUT)', boxLine: 'Line 87.5 Rush Yds (Kenneth Walker III OUT • 22 Car/101 Yds Last Wk)' },
-            p7: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (NO @ CHI • NO LT+C OUT)', boxLine: 'Line 2.5 Receptions (-0.50s TTT Trench Checkdown in 80% Rain)' },
-            p8: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (MIA @ BUF • BUF -16.5)', boxLine: 'Line 90.5 Rush Yds (105.7 Rush YPG • 5.2 YPC Behind #3 BUF OL)' },
-            p9: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (NO @ CHI • NO LT+C OUT)', boxLine: 'Line 18.5 Rush Yds (Team-Leading 187 Rush Yds • Pressure Scrambles)' },
-            p10: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ SUN 12:00 PM CT (ARI @ KC • 17 mph Wind)', boxLine: 'Line 49.5 Rec Yds (+5.0 Yd PP Lag vs 54.5 bet365 • 63.5 Rec YPG)' },
-            b1: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '🫧 0.00u BUBBLE (ARI @ KC • 17 mph Wind)', boxLine: 'Under 250.5 Pass Yds • 17 mph Wind + KC -16.5 Run-Clock' },
-            b2: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '🫧 0.00u BUBBLE (NO @ CHI • NO LT+C OUT)', boxLine: 'Under 66.5 Rec Yds • -0.50s TTT Cliff + 80% Rain' },
-            b3: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '🫧 0.00u BUBBLE (NYJ @ LAC • #32 OL)', boxLine: 'Under 203.5 Pass Yds • LAC LT+C on IR' },
-            b4: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '🫧 0.00u BUBBLE (TB @ DET • TB #1 Run D)', boxLine: 'Line 85.5 Rush Yds • Held at 0.00u vs TB #1 Run D' },
-            b5: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '🫧 0.00u BUBBLE (CIN @ WAS • MNF 54.5)', boxLine: 'Line 302.5 Pass Yds • 255+ Alt-Floor Armed' }
+            p1: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ MON 8:15 PM ET (CIN @ WAS • MNF Kickoff Tonight)', boxLine: 'Line 49.5 Rec Yds • 62% Slot Funnel vs. CIN Bottom-5 Slot CB (Proj 59.3 Yds)' },
+            p2: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ MON 8:15 PM ET (CIN @ WAS • CIN -6.5 Favorite)', boxLine: 'Line 45.5 Rush Yds • WAS 70% Two-High Light Boxes (Proj 62.4 Yds)' },
+            p3: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ MON 8:15 PM ET (CIN @ WAS • O/U 54.5 Shootout)', boxLine: 'Line 92.5 Rec Yds • 0.75 WOPR Alpha Target Share (Proj 104.2 Yds)' },
+            p4: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ MON 8:15 PM ET (CIN @ WAS • WAS +6.5 Home Dog)', boxLine: 'Line 29.5 Rush Yds • Mobile QB vs. 44% Man / 38% Pressure (Proj 37.2 Yds)' },
+            p5: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ MON 8:15 PM ET (CIN @ WAS • MNF Kickoff Tonight)', boxLine: 'Anytime TD Scorer • 34% CIN Red-Zone Target Share (54.5 Total)' },
+            p6: { current: 0, mins: 0, fouls: 0, targetMins: 60.0, status: 'PRE', clock: '⏱️ MON 8:15 PM ET (CIN @ WAS • MNF Kickoff Tonight)', boxLine: 'Anytime TD Scorer • 72% Goal-Line Share (CIN -6.5 Favorite)' }
           }
         },
-        spotCheckMatchupKey: 'CIN_WAS'
-      };
-
-      const NBA_SPOT_PLAYS_SNAPSHOT = deepClone((state && state.spotPlays) || (typeof LIVE_MATCHUP_SPOT_PLAYS !== 'undefined' ? LIVE_MATCHUP_SPOT_PLAYS : []));
-      const NBA_BANNER_SNAPSHOT = {
-        liveSlateBannerText: (document.getElementById('liveSlateBannerText') || {}).textContent || '🌅 SUN NOV 22 PULSE 1 • 7-Game NBA Slate',
-        recheckTimestampBadge: (document.getElementById('recheckTimestampBadge') || {}).textContent || '🌅 Pulse 1 Opener Lock • Sat Nov. 21',
-        alt90SlateDateBadge: (document.getElementById('alt90SlateDateBadge') || {}).textContent || 'Sunday, Nov 22 • 15 Matchup-Synced High-Floor Alt-Lines',
         dfsKpis: {
           sq: (document.getElementById('dfsKpiSquareRecord') || {}).textContent || '102-45 (69.4%)',
           fl: (document.getElementById('dfsKpiFlexRecord') || {}).textContent || '14-4 (77.8% Cash)',
@@ -21305,7 +21277,7 @@ updateBetSlipCartWidget();
         // Update Top Slate Banner, Recheck Badge, Alt-90 Header Badge & DFS KPI Graphics Boxes
         const setElTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
         setElTxt('liveSlateBannerText', isNfl
-          ? '🏈 NFL WEEK 11 LOCKED (Mon Nov 23 + MNF) • 11-Game Gridiron Edge+ v4.0 Slate (First Kick 12:00 PM CT)'
+          ? '🏈 NFL WEEK 11 LOCKED (Mon Nov 23 + MNF) • MNF Finale CIN @ WAS • Gridiron Edge+ v4.4 (Kickoff 8:15 PM ET)'
           : NBA_BANNER_SNAPSHOT.liveSlateBannerText);
         setElTxt('recheckTimestampBadge', isNfl
           ? '🏈 Gridiron Edge+ v4.0 • 10:35 AM CT 90-Min Inactives, Live Odds & End-Zone Sniper™ Synced'
