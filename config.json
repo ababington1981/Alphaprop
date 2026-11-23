@@ -1,0 +1,32 @@
+{
+  "app_name": "AlphaProp Pro",
+  "github_owner": "ababington1981",
+  "repo_name": "alphaprop-pro",
+  "engine_versions": {
+    "nba": "v8.8",
+    "nfl": "Gridiron Edge+ v4.4"
+  },
+  "staking_rules": {
+    "allowed_units": [
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "max_units_per_game": 2.5,
+    "backup_rb_first_start_cap_units": 1.0,
+    "clv_auto_calibration_enabled": true,
+    "clv_min_sample_before_shrink": 15
+  },
+  "feature_toggles": {
+    "enable_nba_board": true,
+    "enable_nfl_board": true,
+    "enable_paywall_rls": true,
+    "enable_discord_alerts": false,
+    "enable_soft_book_lag_scanner": true
+  },
+  "promo_banner": {
+    "enabled": false,
+    "text": "VIP All-Access \u2014 NBA v8.8 + NFL Gridiron Edge+ v4.4 Live"
+  }
+}
