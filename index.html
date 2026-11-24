@@ -4547,7 +4547,7 @@ body { font-variant-numeric: tabular-nums; }
             </div>
             <div>
               <label class="block text-slate-400 mb-1">Checkout Link (Stripe / Whop / Gumroad / Substack)</label>
-              <input id="cfgCheckoutUrl" type="text" value="https://buy.stripe.com/test_6oUdR29LS3XA2Wf2y0bEA00" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-cyan-300 font-mono-code">
+              <input id="cfgCheckoutUrl" type="text" value="https://buy.stripe.com/cNi5kw8Hp8Qb19b3wvaAw00" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-cyan-300 font-mono-code">
             </div>
             <div>
               <label class="block text-slate-400 mb-1">Subscriber Access Passcode (Unlocks Paywall)</label>
@@ -6030,7 +6030,7 @@ body { font-variant-numeric: tabular-nums; }
         brandName: 'AlphaProp Pro™',
         monthlyPrice: 20,
         syndicatePrice: 59,
-        checkoutUrl: 'https://buy.stripe.com/test_6oUdR29LS3XA2Wf2y0bEA00',
+        checkoutUrl: 'https://buy.stripe.com/cNi5kw8Hp8Qb19b3wvaAw00',
         passcode: 'VIP2026',
         remoteFeedUrl: ''
       }
@@ -18857,8 +18857,8 @@ updateBetSlipCartWidget();
         const savedRaw = localStorage.getItem('alphaprop_saas_config');
         if (savedRaw) {
           const saved = JSON.parse(savedRaw);
-          if (!saved.checkoutUrl || saved.checkoutUrl.includes('whop.com/alphaprop-pro-vip')) {
-            saved.checkoutUrl = 'https://buy.stripe.com/test_6oUdR29LS3XA2Wf2y0bEA00';
+          if (!saved.checkoutUrl || saved.checkoutUrl.includes('whop.com/alphaprop-pro-vip') || saved.checkoutUrl.includes('buy.stripe.com/test_')) {
+            saved.checkoutUrl = 'https://buy.stripe.com/cNi5kw8Hp8Qb19b3wvaAw00';
           }
           if (saved.monthlyPrice === 29) {
             saved.monthlyPrice = 20;
@@ -19759,6 +19759,10 @@ updateBetSlipCartWidget();
           } catch (e) {}
         }
         if (ss.saasConfig && typeof ss.saasConfig === 'object') {
+          if (!ss.saasConfig.checkoutUrl || ss.saasConfig.checkoutUrl.includes('buy.stripe.com/test_') || ss.saasConfig.checkoutUrl.includes('whop.com/alphaprop-pro-vip')) {
+            ss.saasConfig.checkoutUrl = 'https://buy.stripe.com/cNi5kw8Hp8Qb19b3wvaAw00';
+          }
+          if (ss.saasConfig.monthlyPrice === 29) ss.saasConfig.monthlyPrice = 20;
           Object.assign(state.saasConfig, ss.saasConfig);
           try { localStorage.setItem('alphaprop_saas_config', JSON.stringify(state.saasConfig)); } catch (e) {}
         }
@@ -19941,17 +19945,13 @@ updateBetSlipCartWidget();
             modal.classList.remove('flex');
             showToast('Previewing Free Teaser Tier');
           } else {
-            const url = (state.saasConfig && state.saasConfig.checkoutUrl) || '';
-            if (url && url.startsWith('http')) {
-              window.open(url, '_blank', 'noopener,noreferrer');
-              showToast('Opening 7-Day Free Trial Stripe Checkout...');
-            } else {
-              state.viewMode = 'VIP';
-              renderModeUI();
-              modal.classList.add('hidden');
-              modal.classList.remove('flex');
-              showToast(`Unlocked ${plan} Tier!`);
+            let url = (state.saasConfig && state.saasConfig.checkoutUrl) || 'https://buy.stripe.com/cNi5kw8Hp8Qb19b3wvaAw00';
+            if (!url || !url.startsWith('http') || url.includes('buy.stripe.com/test_') || url.includes('whop.com/alphaprop-pro-vip')) {
+              url = 'https://buy.stripe.com/cNi5kw8Hp8Qb19b3wvaAw00';
+              if (state.saasConfig) state.saasConfig.checkoutUrl = url;
             }
+            window.open(url, '_blank', 'noopener,noreferrer');
+            showToast('Opening 7-Day Free Trial Stripe Checkout...');
           }
         });
       });
