@@ -8105,39 +8105,39 @@ body { font-variant-numeric: tabular-nums; }
           <div class="rounded-xl p-3 border ${item.isNoiseBlocked ? 'bg-slate-950/70 border-rose-500/30' : (active ? 'bg-slate-950/90 border-purple-500/40' : 'bg-slate-950/50 border-white/10 opacity-75')} flex flex-col justify-between gap-2">
             <div class="space-y-1.5">
               <div class="space-y-1">
-                <div class="text-sm font-extrabold text-white player-name-unobstructed leading-snug">${item.player}</div>
+                <div class="text-sm font-extrabold text-white player-name-unobstructed leading-snug">${item.player || ""}</div>
                 <div class="flex items-center justify-between gap-2 flex-wrap">
                   <span class="px-1.5 py-0.2 rounded font-mono-code font-bold text-[9px] border ${trustColor}">
-                    🎯 ${item.coachTrustLabel}
+                    🎯 ${item.coachTrustLabel || ""}
                   </span>
-                  <span class="px-2 py-0.5 rounded-md font-mono-code font-bold text-[10px] border ${item.badgeColor}">
-                    ${item.tier}
+                  <span class="px-2 py-0.5 rounded-md font-mono-code font-bold text-[10px] border ${item.badgeColor || ""}">
+                    ${item.tier || ""}
                   </span>
                 </div>
               </div>
               <div class="text-[10px] font-mono-code text-slate-400">
-                ⏱️ Availability Window: <strong class="text-amber-300">${item.presserWindow}</strong> • Coach: <strong class="text-white">${item.coachName}</strong>
+                ⏱️ Availability Window: <strong class="text-amber-300">${item.presserWindow || ""}</strong> • Coach: <strong class="text-white">${item.coachName || ""}</strong>
               </div>
               <div class="text-xs font-bold ${item.isNoiseBlocked ? 'text-rose-300' : 'text-purple-200'} leading-snug">
-                "${item.shortHeadline}"
+                "${item.shortHeadline || ""}"
               </div>
               <p class="text-[11px] text-slate-400 leading-relaxed">
-                ${item.quoteSummary}
+                ${item.quoteSummary || ""}
               </p>
               ${item.whistleSynergy ? `
                 <div class="rounded-lg bg-white/[0.03] border border-white/10 px-2.5 py-1 text-[10px] text-cyan-300 font-medium">
-                  ${item.whistleSynergy}
+                  ${item.whistleSynergy || ""}
                 </div>
               ` : ''}
             </div>
             <div class="pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px]">
               <span class="font-mono-code font-bold ${item.isNoiseBlocked ? 'text-amber-300' : (active ? 'text-emerald-400' : 'text-slate-400')}">
-                ${item.mathImpact}
+                ${item.mathImpact || ""}
               </span>
               ${item.isNoiseBlocked ? `
                 <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold text-[10px]">🛑 Auto-Blocked Noise</span>
               ` : `
-                <button type="button" data-toggle-prop-intel="${item.propId}" class="px-2.5 py-0.5 rounded-lg font-bold text-[10px] cursor-pointer transition ${active ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30' : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'}">
+                <button type="button" data-toggle-prop-intel="${item.propId || ""}" class="px-2.5 py-0.5 rounded-lg font-bold text-[10px] cursor-pointer transition ${active ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30' : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'}">
                   ${active ? '✓ Applied (+' + effDelta.toFixed(1) + '%)' : '+ Enable Signal'}
                 </button>
               `}
@@ -8426,21 +8426,21 @@ body { font-variant-numeric: tabular-nums; }
           modeTitle: isEqualLock ? `🔒 Zero-Loss Equal-Lock Middle (Pre O${stdLine} [${preUnits.toFixed(2)}u] + Live U${midTop} [${liveUnits.toFixed(2)}u])` : `⚡ Asymmetric +EV Middle (Pre O${stdLine} [${preUnits.toFixed(2)}u] + Live U${midTop} [${liveUnits.toFixed(2)}u])`,
           scenarios: [
             {
-              label: `💎 MIDDLE JACKPOT (${midLow}–${midHigh} ${item.stat})`,
+              label: `💎 MIDDLE JACKPOT (${midLow}–${midHigh} ${item.stat || ""})`,
               detail: 'Win BOTH Pre-Game & Live Bets!',
               netDollars: bothWinDollars,
               netUnits: +(bothWinDollars / unitD).toFixed(2),
               style: 'bg-emerald-500/20 border-emerald-400/60 text-emerald-200'
             },
             {
-              label: `🟢 High Side (≥${highCut} ${item.stat})`,
+              label: `🟢 High Side (≥${highCut} ${item.stat || ""})`,
               detail: 'Pre-Game Over Wins / Live Under Loses',
               netDollars: preWinLiveLose,
               netUnits: +(preWinLiveLose / unitD).toFixed(2),
               style: 'bg-cyan-500/15 border-cyan-400/40 text-cyan-200'
             },
             {
-              label: `🛡️ Low Side (≤${lowCut} ${item.stat})`,
+              label: `🛡️ Low Side (≤${lowCut} ${item.stat || ""})`,
               detail: isEqualLock ? '🔒 100% Risk-Free Zero-Loss Floor!' : 'Live Under Wins / Cuts Pre-Game Risk',
               netDollars: preLoseLiveWin,
               netUnits: +(preLoseLiveWin / unitD).toFixed(2),
@@ -8457,7 +8457,7 @@ body { font-variant-numeric: tabular-nums; }
         const preWinsDollars = +(preProfit - liveStake).toFixed(2);
         return {
           sizingMode, isEqualLock, effectiveLiveUnits: liveUnits, effectiveLiveDollars: Math.round(liveStake), zeroLossUnits, asymUnits: (liveBet.liveUnits || 0.50),
-          modeTitle: isEqualLock ? `🔒 100% Risk-Free 4Q Blowout Lock (Pre ${item.side} ${stdLine} + Live Hedge ${liveUnits.toFixed(2)}u)` : `🛡️ Partial 4Q Blowout Hedge (Pre ${item.side} ${stdLine} + Live Hedge ${liveUnits.toFixed(2)}u)`,
+          modeTitle: isEqualLock ? `🔒 100% Risk-Free 4Q Blowout Lock (Pre ${item.side || ""} ${stdLine} + Live Hedge ${liveUnits.toFixed(2)}u)` : `🛡️ Partial 4Q Blowout Hedge (Pre ${item.side || ""} ${stdLine} + Live Hedge ${liveUnits.toFixed(2)}u)`,
           scenarios: [
             {
               label: `🛡️ 4Q Bench / Under (${Math.floor(stdLine)} or Less)`,
@@ -8467,14 +8467,14 @@ body { font-variant-numeric: tabular-nums; }
               style: 'bg-emerald-500/20 border-emerald-400/60 text-emerald-200'
             },
             {
-              label: `💎 Sweet-Spot Window (${Math.ceil(stdLine)} ${item.stat})`,
+              label: `💎 Sweet-Spot Window (${Math.ceil(stdLine)} ${item.stat || ""})`,
               detail: 'Middle / Dual Cover Window',
               netDollars: bothWinDollars,
               netUnits: +(bothWinDollars / unitD).toFixed(2),
               style: 'bg-purple-500/20 border-purple-400/50 text-purple-200'
             },
             {
-              label: `🟢 Full 4Q Over (≥${Math.ceil(hedgeLine)} ${item.stat})`,
+              label: `🟢 Full 4Q Over (≥${Math.ceil(hedgeLine)} ${item.stat || ""})`,
               detail: 'Pre-Game Over Cashes Net of Hedge',
               netDollars: preWinsDollars,
               netUnits: +(preWinsDollars / unitD).toFixed(2),
@@ -8490,24 +8490,24 @@ body { font-variant-numeric: tabular-nums; }
       const buyLowOnlyDollars = +(liveProfit - preStake).toFixed(2);
       return {
         sizingMode, isEqualLock, effectiveLiveUnits: liveUnits, effectiveLiveDollars: Math.round(liveStake), zeroLossUnits, asymUnits: (liveBet.liveUnits || 0.75),
-          modeTitle: isEqualLock ? `🚀 Full-Press Double-Down (Pre ${item.side} ${stdLine} [${preUnits.toFixed(2)}u] + Live ${buyLowLine} [${liveUnits.toFixed(2)}u])` : `🔥 Buy-Low Double-Down (Pre ${item.side} ${stdLine} [${preUnits.toFixed(2)}u] + Live ${buyLowLine} [${liveUnits.toFixed(2)}u])`,
+          modeTitle: isEqualLock ? `🚀 Full-Press Double-Down (Pre ${item.side || ""} ${stdLine} [${preUnits.toFixed(2)}u] + Live ${buyLowLine} [${liveUnits.toFixed(2)}u])` : `🔥 Buy-Low Double-Down (Pre ${item.side || ""} ${stdLine} [${preUnits.toFixed(2)}u] + Live ${buyLowLine} [${liveUnits.toFixed(2)}u])`,
         scenarios: [
           {
-            label: `🔥 DOUBLE-CASH SMASH (>${stdLine} ${item.stat})`,
+            label: `🔥 DOUBLE-CASH SMASH (>${stdLine} ${item.stat || ""})`,
             detail: 'Win BOTH Pre-Game & Buy-Low Live Entry!',
             netDollars: dualCashDollars,
             netUnits: +(dualCashDollars / unitD).toFixed(2),
             style: 'bg-emerald-500/20 border-emerald-400/60 text-emerald-200'
           },
           {
-            label: `🛡️ Cushion Window (${Math.ceil(buyLowLine)}–${Math.floor(stdLine)} ${item.stat})`,
+            label: `🛡️ Cushion Window (${Math.ceil(buyLowLine)}–${Math.floor(stdLine)} ${item.stat || ""})`,
             detail: 'Live Buy-Low Wins & Covers Pre-Game Risk',
             netDollars: buyLowOnlyDollars,
             netUnits: +(buyLowOnlyDollars / unitD).toFixed(2),
             style: 'bg-cyan-500/15 border-cyan-400/40 text-cyan-200'
           },
           {
-            label: `⚠️ Cold 4Q (<${buyLowLine} ${item.stat})`,
+            label: `⚠️ Cold 4Q (<${buyLowLine} ${item.stat || ""})`,
             detail: 'Total Combined Risk Exposure',
             netDollars: -+(preStake + liveStake).toFixed(2),
             netUnits: -+(preUnits + liveUnits).toFixed(2),
@@ -11577,7 +11577,7 @@ updateBetSlipCartWidget();
                     <span class="soft-badge ${t.badgeStyle}">${t.badgeLabel}</span>
                     <span class="text-base font-extrabold text-white leading-snug break-words">${t.title}</span>
                   </div>
-                  <div class="text-[11px] text-slate-400 mt-0.5">${t.matchup}</div>
+                  <div class="text-[11px] text-slate-400 mt-0.5">${t.matchup || t.subtitle || t.units || ""}</div>
                 </div>
                 <span class="px-2.5 py-1 rounded-xl bg-slate-950 border border-white/10 font-mono-code font-extrabold text-sm ${t.kind === 'MOONSHOT' ? 'text-purple-300' : 'text-emerald-300'} shrink-0">
                   ${t.odds}
@@ -11638,7 +11638,7 @@ updateBetSlipCartWidget();
                 </div>
                 <div class="min-w-0 flex-1">
                   <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight leading-snug break-words">${t.title}</h3>
-                  <p class="text-xs text-slate-400 mt-0.5">${t.matchup}</p>
+                  <p class="text-xs text-slate-400 mt-0.5">${t.matchup || t.subtitle || t.units || ""}</p>
                 </div>
               </div>
 
@@ -12376,15 +12376,15 @@ updateBetSlipCartWidget();
             <div class="space-y-1">
               <div class="flex items-center justify-between gap-1">
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono-code font-extrabold uppercase ${isUpset ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'}">
-                  ${g.macroBadge}
+                  ${g.macroBadge || g.status || "Week 12 Slate"}
                 </span>
                 <span class="text-[10px] font-mono-code text-slate-400">${g.time.split('•')[0]}</span>
               </div>
-              <div class="text-xs font-extrabold text-white pt-0.5">${g.away} @ ${g.home}</div>
+              <div class="text-xs font-extrabold text-white pt-0.5">${g.away || ""} @ ${g.home || ""}</div>
               <div class="grid grid-cols-2 gap-1.5 pt-1 text-[11px] font-mono-code">
                 <div class="bg-slate-950/80 px-2 py-1 rounded border border-slate-800">
                   <div class="text-[9px] text-slate-400 uppercase">Book Line</div>
-                  <div class="text-slate-200 font-bold">${g.spread} • O/U ${g.total}</div>
+                  <div class="text-slate-200 font-bold">${g.spread || ""} • O/U ${g.total || ""}</div>
                 </div>
                 <div class="bg-slate-950/80 px-2 py-1 rounded border border-cyan-500/30">
                   <div class="text-[9px] text-cyan-300 uppercase">🎯 True-Score™ Sim</div>
@@ -12403,7 +12403,7 @@ updateBetSlipCartWidget();
                   ? `🏈 v4.0 Discrete σ=${g._v32Audit.discSigma} • Keys{3:${g._v32Audit.key3Pct}%,7:${g._v32Audit.key7Pct}%}${g._v32Audit.crossedKeys.length ? ' • Crosses {' + g._v32Audit.crossedKeys.join(',') + '}' : ''}`
                   : (g.injurySimNote || '✅ Synced with Live Injury Report')
               }</div>
-              <div class="text-[10px] text-slate-300 truncate">🔗 Prop Synergy: <strong class="text-emerald-300">${g.topEdge}</strong></div>
+              <div class="text-[10px] text-slate-300 truncate">🔗 Prop Synergy: <strong class="text-emerald-300">${g.topEdge || g.coachNote || g.status || ""}</strong></div>
             </div>
           </div>
         `;
@@ -12429,13 +12429,13 @@ updateBetSlipCartWidget();
           <div class="flex items-center justify-between border-b border-slate-800 pb-2">
             <div>
               <div class="flex items-center gap-2">
-                <span class="text-sm font-extrabold text-white">${g.away} @ ${g.home}</span>
+                <span class="text-sm font-extrabold text-white">${g.away || ""} @ ${g.home || ""}</span>
               </div>
-              <div class="text-[11px] text-slate-400">${g.time}</div>
+              <div class="text-[11px] text-slate-400">${g.time || ""}</div>
             </div>
             <div class="text-right font-mono-code text-xs">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 font-bold">Book: ${g.spread}</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300 font-bold ml-1">O/U ${g.total}</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 font-bold">Book: ${g.spread || ""}</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300 font-bold ml-1">O/U ${g.total || ""}</span>
             </div>
           </div>
 
@@ -12443,14 +12443,14 @@ updateBetSlipCartWidget();
           <div class="bg-slate-950/90 p-2.5 rounded-xl border border-slate-800 space-y-1.5">
             <div class="flex flex-wrap items-center justify-between gap-1 text-[11px] font-mono-code">
               <span class="text-cyan-300 font-bold">${projLabel} <strong class="text-white">${g.awayAbbr || g.away.split(' ')[0]} ${g.modelAwayScore.toFixed(1)} — ${g.homeAbbr || g.home.split(' ')[0]} ${g.modelHomeScore.toFixed(1)}</strong></span>
-              <span class="px-2 py-0.5 rounded font-extrabold text-[10px] ${isUpset ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'}">${g.macroBadge}</span>
+              <span class="px-2 py-0.5 rounded font-extrabold text-[10px] ${isUpset ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'}">${g.macroBadge || g.status || "Week 12 Slate"}</span>
             </div>
             <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-code text-slate-300">
-              <span>Model Spread: <strong class="text-amber-300">${g.modelSpread}</strong> (${(Number(g.spreadDelta || 0) === 0 ? '0.0' : (Number(g.spreadDelta || 0) > 0 ? '+' : '') + Number(g.spreadDelta || 0).toFixed(1))} pts vs. Book)</span>
+              <span>Model Spread: <strong class="text-amber-300">${g.modelSpread || ""}</strong> (${(Number(g.spreadDelta || 0) === 0 ? '0.0' : (Number(g.spreadDelta || 0) > 0 ? '+' : '') + Number(g.spreadDelta || 0).toFixed(1))} pts vs. Book)</span>
               <span>Model Total: <strong class="text-emerald-300">${Number(g.modelTotal || g.projTotal || g.total || 0).toFixed(1)}</strong> (${(Number(g.totalDelta || 0) === 0 ? '0.0' : (Number(g.totalDelta || 0) > 0 ? '+' : '') + Number(g.totalDelta || 0).toFixed(1))} pts vs. Book)</span>
             </div>
             <div class="text-[11px] font-mono-code font-bold text-amber-300 pt-1 border-t border-slate-800/80">
-              ${g.splitShieldRec}
+              ${g.splitShieldRec || g.coachNote || ""}
             </div>
             <div class="text-[10px] font-mono-code text-cyan-300">
               ${g.injurySimNote || defaultInjuryNote}
@@ -12460,7 +12460,7 @@ updateBetSlipCartWidget();
           <div class="text-xs text-slate-300"><strong class="text-rose-400">Injury &amp; Lineup Intel:</strong> ${g.injuries || "All projected starters active"}</div>
           <div class="text-xs text-slate-300"><strong class="text-sky-400">Coach &amp; Scheme Note:</strong> ${g.coachNote || g.tendency || (isNfl ? "Standard Offensive Tempo" : "Standard Rotation")}${g.pace ? ` <span class="text-cyan-300 font-semibold">(${g.pace})</span>` : ""}</div>
           <div class="pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
-            <div class="text-xs text-emerald-400 font-semibold">🎯 Top Prop Target: ${g.topEdge}</div>
+            <div class="text-xs text-emerald-400 font-semibold">🎯 Top Prop Target: ${g.topEdge || g.coachNote || g.status || ""}</div>
             <button type="button" data-spot-check-game="${g.key}" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 border border-cyan-500/40 font-mono-code font-bold text-[11px] transition cursor-pointer">
               🔍 Check Current Value Plays in ${g.awayAbbr}@${g.homeAbbr}
             </button>
@@ -14878,18 +14878,18 @@ updateBetSlipCartWidget();
           g.splitShieldRec = `Macro Under Play: 1.00u UNDER ${bookTot} (-110)`;
         } else if (Math.abs(homeMargin) >= 15.0) {
           g.upsetType = 'NONE';
-          g.macroBadge = `🪑 3Q Blowout Rest™ (Model Spread: ${g.modelSpread})`;
+          g.macroBadge = `🪑 3Q Blowout Rest™ (Model Spread: ${g.modelSpread || ""})`;
           g.splitShieldRec = `Model projects ${Math.abs(homeMargin).toFixed(1)}-pt rout → 4Q Starter Sit Alert`;
         } else {
           g.upsetType = 'NONE';
-          g.macroBadge = `🎯 Fair Line (${g.modelSpread} • O/U ${Number(g.modelTotal || g.projTotal || g.total || 0).toFixed(1)})`;
+          g.macroBadge = `🎯 Fair Line (${g.modelSpread || ""} • O/U ${Number(g.modelTotal || g.projTotal || g.total || 0).toFixed(1)})`;
           g.splitShieldRec = `Pass on Spread & Total — Fairly Priced (Needs 2.5+ pt spread or 4.0+ pt total edge)`;
         }
 
         if (activeInjuryAdjustments.length > 0) {
           logs.push({
             type: 'BOOST',
-            text: `🎯 TRUE-SCORE™ RECALCULATED (${g.awayAbbr} @ ${g.homeAbbr}): ${activeInjuryAdjustments.join(', ')} → New Projected Score: ${g.awayAbbr} ${g.modelAwayScore.toFixed(1)} - ${g.homeAbbr} ${g.modelHomeScore.toFixed(1)} (Model Spread: ${g.modelSpread}, Total: ${Number(g.modelTotal || g.projTotal || g.total || 0).toFixed(1)} • ${g.macroBadge}).`
+            text: `🎯 TRUE-SCORE™ RECALCULATED (${g.awayAbbr} @ ${g.homeAbbr}): ${activeInjuryAdjustments.join(', ')} → New Projected Score: ${g.awayAbbr} ${g.modelAwayScore.toFixed(1)} - ${g.homeAbbr} ${g.modelHomeScore.toFixed(1)} (Model Spread: ${g.modelSpread || ""}, Total: ${Number(g.modelTotal || g.projTotal || g.total || 0).toFixed(1)} • ${g.macroBadge || g.status || "Week 12 Slate"}).`
           });
         }
       });
@@ -15936,7 +15936,7 @@ updateBetSlipCartWidget();
               <span class="text-slate-400">4Q Bench Risk: <strong class="${g.blowoutRisk.includes('HIGH') ? 'text-rose-400' : 'text-cyan-300'}">${g.blowoutRisk}</strong></span>
             </div>
             <div class="text-[11px] text-amber-300 font-medium pt-1 border-t border-white/5">
-              ⚡ ${g.triggers}
+              ⚡ ${g.triggers || g.coachNote || g.topEdge || ""}
             </div>
           </div>
         `).join('');
@@ -17090,14 +17090,14 @@ updateBetSlipCartWidget();
                 <div class="text-sm font-black text-white player-name-unobstructed leading-snug">${t.player}</div>
                 <div class="flex items-center justify-between gap-2">
                   <span class="text-xs text-slate-300 font-bold">${t.team}</span>
-                  <span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/40">${t.ratingScore}/100 • ${'⭐'.repeat(t.stars)}</span>
+                  <span class="px-1.5 py-0.5 rounded text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/40">${t.ratingScore || 88}/100 • ${"⭐".repeat(t.stars || 4)}</span>
                 </div>
               </div>
-              <div class="text-[10px] text-slate-400 mt-0.5">${t.matchup}</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">${t.matchup || t.subtitle || t.units || ""}</div>
               <div class="mt-2 inline-block px-2 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-rose-200 text-xs font-mono font-extrabold">
-                🚫 TRAP: ${t.trapLine} (True Win: ${t.trueWinProb})
+                🚫 TRAP: ${t.trapLine || t.line || "Trap Line"} (True Win: ${t.trueWinProb || "43.5%"})
               </div>
-              <p class="text-[11px] text-slate-300 mt-2 leading-relaxed">${t.whyTrap}</p>
+              <p class="text-[11px] text-slate-300 mt-2 leading-relaxed">${t.whyTrap || t.reason || ""}</p>
             </div>
             <div class="text-[10px] font-bold text-emerald-300 pt-1.5 border-t border-slate-800/80">
               💡 Pivot: Play ${t.player.split(' ')[1]} LESS or fade entirely
@@ -20802,15 +20802,15 @@ updateBetSlipCartWidget();
       // Verified Bye Teams Excluded (0 Leaked): ATL, CLE, GB, LAR, NE, SEA
       // =========================================================================
       const NFL_SNAPSHOT = {
-        slateDate: '2026-11-25',
-        kpiTotalLabel: "🏈 Week 12 Holiday VIP",
-        kpiStrongCount: '5 Holiday Wave 1 Locks (Gridiron v4.4) + 3 Bubble Holds',
-        kpiSlateDateSub: 'Wed–Fri, Nov. 25–27, 2026 • Week 12 Holiday Wave 1 (GB@LAR, CHI@DET, PHI@DAL, KC@BUF, DEN@PIT)',
-        tagline: 'SharpSlate NFL v4.4 • Week 12 Thanksgiving & Holiday Wave 1 Early Capture',
+        slateDate: '2026-11-26',
+        kpiTotalLabel: "🏈 Week 12 Thanksgiving VIP",
+        kpiStrongCount: '5 Thanksgiving Locks (Gridiron v4.5) + 3 Early-Week Holds',
+        kpiSlateDateSub: 'Thu–Fri, Nov. 26–27, 2026 • Week 12 Thanksgiving Tripleheader + Black Friday (CHI@DET, PHI@DAL, KC@BUF, DEN@PIT)',
+        tagline: 'SharpSlate NFL v4.5 • Week 12 Thanksgiving & Most Likely to Score Board',
         defaultBookUrl: 'https://sportsbook.draftkings.com/leagues/football/nfl',
         defaultRecapDate: '2026-11-22',
         recapOptionsHtml: "<option value=\"2026-11-22\" class=\"bg-slate-900\" selected>Week 11 Sun \u2014 Sun, Nov 22, 2026 (12\u20139, +6.49u \u2022 3\u20131 TDs &amp; +1180 DAL Copula WON \u2705)</option>\n<option value=\"2026-11-19\" class=\"bg-slate-900\">Week 11 TNF \u2014 Thu, Nov 19, 2026 (HOU 26, IND 3 \u2022 Daniel Jones Under 181.5 Pass Yds WON \u2705)</option>\n<option value=\"2026-11-15\" class=\"bg-slate-900\">Week 10 Munich \u2014 Sun, Nov 15, 2026 (DET 35, NE 10 \u2022 Gibbs 99 Rec Yds &amp; St. Brown 98 Yds / 2 TDs WON \u2705)</option>",
-        spotCheckMatchupKey: 'GB_LAR',
+        spotCheckMatchupKey: 'CHI_DET',
         alt90SelectedIds: { alt90_1: true, alt90_2: true, alt90_3: true, alt90_4: true },
 
         SPIKE_ALERTS_POOL: [
@@ -20863,11 +20863,11 @@ updateBetSlipCartWidget();
             actionPlay: 'Jayden Daniels Over 29.5 Rush Yds (-115 • 1.00u)', ladderSpec: '🪜 Alt Escalator: 45+ Rush Yds (+210)', ladderOdds: '+210'
           }
         ],
-        INITIAL_PROPS: [{"id": "p1", "player": "Buffalo Bills", "team": "BUF", "opp": "KC", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "pos": "TEAM", "stat": "SPREAD", "openLine": -2.5, "openOdds": -110, "line": -2.5, "side": "OVER", "baseOdds": -110, "maxPlayableOdds": -122, "maxPlayableLine": -2.5, "trueProb": 59.2, "openProb": 59.2, "epmTotal": 5.8, "epmRank": "#1", "epmOff": 4.2, "epmDef": 1.6, "epmOppDef": 0.9, "epmDelta": 4.9, "epmSummary": "Gridiron v4.4 Key-Number Capture (-2.5 vs -3.0 consensus)", "macroTag": "\ud83c\udfc8 Wave 1 Key-Number Sniper (BUF -2.5)", "macroStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "hasMacroSynergy": true, "preTipNote": "\ud83c\udfc8 Wave 1 Early Opener \u2014 Grab BUF -2.5 before books lock -3.0 across the board (9-1 Bills at home).", "clvTarget": "BUF -3.0 (-110)", "timing": "\ud83c\udfc8 Wave 1: Tue/Wed Opener Lock", "units": 1.5, "ladder": "BUF -5.5 (+145) \u2022 0.25u Alt", "freePickOfTheDay": true, "pivotPlay": "BUF Moneyline (-150) Parlay Anchor", "lens1": "Key-Number Value: Crossing 3 is worth ~9.5% win probability in NFL margins; bet365/FOX still show -2.5 while DraftKings moved to -3.", "lens2": "Home Dominance: 9-1 Buffalo hosts 8-2 Kansas City on Thanksgiving night with rest/home-field edge.", "lens3": "Weather Check: Outdoor Orchard Park wind favors Buffalo's physical run/QB power game.", "lens4": "Market & CLV: Open -2.5 (-110) projects to close -3 (-110) or -3.5 by Thursday afternoon.", "lens5": "Sizing & Risk: 1.50u Wave 1 Key-Number Allocation."}, {"id": "p2", "player": "Blake Corum", "team": "LAR", "opp": "GB", "matchup": "GB @ LAR (Wed 8:00 PM ET)", "pos": "RB", "stat": "RUSH_YDS", "openLine": 55.5, "openOdds": -114, "line": 55.5, "side": "OVER", "baseOdds": -114, "maxPlayableOdds": -130, "maxPlayableLine": 58.5, "trueProb": 60.4, "openProb": 60.4, "epmTotal": 3.9, "epmRank": "#8", "epmOff": 3.9, "epmDef": 0.0, "epmOppDef": -1.1, "epmDelta": 5.0, "epmSummary": "Gridiron v4.4 RB Workload Surge (58+ Yds in 4 Straight)", "macroTag": "\ud83c\udfdf\ufe0f SoFi Dome + LAR -2.5 Positive Script", "macroStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "hasMacroSynergy": true, "preTipNote": "\ud83c\udfc8 Wave 1 Wednesday Lock \u2014 Kyren Williams banged up (toe); Corum cleared 58+ rush yds in 4 straight (100 yds on 17 carries last game).", "clvTarget": "58.5 (-115)", "timing": "\ud83c\udfc8 Wave 1: Wed Thanksgiving Eve", "units": 1.0, "ladder": "75+ Rush Yds (+195) \u2022 0.25u Alt", "freePickOfTheDay": false, "pivotPlay": "Blake Corum 50+ Rush Yds (-175) SGP Leg", "lens1": "Role Inheritance: Kyren Williams limited with toe injury; Corum handled 17 carries for 100 yds in his last outing.", "lens2": "Efficiency & Script: Indoors at SoFi as a home favorite (-2.5 to -3.5) off bye week.", "lens3": "Opponent Run Defense: Green Bay allows 111.0 rush YPG (16th) while Rams rank 8th in rushing (133.0 YPG).", "lens4": "Market & CLV: 55.5 (-114) sits below his 4-game floor (58+ yds) and projected 64.2-yard median.", "lens5": "Sizing & Risk: 1.00u standard Wave 1 RB volume play."}, {"id": "p3", "player": "Los Angeles Rams", "team": "LAR", "opp": "GB", "matchup": "GB @ LAR (Wed 8:00 PM ET)", "pos": "TEAM", "stat": "SPREAD", "openLine": -2.5, "openOdds": -115, "line": -2.5, "side": "OVER", "baseOdds": -115, "maxPlayableOdds": -125, "maxPlayableLine": -2.5, "trueProb": 58.6, "openProb": 58.6, "epmTotal": 4.4, "epmRank": "#6", "epmOff": 2.9, "epmDef": 1.5, "epmOppDef": 0.4, "epmDelta": 4.0, "epmSummary": "Gridiron v4.4 Key-Number Capture (Steam Already -3.5)", "macroTag": "\ud83c\udfc8 Wave 1 Steam Capture (LAR -2.5)", "macroStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "hasMacroSynergy": true, "preTipNote": "\ud83c\udfc8 Wave 1 Wednesday Lock \u2014 Still -2.5 on select books while sharp consensus moved to -3.5; GB missing RB Josh Jacobs.", "clvTarget": "LAR -3.5 (-110)", "timing": "\ud83c\udfc8 Wave 1: Wed Thanksgiving Eve", "units": 1.0, "ladder": "LAR -5.5 (+150)", "freePickOfTheDay": false, "pivotPlay": "LAR Moneyline (-145)", "lens1": "Line Discrepancy: Select books hold -2.5 while consensus moved to -3.5 (61% fair win prob).", "lens2": "Defense Edge: Rams allow 18.7 PPG (5th) and 295.8 YPG (2nd) at home off a bye.", "lens3": "Opponent Imbalance: GB without Josh Jacobs ranks 32nd in rushing (67.0 YPG), making them one-dimensional.", "lens4": "Market & CLV: Immediate +1.0 pt closing line value across the key number 3.", "lens5": "Sizing & Risk: 1.00u Wave 1 Key-Number play."}, {"id": "p4", "player": "Denver Broncos", "team": "DEN", "opp": "PIT", "matchup": "DEN @ PIT (Fri 3:00 PM ET)", "pos": "TEAM", "stat": "SPREAD", "openLine": -2.5, "openOdds": -110, "line": -2.5, "side": "OVER", "baseOdds": -110, "maxPlayableOdds": -122, "maxPlayableLine": -2.5, "trueProb": 57.9, "openProb": 57.9, "epmTotal": 3.8, "epmRank": "#9", "epmOff": 1.4, "epmDef": 2.4, "epmOppDef": 1.1, "epmDelta": 2.7, "epmSummary": "Gridiron v4.4 Low-Total Key-Number Edge (37.5 Total)", "macroTag": "\ud83c\udfc8 Black Friday Key-Number (-2.5)", "macroStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "hasMacroSynergy": true, "preTipNote": "\ud83c\udfc8 Wave 1 Black Friday Lock \u2014 Denver ML already steamed -141 to -155; grab -2.5 before -3.0 locks in a 37.5 low-total game.", "clvTarget": "DEN -3.0 (-110)", "timing": "\ud83c\udfc8 Wave 1: Black Friday Lock", "units": 1.0, "ladder": "Game Under 37.5 (-110)", "freePickOfTheDay": false, "pivotPlay": "DEN Moneyline (-153)", "lens1": "Low-Total Key-Number Multiplier: In a 37.5-total game, margins of 3 occur at an elevated rate.", "lens2": "Market Steam: Broncos ML already moved from -141 to -155 across sportsbooks.", "lens3": "Defensive Floor: Denver's defense travels well into Pittsburgh's cold-weather trench script.", "lens4": "Market & CLV: Grabbing -2.5 ahead of -3.0 close.", "lens5": "Sizing & Risk: 1.00u Wave 1 Black Friday capture."}, {"id": "p5", "player": "Christian Watson", "team": "GB", "opp": "LAR", "matchup": "GB @ LAR (Wed 8:00 PM ET)", "pos": "WR", "stat": "ANYTIME_TD", "openLine": 0.5, "openOdds": 178, "line": 0.5, "side": "OVER", "baseOdds": 178, "maxPlayableOdds": +155, "maxPlayableLine": 0.5, "trueProb": 41.2, "openProb": 41.2, "epmTotal": 3.4, "epmRank": "#14", "epmOff": 3.4, "epmDef": 0.0, "epmOppDef": -1.2, "epmDelta": 4.6, "epmSummary": "End-Zone Sniper\u2122 ATD Edge (+178 \u2022 7 TDs in 10 Games)", "macroTag": "\ud83c\udfaf End-Zone Sniper\u2122 (+178 Value)", "macroStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "hasMacroSynergy": true, "preTipNote": "\ud83c\udfc8 Wave 1 Wednesday ATD \u2014 7 receiving TDs in 10 games (7.9 targets/gm, 17.6 YPR) vs LAR secondary missing safety Kam Curl (toe).", "clvTarget": "+155", "timing": "\ud83c\udfc8 Wave 1: Wed End-Zone Sniper", "units": 0.5, "ladder": "2+ TDs (+950)", "freePickOfTheDay": false, "pivotPlay": "Christian Watson O64.5 Rec Yds", "lens1": "Red-Zone & Explosive Share: 7 TDs on 52 catches (916 yds) in 10 games as Jordan Love's #1 end-zone target.", "lens2": "Run-Game Vacuum: Josh Jacobs OUT forces Green Bay (#2 pass offense, 284.1 YPG) to score through the air.", "lens3": "Secondary Injury: Rams starting safety Kam Curl missed practice with a toe injury.", "lens4": "Market & CLV: +178 (36% implied) vs 41.2% Dirichlet-Multinomial model TD probability (+9.4% EV).", "lens5": "Sizing & Risk: 0.50u End-Zone Sniper ATD allocation."}],
-        INITIAL_BUBBLE_WATCHLIST: [{"id": "b1", "player": "Josh Allen", "team": "BUF", "opp": "KC", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "pos": "QB", "stat": "PASS_YDS", "line": 228.5, "side": "OVER", "odds": "-114", "trueProb": 57.2, "ev": "+4.1%", "missReasonBadge": "\ud83d\udca8 Wave 2 Hold: Orchard Park Wind Gate", "missDetail": "Line sits 24 yds below Allen's 252.7 YPG season pace, but Highmark Stadium wind must stay under 15 mph before firing.", "altFloorSpec": "200+ Pass Yds", "altCeilingSpec": "260+ Pass Yds (+175)", "triggerCondition": "Promote to 1.0u Thursday morning if Orchard Park forecast stays < 14 mph dry."}, {"id": "b2", "player": "Detroit Lions", "team": "DET", "opp": "CHI", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "pos": "TEAM", "stat": "TEAM_TOTAL", "line": 27.5, "side": "OVER", "odds": "+100", "trueProb": 54.8, "ev": "+4.8%", "missReasonBadge": "\u2600\ufe0f Wave 2 Hold: LaPorta & 4 DNP Check", "missDetail": "Ford Field 55.5 shootout favors DET O27.5 (+100), but Sam LaPorta opened Limited with 4 Lions DNPs.", "altFloorSpec": "DET O24.5 Team Total", "altCeilingSpec": "Game Over 55.5", "triggerCondition": "Promote to 0.5u Wednesday afternoon once Lions final injury report confirms LaPorta IN."}, {"id": "b3", "player": "Dallas Cowboys", "team": "DAL", "opp": "PHI", "matchup": "PHI @ DAL (Thu 4:30 PM ET)", "pos": "TEAM", "stat": "TEAM_TOTAL", "line": 29.5, "side": "OVER", "odds": "-112", "trueProb": 55.4, "ev": "+3.2%", "missReasonBadge": "\u2600\ufe0f Wave 2 Hold: Ferguson OUT / -8.5 Script", "missDetail": "TE Jake Ferguson is out multiple weeks and DAL -8.5 carries Q4 run-out risk; wait for Wed ATD board.", "altFloorSpec": "DAL O26.5 Team Total", "altCeilingSpec": "CeeDee Lamb ATD", "triggerCondition": "Promote Wednesday afternoon alongside Thanksgiving End-Zone Sniper ATDs."}],
+        INITIAL_PROPS: [{"id": "p1", "player": "Colston Loveland", "team": "CHI", "opp": "DET", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "pos": "TE", "stat": "REC_YDS", "openLine": 52.5, "openOdds": -113, "line": 52.5, "side": "OVER", "baseOdds": -113, "maxPlayableOdds": -128, "maxPlayableLine": 56.5, "trueProb": 61.8, "openProb": 61.8, "epmTotal": 4.9, "epmRank": "#2 TE", "epmOff": 4.9, "epmDef": 0.0, "epmOppDef": -3.1, "epmDelta": 8.0, "epmSummary": "Gridiron v4.5 MOF-Open Seam Funnel • DET #31 DVOA vs TE & #32 vs MOF", "macroTag": "🚀 55.5 Dome Shootout (Highest Week 12 Total)", "macroStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "hasMacroSynergy": true, "preTipNote": "🦃 #1 Thanksgiving POTD — 54+ yds in 4 of 5 since Caleb Williams returned & Kmet went down; DET allows 11 TE TDs.", "clvTarget": "55.5 (-115)", "timing": "🦃 Thanksgiving Early Lock", "units": 1.5, "ladder": "Anytime TD (+140 BetMGM) • 0.5u", "freePickOfTheDay": true, "pivotPlay": "Colston Loveland 40+ Rec Yds (-260) SGP Anchor", "lens1": "Usage Monopoly: Cole Kmet sidelined; Loveland on 92-rec / 959-yd / 10-TD pace over L5 with Caleb Williams.", "lens2": "MOF-Open Funnel: Lions rank #31 DVOA vs TE, #32 vs middle-of-field passes, and league-worst 11 TE TDs allowed.", "lens3": "Dome Environment: 55.5 total at Ford Field with CHI -1.5 coin-flip spread.", "lens4": "Market & CLV: 52.5 (-113 FD) projects to close 55.5+ by kickoff.", "lens5": "Sizing: 1.50u #1 Thanksgiving Flagship."}, {"id": "p2", "player": "Khalil Shakir", "team": "BUF", "opp": "KC", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "pos": "WR", "stat": "REC", "openLine": 3.5, "openOdds": -115, "line": 3.5, "side": "OVER", "baseOdds": -115, "maxPlayableOdds": -135, "maxPlayableLine": 4.5, "trueProb": 62.4, "openProb": 62.4, "epmTotal": 4.5, "epmRank": "#6 Slot", "epmOff": 4.5, "epmDef": 0.0, "epmOppDef": -2.4, "epmDelta": 6.9, "epmSummary": "Gridiron v4.5 Weather-Cliff Short-ADOT Outlet • 7.0 Rec/Gm in L4 vs KC", "macroTag": "🌬️ Weather Cliff (20-mph Wind / 40-mph Gusts)", "macroStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "hasMacroSynergy": true, "preTipNote": "🦃 Thanksgiving Night Lock — 7, 8, 6, 7 catches in L4 vs KC; wind + Dalton Kincaid (Q) funnel short targets to Shakir.", "clvTarget": "4.5 (+105)", "timing": "🦃 Thanksgiving Early Lock", "units": 1.5, "ladder": "5+ Rec (+188 DK) / 6+ Rec (+380 DK)", "freePickOfTheDay": false, "pivotPlay": "Khalil Shakir 3+ Rec (-340) SGP Anchor", "lens1": "Target Concentration: Led BUF in targets in 4 straight vs KC; Dalton Kincaid Q (thumb/ankle).", "lens2": "Weather Cliff Engine: 20-mph wind & 40-mph gusts suppress deep shots and inflate <=6.5 ADOT slot outlets.", "lens3": "Slot Funnel: KC allowed 9/150 to JSN, 7/72 to Downs, 8/58 to Omar Cooper.", "lens4": "Market & CLV: 3.5 (-115 Caesars) sits 3.5 catches below his KC H2H average.", "lens5": "Sizing: 1.50u Weather-Adjusted Core."}, {"id": "p3", "player": "Josh Allen", "team": "BUF", "opp": "KC", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "pos": "QB", "stat": "ANYTIME_TD", "openLine": 0.5, "openOdds": -115, "line": 0.5, "side": "OVER", "baseOdds": -115, "maxPlayableOdds": -135, "maxPlayableLine": 0.5, "trueProb": 58.6, "openProb": 58.6, "epmTotal": 6.1, "epmRank": "#1 QB", "epmOff": 6.1, "epmDef": 0.0, "epmOppDef": -1.5, "epmDelta": 7.6, "epmSummary": "Gridiron v4.5 End-Zone Sniper • 11 Rush TDs in 10 Games", "macroTag": "🌬️ Orchard Park Wind + BUF -2.5 Home Fav", "macroStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "hasMacroSynergy": true, "preTipNote": "🦃 Thanksgiving Night TD Sniper — 11 rushing TDs in 10 games; scored 2 rushing TDs vs KC last regular season.", "clvTarget": "-135", "timing": "🦃 Thanksgiving Early Lock", "units": 1.5, "ladder": "2+ TDs (+550 FD) • 0.25u", "freePickOfTheDay": false, "pivotPlay": "Josh Allen 50+ Rush Yds (+200 bet365)", "lens1": "Goal-Line Monopoly: 11 rushing TDs in 10 games (scored in 7 of 10 this season; 19 of 24 with 8+ att).", "lens2": "Weather Synergy: 20-mph wind pushes red-zone play-calling to designed QB power/keepers.", "lens3": "Rivalry Usage: Averages 9.9 carries & 42 rush yds per game vs KC.", "lens4": "Market & CLV: -115 FD/bet365 vs 58.6% True Prob (+9.5% EV).", "lens5": "Sizing: 1.50u Flagship ATD."}, {"id": "p4", "player": "Joe Milton", "team": "PHI", "opp": "DAL", "matchup": "PHI @ DAL (Thu 4:30 PM ET)", "pos": "QB", "stat": "RUSH_YDS", "openLine": 31.5, "openOdds": -114, "line": 31.5, "side": "OVER", "baseOdds": -114, "maxPlayableOdds": -125, "maxPlayableLine": 35.5, "trueProb": 59.6, "openProb": 59.6, "epmTotal": 2.4, "epmRank": "#12 Rush QB", "epmOff": 2.4, "epmDef": 0.0, "epmOppDef": -2.8, "epmDelta": 5.2, "epmSummary": "Gridiron v4.5 Mobile QB Scramble Boost • DAL #30 vs QB Rush", "macroTag": "🏃 Trailing Script (+8.5 Dog Indoors)", "macroStyle": "bg-sky-500/20 text-sky-300 border-sky-400/50", "hasMacroSynergy": true, "preTipNote": "🦃 Thanksgiving Afternoon — DAL allows 3rd-most QB rush yds (24.2/gm: Lamar 50, Daniels 69, Dart 54).", "clvTarget": "34.5 (-115)", "timing": "🦃 Thanksgiving Early Lock", "units": 1.0, "ladder": "50+ Rush Yds (+240) • 0.25u", "freePickOfTheDay": false, "pivotPlay": "Will Shipley O5.5 Rec Yds (-110 BetMGM)", "lens1": "Mobile QB Profile: Ran 9 times for 64 yds vs NYG in his first Hurts-replacement start.", "lens2": "Defense Funnel: Dallas allows 3rd-most QB rushing yards in NFL.", "lens3": "Game Script: PHI +8.5 underdog at AT&T Stadium forces dropbacks & scramble lanes.", "lens4": "Market & CLV: 31.5 (-114) offers strong early-week value.", "lens5": "Sizing: 1.00u Position-Specific Edge."}, {"id": "p5", "player": "Amon-Ra St. Brown", "team": "DET", "opp": "CHI", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "pos": "WR", "stat": "ANYTIME_TD", "openLine": 0.5, "openOdds": -130, "line": 0.5, "side": "OVER", "baseOdds": -130, "maxPlayableOdds": -150, "maxPlayableLine": 0.5, "trueProb": 60.0, "openProb": 60.0, "epmTotal": 5.6, "epmRank": "#2 WR", "epmOff": 5.6, "epmDef": 0.0, "epmOppDef": -2.5, "epmDelta": 8.1, "epmSummary": "Gridiron v4.5 Slot CB OUT Vacuum • CHI Kyler Gordon OUT", "macroTag": "🚀 55.5 Dome Total • Kyler Gordon OUT", "macroStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "hasMacroSynergy": true, "preTipNote": "🦃 Thanksgiving Opener — CHI slot CB Kyler Gordon OUT (shoulder); St. Brown faces backup slot DBs indoors.", "clvTarget": "-150", "timing": "🦃 Thanksgiving Early Lock", "units": 1.0, "ladder": "Amon-Ra + Gibbs Both Score (+155)", "freePickOfTheDay": false, "pivotPlay": "Amon-Ra St. Brown 60+ Rec Yds (-280)", "lens1": "Injury Vacuum: Starting slot CB Kyler Gordon ruled OUT on short week.", "lens2": "Red-Zone Dominance: Jared Goff's #1 inside-20 target in a 55.5 dome total.", "lens3": "Home Split: Goff threw 5 TDs last home game vs CHI.", "lens4": "Market & CLV: -130 Fanatics (-150 FD) vs 60.0% True Prob (+6.2% EV).", "lens5": "Sizing: 1.00u Core ATD."}],
+        INITIAL_BUBBLE_WATCHLIST: [{"id": "b1", "player": "Josh Downs", "team": "KC", "opp": "BUF", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "pos": "WR", "stat": "REC_YDS", "line": 39.5, "side": "OVER", "odds": "-125", "trueProb": 60.2, "ev": "+8.4%", "missReasonBadge": "⏳ Held 0.00u: Weather Check", "missDetail": "59 & 53 yds in first 2 KC games on 8/10 targets; confirm wind stays manageable for slot routes.", "altFloorSpec": "30+ Rec Yds (-220)", "altCeilingSpec": "60+ Rec Yds (+210)", "triggerCondition": "Promote if BUF CB Christian Benford is ruled OUT."}, {"id": "b2", "player": "Jameson Williams", "team": "DET", "opp": "CHI", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "pos": "WR", "stat": "REC_YDS", "line": 56.5, "side": "OVER", "odds": "-110", "trueProb": 56.8, "ev": "+8.4%", "missReasonBadge": "🚀 Route to Escalator (70+ / 100+)", "missDetail": "Boom-bust WR2 vs CHI #30 DVOA vs WR2; skip 56.5 median and play 70+ (+163) & 70+ + TD (+400 DK).", "altFloorSpec": "70+ Rec Yds (+163)", "altCeilingSpec": "100+ & TD (+800 DK)", "triggerCondition": "Play via Alt-Ceiling Escalator only."}, {"id": "b3", "player": "Jonah Coleman", "team": "DEN", "opp": "PIT", "matchup": "DEN @ PIT (Fri 3:00 PM ET)", "pos": "RB", "stat": "ANYTIME_TD", "line": 0.5, "side": "OVER", "odds": "-125", "trueProb": 56.8, "ev": "+2.3%", "missReasonBadge": "⏳ Black Friday Hold (36.5 Total)", "missDetail": "Steelers benched Aaron Rodgers for Mason Rudolph; DEN -3.5 script favors Coleman GL work, but 36.5 total caps TD ceiling.", "altFloorSpec": "50+ Rush Yds (-240)", "altCeilingSpec": "2+ TDs (+420)", "triggerCondition": "Confirm Friday weather at Acrisure Stadium."}],
         ALT_90_COVER_ROSTER: [{"id": "alt90_1", "propId": "p1", "player": "Stefon Diggs", "team": "WAS", "opp": "CIN", "matchup": "CIN @ WAS", "pos": "WR", "stat": "REC_YDS", "altLine": 34.5, "altLineSpec": "35+ Rec Yds", "stdLine": 49.5, "cushion": "+15.0 Yds", "baseOdds": "-410", "coverProb": 88.8, "holdRating": "A+", "holdBadge": "LOCK", "ratingReason": "89.5% RoutePart, 44.1 WAS dropbacks", "l10Hit": "8/9"}, {"id": "alt90_2", "propId": "p2", "player": "Chase Brown", "team": "CIN", "opp": "WAS", "matchup": "CIN @ WAS", "pos": "RB", "stat": "RUSH_YDS", "altLine": 34.5, "altLineSpec": "35+ Rush Yds", "stdLine": 45.5, "cushion": "+11.0 Yds", "baseOdds": "-405", "coverProb": 88.2, "holdRating": "A", "holdBadge": "CORE", "ratingReason": "30.1 CIN carries vs soft WAS run D", "l10Hit": "8/9"}, {"id": "alt90_3", "propId": "p3", "player": "Ja'Marr Chase", "team": "CIN", "opp": "WAS", "matchup": "CIN @ WAS", "pos": "WR", "stat": "REC_YDS", "altLine": 64.5, "altLineSpec": "65+ Rec Yds", "stdLine": 92.5, "cushion": "+28.0 Yds", "baseOdds": "-420", "coverProb": 89.4, "holdRating": "A+", "holdBadge": "LOCK", "ratingReason": "WOPR 0.729, 97.6 YPG", "l10Hit": "8/9"}, {"id": "alt90_4", "propId": "p4", "player": "Jayden Daniels", "team": "WAS", "opp": "CIN", "matchup": "CIN @ WAS", "pos": "QB", "stat": "RUSH_YDS", "altLine": 19.5, "altLineSpec": "20+ Rush Yds", "stdLine": 29.5, "cushion": "+10.0 Yds", "baseOdds": "-415", "coverProb": 88.6, "holdRating": "A", "holdBadge": "CORE", "ratingReason": "6.7 YPC scramble floor", "l10Hit": "8/9"}],
 
-        OFFICIAL_SGP_OF_DAY: {"title": "🏆 Official MNF Copula SGP: CIN @ WAS Shootout Stack (+220)", "odds": "+220", "trueProb": "36.8% (Calibrated)", "bookProb": "31.2% (Implied)", "ev": "+17.9% EV", "units": "1.00 Unit (Tier A MNF Flagship)", "thesis": "Positive shootout covariance: Chase 70+ yds + Diggs 40+ yds + Chase Brown 35+ rush yds in 54.5 total.", "legs": [{"player": "Ja'Marr Chase (CIN)", "alt": "70+ Rec Yds (-340 • WOPR 0.729)", "team": "CIN", "statType": "REC_YDS", "side": "OVER", "juice": "-340", "prob": 82.0}, {"player": "Stefon Diggs (WAS)", "alt": "40+ Rec Yds (-310 • 44.1 WAS Dropbacks)", "team": "WAS", "statType": "REC_YDS", "side": "OVER", "juice": "-310", "prob": 80.5}, {"player": "Chase Brown (CIN)", "alt": "35+ Rush Yds (-360 • CIN -6.5 Lead)", "team": "CIN", "statType": "RUSH_YDS", "side": "OVER", "juice": "-360", "prob": 83.5}]},
+        OFFICIAL_SGP_OF_DAY: {"title": "🏆 Official Thanksgiving SGP of the Day: CHI @ DET Dome Shootout (+240)", "odds": "+240", "trueProb": "34.2% (Calibrated)", "bookProb": "29.4% (Implied)", "ev": "+16.3% EV", "units": "1.00 Unit (Tier A Flagship)", "thesis": "55.5 dome total pairing Colston Loveland vs #31 TE defense with Amon-Ra St. Brown vs Kyler Gordon OUT.", "legs": [{"player": "Colston Loveland (CHI) [Official]", "alt": "Over 52.5 Rec Yds (-113 • DET #31 vs TE)", "team": "CHI", "statType": "REC_YDS", "side": "OVER", "juice": "-113", "prob": 61.8}, {"player": "Amon-Ra St. Brown (DET) [Official]", "alt": "Anytime TD (-130 • Kyler Gordon OUT)", "team": "DET", "statType": "TD", "side": "OVER", "juice": "-130", "prob": 60.0}]},
         MATCHUP_SGP_STUDIO: {
           'TEN_DAL': {
             key: 'TEN_DAL', label: 'TEN @ DAL (Sun 12:00 PM)', scriptCategory: '🚀 54.5 Dome Shootout',
@@ -21013,8 +21013,8 @@ updateBetSlipCartWidget();
           }
         },
 
-        SGP_SYSTEMS: [{"title": "🏆 Official MNF Copula SGP: CIN @ WAS Shootout Stack (+220)", "odds": "+220", "trueProb": "36.8% (Calibrated)", "bookProb": "31.2% (Implied)", "ev": "+17.9% EV", "units": "1.00 Unit (Tier A MNF Flagship)", "thesis": "Positive shootout covariance: Chase 70+ yds + Diggs 40+ yds + Chase Brown 35+ rush yds in 54.5 total.", "legs": [{"player": "Ja'Marr Chase (CIN)", "alt": "70+ Rec Yds (-340 • WOPR 0.729)", "team": "CIN", "statType": "REC_YDS", "side": "OVER", "juice": "-340", "prob": 82.0}, {"player": "Stefon Diggs (WAS)", "alt": "40+ Rec Yds (-310 • 44.1 WAS Dropbacks)", "team": "WAS", "statType": "REC_YDS", "side": "OVER", "juice": "-310", "prob": 80.5}, {"player": "Chase Brown (CIN)", "alt": "35+ Rush Yds (-360 • CIN -6.5 Lead)", "team": "CIN", "statType": "RUSH_YDS", "side": "OVER", "juice": "-360", "prob": 83.5}]}],
-        MOONSHOT_SYSTEMS: {"COPULA": {"title": "🚀 Bonus MNF Same-Game Copula: Burrow & Chase Fireworks (+1150)", "odds": "+1150", "trueProb": "10.2% (Copula)", "bookProb": "8.0% (Implied)", "ev": "+27.5% EV", "units": "0.00 Units (Bonus Moonshot)", "thesis": "Correlated MNF ceiling stack in 54.5 total.", "legs": [{"player": "Joe Burrow (CIN)", "ceiling": "300+ Pass Yds (+145)", "team": "CIN", "statType": "PASS_YDS", "side": "OVER", "odds": "+145", "hit": "44.0%"}, {"player": "Ja'Marr Chase (CIN)", "ceiling": "110+ Rec Yds + TD (+210)", "team": "CIN", "statType": "REC_YDS", "side": "OVER", "odds": "+210", "hit": "36.0%"}, {"player": "Stefon Diggs (WAS)", "ceiling": "65+ Rec Yds (+150)", "team": "WAS", "statType": "REC_YDS", "side": "OVER", "odds": "+150", "hit": "42.0%"}]}},
+        SGP_SYSTEMS: [{"id": "nfl_sgp_1", "title": "🦃 Thanksgiving Core TD + Yards Parlay (+365)", "odds": "+365", "trueProb": "27.8% (Correlated)", "bookProb": "21.5% (Implied)", "ev": "+29.3% EV", "units": "1.00 Unit", "thesis": "Pairs our #1 Thanksgiving prop (Loveland vs #31 TE D) with Kyler Gordon OUT (Amon-Ra TD) and Orchard Park wind (Josh Allen TD).", "subtitle": "1.00 Unit • +29.3% EV", "synergy": "3 independent injury/weather-backed Thanksgiving anchors.", "legs": [{"player": "Colston Loveland (CHI) [Official]", "alt": "Over 52.5 Rec Yds (-113 • DET #31 vs TE)", "team": "CHI", "statType": "REC_YDS", "side": "OVER", "juice": "-113", "prob": 61.8}, {"player": "Amon-Ra St. Brown (DET) [Official]", "alt": "Anytime TD (-130 • Kyler Gordon OUT)", "team": "DET", "statType": "TD", "side": "OVER", "juice": "-130", "prob": 60.0}, {"player": "Josh Allen (BUF) [Official]", "alt": "Anytime TD (-115 • 11 Rush TDs)", "team": "BUF", "statType": "TD", "side": "OVER", "juice": "-115", "prob": 58.6}]}, {"id": "nfl_sgp_2", "title": "🛡️ Most Likely to Score 3-Leg Holiday TD Trio (+250)", "odds": "+250", "trueProb": "33.5% (Calibrated)", "bookProb": "28.6% (Implied)", "ev": "+17.1% EV", "units": "0.50 Units", "thesis": "Top 3 high-probability Thanksgiving scorers across all 3 holiday games (zero cannibalization).", "subtitle": "0.50 Units • +17.1% EV", "synergy": "1 flagship scorer per Thanksgiving game.", "legs": [{"player": "Jahmyr Gibbs (DET) [Most Likely #1]", "alt": "Anytime TD (-270 • 72% Implied)", "team": "DET", "statType": "TD", "side": "OVER", "juice": "-270", "prob": 72.0}, {"player": "CeeDee Lamb (DAL) [Most Likely #5]", "alt": "Anytime TD (-130 • Ferguson OUT)", "team": "DAL", "statType": "TD", "side": "OVER", "juice": "-130", "prob": 61.2}, {"player": "Emmett Johnson (KC) [Most Likely #4]", "alt": "Anytime TD (-145 • Walker III OUT)", "team": "KC", "statType": "TD", "side": "OVER", "juice": "-145", "prob": 62.4}]}, {"id": "nfl_sgp_3", "title": "🌬️ KC @ BUF Weather-Cliff SGP (+245)", "odds": "+245", "trueProb": "32.4% (Copula rho=+0.45)", "bookProb": "29.0% (Implied)", "ev": "+11.7% EV", "units": "0.50 Units", "thesis": "20-mph wind & 40-mph gusts push Buffalo into Shakir short dump-offs and Allen goal-line power.", "subtitle": "0.50 Units • +11.7% EV", "synergy": "Weather-driven short-game & QB rush synergy.", "legs": [{"player": "Khalil Shakir (BUF) [Official]", "alt": "Over 3.5 Receptions (-115 • 7.0/gm vs KC)", "team": "BUF", "statType": "REC", "side": "OVER", "juice": "-115", "prob": 62.4}, {"player": "Josh Allen (BUF) [Official]", "alt": "Anytime TD (-115 • 11 Rush TDs)", "team": "BUF", "statType": "TD", "side": "OVER", "juice": "-115", "prob": 58.6}]}],
+        MOONSHOT_SYSTEMS: {"COPULA": {"title": "🚀 Thanksgiving 4-Leg TD + Escalator Moonshot (+1450)", "odds": "+1450", "trueProb": "9.4% (Correlated Target)", "bookProb": "6.5% (Implied)", "ev": "+44.6% EV", "units": "0.00 Units (Bonus Moonshot)", "thesis": "High-upside Thanksgiving escalator pairing Jameson Williams 70+ & TD (+400) with Colston Loveland TD (+140) and Josh Allen TD (-115).", "subtitle": "0.00 Units • +44.6% EV", "synergy": "Dome WR2/TE shootout + Orchard Park QB power.", "legs": [{"player": "Jameson Williams (DET) [Escalator]", "ceiling": "70+ Rec Yds & TD (+400 DK • CHI #30 WR2)", "team": "DET", "statType": "REC_YDS", "side": "OVER", "odds": "+400", "hit": "26.0%"}, {"player": "Colston Loveland (CHI) [Official]", "ceiling": "Anytime TD (+140 BetMGM • DET 11 TE TDs)", "team": "CHI", "statType": "TD", "side": "OVER", "odds": "+140", "hit": "48.2%"}, {"player": "Josh Allen (BUF) [Official]", "ceiling": "Anytime TD (-115 FD • 11 Rush TDs)", "team": "BUF", "statType": "TD", "side": "OVER", "odds": "-115", "hit": "58.6%"}]}, "NUCLEAR": {"title": "💥 Thanksgiving All-Game Touchdown Lotto (+2400)", "odds": "+2400", "trueProb": "6.2% (Cross-Game TD Lotto)", "bookProb": "4.0% (Implied)", "ev": "+55.0% EV", "units": "0.00 Units (Bonus Moonshot)", "thesis": "4-leg holiday TD combo across CHI@DET, PHI@DAL & KC@BUF (all backed by injury vacuums or #30+ defensive funnels).", "subtitle": "0.00 Units • +55.0% EV", "synergy": "4-leg Thanksgiving Day End-Zone Sniper stack.", "legs": [{"player": "Jameson Williams (DET) [Sniper]", "ceiling": "Anytime TD (+195 DK • 6 TDs L6)", "team": "DET", "statType": "TD", "side": "OVER", "odds": "+195", "hit": "39.2%"}, {"player": "Luther Burden III (CHI) [Sniper]", "ceiling": "Anytime TD (+145 DK • 3 TDs L4)", "team": "CHI", "statType": "TD", "side": "OVER", "odds": "+145", "hit": "44.5%"}, {"player": "CeeDee Lamb (DAL) [Official]", "ceiling": "Anytime TD (-130 • Ferguson OUT)", "team": "DAL", "statType": "TD", "side": "OVER", "odds": "-130", "hit": "61.2%"}, {"player": "Josh Allen (BUF) [Official]", "ceiling": "Anytime TD (-115 • 11 Rush TDs)", "team": "BUF", "statType": "TD", "side": "OVER", "odds": "-115", "hit": "58.6%"}]}},
 
         PLAYER_NET_POINT_IMPACT: {
           'Kenneth Walker III': 2.4,
@@ -21029,7 +21029,7 @@ updateBetSlipCartWidget();
           'Jahmyr Gibbs': 3.1
         },
 
-        SLATE_MATCHUPS: [{"key": "GB_LAR", "awayAbbr": "GB", "homeAbbr": "LAR", "away": "Green Bay Packers", "home": "Los Angeles Rams", "time": "Wed 8:00 PM ET \u2022 SoFi Stadium (Netflix)", "label": "GB @ LAR (Wed 8:00 PM ET)", "spread": "LAR -2.5", "bookSpread": "LAR -2.5", "bookHomeMargin": 2.5, "total": 44.5, "bookTotal": 44.5, "pace": "63.8 Plays/Gm", "projTotal": 45.5, "baseAwayScore": 21.0, "baseHomeScore": 24.5, "modelAwayScore": 21.0, "modelHomeScore": 24.5, "modelSpread": "LAR -3.5", "modelTotal": 45.5, "spreadDelta": 1.0, "totalDelta": 1.0, "injuryNote": "GB: Josh Jacobs (finger) OUT/Ltd; LAR: Puka Nacua (IR), Steve Avila (OUT), Kam Curl (toe)", "coachNote": "Both teams off Week 11 bye indoors at SoFi; LAR -2.5 key-number capture before -3.5", "status": "Wave 1 Lock"}, {"key": "CHI_DET", "awayAbbr": "CHI", "homeAbbr": "DET", "away": "Chicago Bears", "home": "Detroit Lions", "time": "Thu 1:00 PM ET \u2022 Ford Field (CBS)", "label": "CHI @ DET (Thu 1:00 PM ET)", "spread": "CHI -2.5", "bookSpread": "CHI -2.5", "bookHomeMargin": -2.5, "total": 55.5, "bookTotal": 55.5, "pace": "66.2 Plays/Gm", "projTotal": 56.0, "baseAwayScore": 28.5, "baseHomeScore": 27.5, "modelAwayScore": 28.5, "modelHomeScore": 27.5, "modelSpread": "CHI -1.0", "modelTotal": 56.0, "spreadDelta": 1.5, "totalDelta": 0.5, "injuryNote": "DET: Sam LaPorta (Ltd), 4 DNP early week; CHI: Kyler Gordon, Roschon Johnson on report", "coachNote": "Two 8-2 NFC North leaders indoors; total steamed 53.5 -> 55.5", "status": "Wave 1 Watch"}, {"key": "PHI_DAL", "awayAbbr": "PHI", "homeAbbr": "DAL", "away": "Philadelphia Eagles", "home": "Dallas Cowboys", "time": "Thu 4:30 PM ET \u2022 AT&T Stadium (FOX)", "label": "PHI @ DAL (Thu 4:30 PM ET)", "spread": "DAL -8.5", "bookSpread": "DAL -8.5", "bookHomeMargin": 8.5, "total": 47.5, "bookTotal": 47.5, "pace": "64.1 Plays/Gm", "projTotal": 48.0, "baseAwayScore": 19.5, "baseHomeScore": 28.5, "modelAwayScore": 19.5, "modelHomeScore": 28.5, "modelSpread": "DAL -9.0", "modelTotal": 48.0, "spreadDelta": 0.5, "totalDelta": 0.5, "injuryNote": "DAL: TE Jake Ferguson (knee/ankle) OUT multiple weeks", "coachNote": "Line moved DAL -1.5 -> -8.5; stage ATDs for Wed inactives", "status": "Wave 2 Watch"}, {"key": "KC_BUF", "awayAbbr": "KC", "homeAbbr": "BUF", "away": "Kansas City Chiefs", "home": "Buffalo Bills", "time": "Thu 8:20 PM ET \u2022 Highmark Stadium (NBC)", "label": "KC @ BUF (Thu 8:20 PM ET)", "spread": "BUF -2.5", "bookSpread": "BUF -2.5", "bookHomeMargin": 2.5, "total": 50.5, "bookTotal": 50.5, "pace": "64.5 Plays/Gm", "projTotal": 51.0, "baseAwayScore": 23.5, "baseHomeScore": 27.5, "modelAwayScore": 23.5, "modelHomeScore": 27.5, "modelSpread": "BUF -4.0", "modelTotal": 51.0, "spreadDelta": 1.5, "totalDelta": 0.5, "injuryNote": "BUF: TE Dalton Kincaid (thumb/ankle) expected OUT", "coachNote": "9-1 Bills at home vs 8-2 Chiefs; grab BUF -2.5 before -3 locks", "status": "Wave 1 Lock"}, {"key": "DEN_PIT", "awayAbbr": "DEN", "homeAbbr": "PIT", "away": "Denver Broncos", "home": "Pittsburgh Steelers", "time": "Fri 3:00 PM ET \u2022 Acrisure Stadium (Prime)", "label": "DEN @ PIT (Fri 3:00 PM ET)", "spread": "DEN -2.5", "bookSpread": "DEN -2.5", "bookHomeMargin": -2.5, "total": 37.5, "bookTotal": 37.5, "pace": "60.4 Plays/Gm", "projTotal": 37.0, "baseAwayScore": 20.5, "baseHomeScore": 16.5, "modelAwayScore": 20.5, "modelHomeScore": 16.5, "modelSpread": "DEN -4.0", "modelTotal": 37.0, "spreadDelta": 1.5, "totalDelta": -0.5, "injuryNote": "Low-total Black Friday trench game; monitor Pittsburgh wind Friday AM", "coachNote": "DEN ML steamed -141 -> -155; capture -2.5 under key number 3", "status": "Wave 1 Lock"}],
+        SLATE_MATCHUPS: [{"key": "CHI_DET", "awayAbbr": "CHI", "homeAbbr": "DET", "away": "Chicago Bears", "home": "Detroit Lions", "time": "Thu 1:00 PM ET • Ford Field (CBS)", "label": "CHI @ DET (Thu 1:00 PM ET)", "spread": "CHI -1.5", "bookSpread": "CHI -1.5", "bookHomeMargin": -1.5, "total": 55.5, "bookTotal": 55.5, "pace": "66.4 Plays/Gm", "projTotal": 56.5, "baseAwayScore": 28.5, "baseHomeScore": 28.0, "modelAwayScore": 28.5, "modelHomeScore": 28.0, "modelSpread": "CHI -0.5", "modelTotal": 56.5, "spreadDelta": 1.0, "totalDelta": 1.0, "injuryNote": "CHI: CB Kyler Gordon OUT, RB Roschon Johnson OUT, DB Elijah Hicks OUT | DET: CB Ennis Rakestraw OUT", "coachNote": "8-2 vs 8-2 NFC North dome shootout (55.5 total); target Loveland, Amon-Ra & JaMo", "status": "Thanksgiving Lock"}, {"key": "PHI_DAL", "awayAbbr": "PHI", "homeAbbr": "DAL", "away": "Philadelphia Eagles", "home": "Dallas Cowboys", "time": "Thu 4:30 PM ET • AT&T Stadium (FOX)", "label": "PHI @ DAL (Thu 4:30 PM ET)", "spread": "DAL -8.5", "bookSpread": "DAL -8.5", "bookHomeMargin": 8.5, "total": 47.5, "bookTotal": 47.5, "pace": "64.2 Plays/Gm", "projTotal": 48.0, "baseAwayScore": 19.5, "baseHomeScore": 28.5, "modelAwayScore": 19.5, "modelHomeScore": 28.5, "modelSpread": "DAL -9.0", "modelTotal": 48.0, "spreadDelta": 0.5, "totalDelta": 0.5, "injuryNote": "PHI: Jalen Hurts OUT (Joe Milton QB), CB Jonathan Jones OUT | DAL: TE Jake Ferguson OUT, G Tyler Booker OUT", "coachNote": "DAL 2H Team Total O13.5 (-120) + Joe Milton O31.5 Rush Yds + CeeDee Lamb TD", "status": "Thanksgiving Lock"}, {"key": "KC_BUF", "awayAbbr": "KC", "homeAbbr": "BUF", "away": "Kansas City Chiefs", "home": "Buffalo Bills", "time": "Thu 8:20 PM ET • Highmark Stadium (NBC)", "label": "KC @ BUF (Thu 8:20 PM ET)", "spread": "BUF -2.5", "bookSpread": "BUF -2.5", "bookHomeMargin": 2.5, "total": 46.5, "bookTotal": 46.5, "pace": "63.0 Plays/Gm", "projTotal": 45.5, "baseAwayScore": 21.5, "baseHomeScore": 24.0, "modelAwayScore": 21.5, "modelHomeScore": 24.0, "modelSpread": "BUF -2.5", "modelTotal": 45.5, "spreadDelta": 0.0, "totalDelta": -1.0, "injuryNote": "KC: RB Kenneth Walker III OUT (groin), OL Jaylon Moore OUT | BUF: TE Dalton Kincaid Q, CB Christian Benford Q", "coachNote": "🌬️ WEATHER CLIFF: 20-mph wind / 40-mph gusts — hammer Shakir Rec, Josh Allen TD & Emmett Johnson", "status": "Weather Cliff"}, {"key": "DEN_PIT", "awayAbbr": "DEN", "homeAbbr": "PIT", "away": "Denver Broncos", "home": "Pittsburgh Steelers", "time": "Fri 3:00 PM ET • Acrisure Stadium (Prime)", "label": "DEN @ PIT (Fri 3:00 PM ET)", "spread": "DEN -3.5", "bookSpread": "DEN -3.5", "bookHomeMargin": -3.5, "total": 36.5, "bookTotal": 36.5, "pace": "60.5 Plays/Gm", "projTotal": 36.0, "baseAwayScore": 20.5, "baseHomeScore": 15.5, "modelAwayScore": 20.5, "modelHomeScore": 15.5, "modelSpread": "DEN -5.0", "modelTotal": 36.0, "spreadDelta": 1.5, "totalDelta": -0.5, "injuryNote": "PIT: Aaron Rodgers BENCHED (Mason Rudolph starting QB) | DEN: S Taylor Rapp OUT", "coachNote": "BackupQBRegimeShiftEngine active — DEN -3.5 & Jonah Coleman GL TD script", "status": "Black Friday"}],
 
         ALT_FLOOR_HIST_BASE: { wins: 0, losses: 0, voids: 0 },
 
@@ -21322,7 +21322,7 @@ updateBetSlipCartWidget();
       };
 
       // Dedicated Non-VIP Near-Miss Value Pool for ALL 12 NFL Week 11 Matchups (separate from the Official 10-Pick VIP Board)
-      const NFL_SPOT_PLAYS_SNAPSHOT = [{"id": "nfl_sp1", "matchupKey": "GB_LAR", "matchup": "GB @ LAR (Wed 8:00 PM ET)", "player": "Blake Corum", "team": "LAR", "opp": "GB", "pos": "RB", "stat": "RUSH_YDS", "side": "OVER", "line": 55.5, "openLine": 55.5, "baseOdds": -114, "openOdds": -114, "maxPlayableLine": 58.5, "maxPlayableOdds": -128, "trueProb": 60.4, "missReason": "\ud83c\udfc8 Wave 1 Lock (+7.1% EV \u2022 58+ in 4 Straight)", "note": "Kyren Williams banged up (toe); Corum rushed for 100 yds on 17 carries last outing indoors at SoFi."}, {"id": "nfl_sp2", "matchupKey": "GB_LAR", "matchup": "GB @ LAR (Wed 8:00 PM ET)", "player": "Christian Watson", "team": "GB", "opp": "LAR", "pos": "WR", "stat": "ANYTIME_TD", "side": "OVER", "line": 0.5, "openLine": 0.5, "baseOdds": 178, "openOdds": 178, "maxPlayableLine": 0.5, "maxPlayableOdds": 155, "trueProb": 41.2, "missReason": "\ud83c\udfaf End-Zone Sniper\u2122 (+5.2% EV \u2022 7 TDs in 10 Gms)", "note": "Josh Jacobs OUT forces GB (#2 pass offense) to throw; LAR safety Kam Curl missed practice (toe)."}, {"id": "nfl_sp3", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "player": "Detroit Lions", "team": "DET", "opp": "CHI", "pos": "TEAM", "stat": "TEAM_TOTAL", "side": "OVER", "line": 27.5, "openLine": 27.5, "baseOdds": 100, "openOdds": 100, "maxPlayableLine": 28.5, "maxPlayableOdds": -112, "trueProb": 54.8, "missReason": "\u2600\ufe0f Wave 2 Watch (+4.8% EV \u2022 55.5 Dome Total)", "note": "Highest total of Week 12 at Ford Field; verify Sam LaPorta Wednesday injury designation."}, {"id": "nfl_sp4", "matchupKey": "PHI_DAL", "matchup": "PHI @ DAL (Thu 4:30 PM ET)", "player": "Dallas Cowboys", "team": "DAL", "opp": "PHI", "pos": "TEAM", "stat": "TEAM_TOTAL", "side": "OVER", "line": 29.5, "openLine": 29.5, "baseOdds": -112, "openOdds": -112, "maxPlayableLine": 30.5, "maxPlayableOdds": -125, "trueProb": 55.4, "missReason": "\u2600\ufe0f Wave 2 Watch (+2.6% EV \u2022 Ferguson OUT)", "note": "Line steamed DAL -1.5 to -8.5 vs 3-7 Eagles; TE Jake Ferguson out multiple weeks."}, {"id": "nfl_sp5", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "player": "Josh Allen", "team": "BUF", "opp": "KC", "pos": "QB", "stat": "PASS_YDS", "side": "OVER", "line": 228.5, "openLine": 228.5, "baseOdds": -114, "openOdds": -114, "maxPlayableLine": 235.5, "maxPlayableOdds": -125, "trueProb": 57.2, "missReason": "\ud83d\udca8 Wave 2 Wind Gate (+3.9% EV \u2022 252.7 YPG Avg)", "note": "Line sits 24 yds below Allen's season pace; confirm Orchard Park wind < 15 mph Thursday AM."}, {"id": "nfl_sp6", "matchupKey": "DEN_PIT", "matchup": "DEN @ PIT (Fri 3:00 PM ET)", "player": "Denver Broncos", "team": "DEN", "opp": "PIT", "pos": "TEAM", "stat": "SPREAD", "side": "OVER", "line": -2.5, "openLine": -2.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": -2.5, "maxPlayableOdds": -122, "trueProb": 57.9, "missReason": "\ud83c\udfc8 Wave 1 Key-Number (+5.5% EV \u2022 ML -155)", "note": "Grab -2.5 under key number 3 in a 37.5 low-total Black Friday game."}];
+      const NFL_SPOT_PLAYS_SNAPSHOT = [{"id": "nfl_sp1", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "player": "Colston Loveland", "team": "CHI", "opp": "DET", "pos": "TE", "stat": "REC_YDS", "side": "OVER", "line": 52.5, "openLine": 52.5, "baseOdds": -113, "openOdds": -113, "maxPlayableLine": 56.5, "maxPlayableOdds": -125, "trueProb": 61.8, "missReason": "🏈 #1 Thanksgiving Prop (+15.4% EV • DET #31 vs TE)", "note": "54+ yds in 4 of 5 since Caleb Williams returned & Kmet went down; DET allows #32 MOF & 11 TE TDs."}, {"id": "nfl_sp2", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "player": "Khalil Shakir", "team": "BUF", "opp": "KC", "pos": "WR", "stat": "REC", "side": "OVER", "line": 3.5, "openLine": 3.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 4.5, "maxPlayableOdds": -125, "trueProb": 62.4, "missReason": "🌬️ Weather-Cliff Slot Lock (+16.7% EV • 7.0 Rec/Gm vs KC)", "note": "7, 8, 6, 7 catches in last 4 vs KC; 20-mph wind + Kincaid Q supercharge short-ADOT slot volume."}, {"id": "nfl_sp3", "matchupKey": "PHI_DAL", "matchup": "PHI @ DAL (Thu 4:30 PM ET)", "player": "Joe Milton", "team": "PHI", "opp": "DAL", "pos": "QB", "stat": "RUSH_YDS", "side": "OVER", "line": 31.5, "openLine": 31.5, "baseOdds": -114, "openOdds": -114, "maxPlayableLine": 35.5, "maxPlayableOdds": -125, "trueProb": 59.6, "missReason": "🏃 Mobile QB Funnel (+11.9% EV • DAL #30 vs QB Rush)", "note": "DAL allows 24.2 QB rush YPG (Lamar 50, Daniels 69, Dart 54); trailing -8.5 script drives scrambles."}, {"id": "nfl_sp4", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "player": "Josh Downs", "team": "KC", "opp": "BUF", "pos": "WR", "stat": "REC_YDS", "side": "OVER", "line": 39.5, "openLine": 39.5, "baseOdds": -125, "openOdds": -125, "maxPlayableLine": 43.5, "maxPlayableOdds": -130, "trueProb": 60.2, "missReason": "🎯 Quick-Separation Slot (+8.4% EV • Benford Q)", "note": "59 & 53 rec yds in first 2 KC games on 8/10 targets; wind-resistant quick-game slot separation."}];
 
       state.activeSport = 'NBA';
 
@@ -21589,74 +21589,9 @@ updateBetSlipCartWidget();
         }
       };
 
-      const NFL_UNDERTAXED_COPULA_SGPS = [
-        {
-          badge: '🟢 #1 LOW-TAX SCRIPT COPULA (+13.70% LIFT)',
-          title: 'PIT @ PHI: Jaylen Warren Rush Yds + Joe Milton III Pass Attempts',
-          odds: 'Fair +263 (Target +295+)',
-          lift: '+13.70% Joint Copula Lift (27.6% vs 24.2% Indep)',
-          legs: ['Jaylen Warren (PIT) Over 74.1 Rushing Yards', 'Joe Milton III (PHI) Over 21.0 Pass Attempts'],
-          why: 'PIT -3.5 + 51% rain: When Pittsburgh leans on Warren to hold a lead, Philadelphia is forced into trailing dropbacks with Milton III.'
-        },
-        {
-          badge: '🟢 #2 LOW-TAX SCRIPT COPULA (+13.65% LIFT)',
-          title: 'BAL @ CAR: Chuba Hubbard Rush Yds + Jacoby Brissett Pass Attempts',
-          odds: 'Fair +270 (Target +300+)',
-          lift: '+13.65% Joint Copula Lift (27.1% vs 23.8% Indep)',
-          legs: ['Chuba Hubbard (CAR) Over 66.5 Rushing Yards', 'Jacoby Brissett (BAL) Over 28.0 Pass Attempts'],
-          why: 'CAR -2.5 home favorite grinding clock with Hubbard forces Jacoby Brissett (Lamar/Huntley IR) into 28+ trailing attempts.'
-        },
-        {
-          badge: '🟢 #3 LOW-TAX SCRIPT COPULA (+13.22% LIFT)',
-          title: 'JAX @ NYG: Bhayshul Tuten Rush Yds + J.J. McCarthy Pass Attempts',
-          odds: 'Fair +278 (Target +310+)',
-          lift: '+13.22% Joint Copula Lift (26.5% vs 23.4% Indep)',
-          legs: ['Bhayshul Tuten (JAX) Over 62.7 Rushing Yards', 'J.J. McCarthy (NYG) Over 30.0 Pass Attempts'],
-          why: 'JAX -5.5 road favorite bleeding clock with Tuten forces McCarthy and Malik Nabers into a 30+ attempt comeback script.'
-        },
-        {
-          badge: '🟢 #4 LOW-TAX SCRIPT COPULA (+12.79% LIFT)',
-          title: 'MIN @ SF (Mexico City): Christian McCaffrey Rush Yds + Kirk Cousins Pass Att',
-          odds: 'Fair +264 (Target +295+)',
-          lift: '+12.79% Joint Copula Lift (27.5% vs 24.4% Indep)',
-          legs: ['Christian McCaffrey (SF) Over 56.3 Rushing Yards', 'Kirk Cousins (MIN) Over 32.0 Pass Attempts'],
-          why: '7,200 ft Mexico City altitude + 71% rain: SF -3.0 rushing lead with CMC pushes Cousins into 32+ pass attempts.'
-        },
-        {
-          badge: '🟢 #5 LOW-TAX SCRIPT COPULA (+12.70% LIFT)',
-          title: 'TB @ DET (Dome): Jahmyr Gibbs Rush Yds + Baker Mayfield Pass Attempts',
-          odds: 'Fair +270 (Target +300+)',
-          lift: '+12.70% Joint Copula Lift (27.0% vs 24.0% Indep)',
-          legs: ['Jahmyr Gibbs (DET) Over 95.8 Rushing Yards', 'Baker Mayfield (TB) Over 34.0 Pass Attempts'],
-          why: 'DET -5.5 behind #2 run-blocking OL lets Gibbs rip explosive Dome runs while Tampa Bay plays catch-up through the air.'
-        },
-        {
-          badge: '🟢 #6 LOW-TAX SCRIPT COPULA (+10.84% LIFT)',
-          title: 'TEN @ DAL (Dome): Javonte Williams Rush Yds + Cam Ward Pass Attempts',
-          odds: 'Fair +278 (Target +310+)',
-          lift: '+10.84% Joint Copula Lift (26.5% vs 23.9% Indep)',
-          legs: ['Javonte Williams (DAL) Over 66.1 Rushing Yards', 'Cam Ward (TEN) Over 31.0 Pass Attempts'],
-          why: 'DAL -7.5 in 54.5 Dome: Javonte Williams closes out the 2nd half while Cam Ward airs it out trailing.'
-        },
-        {
-          badge: '🟢 #7 LOW-TAX 3-WAY COPULA (+7.54% LIFT)',
-          title: 'TEN @ DAL: Tony Pollard Rec + DAL Pass Rush Sacks + Under 54.5',
-          odds: 'Fair +523 (Target +585+)',
-          lift: '+7.54% Joint Copula Lift (16.0% vs 14.9% Indep)',
-          legs: ['Tony Pollard (TEN) Over 3.5 Receptions', 'Dallas Defense Over 4.5 Sacks', 'Game Total Under 54.5'],
-          why: 'Un-taxed 3-way secondary correlation: Heavy Dallas sacks kill drives (Under 54.5) while forcing quick checkdowns to Tony Pollard.'
-        },
-        {
-          badge: '🟢 #8 LOW-TAX 3-WAY COPULA (+7.14% LIFT)',
-          title: 'LV @ DEN: Ashton Jeanty Rec + DEN Pass Rush Sacks + Under 40.5',
-          odds: 'Fair +564 (Target +625+)',
-          lift: '+7.14% Joint Copula Lift (15.1% vs 14.1% Indep)',
-          legs: ['Ashton Jeanty (LV) Over 3.5 Receptions', 'Denver Defense Over 5.5 Sacks', 'Game Total Under 40.5'],
-          why: 'LV surrendered 6 sacks last week -> DEN 26-sack pass rush stalls Raiders drives (Under 40.5) and funnels dump-offs to Jeanty.'
-        }
-      ];
+      const NFL_UNDERTAXED_COPULA_SGPS = [{"badge": "🟢 #1 THANKSGIVING SHOOTOUT COPULA (+14.2% LIFT)", "title": "CHI @ DET (55.5 Dome): Colston Loveland Rec Yds + Amon-Ra St. Brown TD", "odds": "Fair +210 (Target +240+)", "lift": "+14.2% Joint Copula Lift (32.2% vs 28.2% Indep)", "legs": ["Colston Loveland (CHI) Over 52.5 Receiving Yards (-113 FD)", "Amon-Ra St. Brown (DET) Anytime TD (-130 Fanatics)"], "why": "55.5 indoor total: DET allows #31 DVOA & league-high 11 TDs to TEs, while CHI slot CB Kyler Gordon is OUT."}, {"badge": "🟢 #2 WEATHER-CLIFF SHORT-GAME COPULA (+13.8% LIFT)", "title": "KC @ BUF (20-MPH Wind): Khalil Shakir Receptions + Josh Allen Anytime TD", "odds": "Fair +215 (Target +245+)", "lift": "+13.8% Joint Copula Lift (31.8% vs 27.9% Indep)", "legs": ["Khalil Shakir (BUF) Over 3.5 Receptions (-115 Caesars)", "Josh Allen (BUF) Anytime TD (-115 FanDuel)"], "why": "NonLinearWeatherCliffEngine (20-mph wind / 40-mph gusts): Buffalo shifts to short-ADOT slot dump-offs (Shakir 6+ rec in 4 straight vs KC) and Allen goal-line power."}, {"badge": "🟢 #3 TRAILING-SCRIPT SCRAMBLE COPULA (+13.1% LIFT)", "title": "PHI @ DAL (DAL -8.5): Joe Milton Rush Yds + Will Shipley Rec Yds", "odds": "Fair +240 (Target +275+)", "lift": "+13.1% Joint Copula Lift (29.4% vs 26.0% Indep)", "legs": ["Joe Milton (PHI) Over 31.5 Rushing Yards (-114)", "Will Shipley (PHI) Over 5.5 Receiving Yards (-110 BetMGM)"], "why": "DAL -8.5 home favorite forces trailing dropbacks: Dallas allows 3rd-most QB rush yds (24.2/gm) & #32 DVOA vs short RB passes (38 RB rec yds/gm)."}, {"badge": "🟢 #4 BLACK FRIDAY QB-BENCHING COPULA (+12.6% LIFT)", "title": "DEN @ PIT (36.5 Total): Jonah Coleman Anytime TD + DEN -3.5", "odds": "Fair +210 (Target +235+)", "lift": "+12.6% Joint Copula Lift (32.3% vs 28.7% Indep)", "legs": ["Jonah Coleman (DEN) Anytime TD (-125)", "Denver Broncos -3.5 (-105)"], "why": "Steelers benched Aaron Rodgers for Mason Rudolph; Denver controls field position and grinds clock with Coleman at the goal line."}];
 
-      const NFL_ENDZONE_SNIPER_POOL = [{"id": "ez_core_1", "category": "CORE_VALUE", "categoryBadge": "\ud83d\udc8e CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "CIN_WAS", "matchup": "CIN @ WAS (MNF)", "player": "Ja'Marr Chase", "team": "CIN", "pos": "WR", "opp": "WAS", "liveOdds": -115, "bestBook": "DraftKings", "trueProb": 58.6, "ev": "+9.4% EV", "units": "1.0u", "note": "7 TDs in 9 games \u2022 CIN 71.1% red-zone TD conversion rate vs WAS secondary."}, {"id": "ez_core_2", "category": "CORE_VALUE", "categoryBadge": "\ud83d\udc8e CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "CIN_WAS", "matchup": "CIN @ WAS (MNF)", "player": "Chase Brown", "team": "CIN", "pos": "RB", "opp": "WAS", "liveOdds": 110, "bestBook": "FanDuel", "trueProb": 52.4, "ev": "+10.0% EV", "units": "0.5u", "note": "Positive xTD regression buy: 1 rush TD on 113 carries + 25% red-zone touch share."}, {"id": "ez_core_3", "category": "CORE_VALUE", "categoryBadge": "\ud83d\udc8e CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "TB_DET", "matchup": "TB @ DET", "player": "Bucky Irving", "team": "TB", "pos": "RB", "opp": "DET", "liveOdds": 115, "bestBook": "Circa", "trueProb": 57.1, "ev": "+19.3% EV", "units": "1.0u", "note": "#1 Hold-Adjusted +EV TD play on slate \u2022 Positive xTD regression indoors."}, {"id": "ez_core_4", "category": "CORE_VALUE", "categoryBadge": "\ud83d\udc8e CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "LV_DEN", "matchup": "LV @ DEN", "player": "Jonah Coleman", "team": "DEN", "pos": "RB", "opp": "LV", "liveOdds": -133, "bestBook": "Kalshi", "trueProb": 65.7, "ev": "+11.6% EV", "units": "1.0u", "note": "72% goal-line carry share in a DEN -10.5 positive game script."}, {"id": "ez_core_5", "category": "CORE_VALUE", "categoryBadge": "\ud83d\udc8e CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "BAL_CAR", "matchup": "BAL @ CAR", "player": "Chuba Hubbard", "team": "CAR", "pos": "RB", "opp": "BAL", "liveOdds": -120, "bestBook": "NoVig", "trueProb": 61.4, "ev": "+9.1% EV", "units": "1.0u", "note": "BAL missing interior anchor DT Madubuike \u2022 Heavy inside-5 carry share."}, {"id": "ez_long_1", "category": "LONGSHOT", "categoryBadge": "\ud83d\ude80 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "BAL_CAR", "matchup": "BAL @ CAR", "player": "Tetairoa McMillan", "team": "CAR", "pos": "WR", "opp": "BAL", "liveOdds": 203, "bestBook": "Kalshi", "trueProb": 41.1, "ev": "+8.5% EV", "units": "0.5u", "note": "Big-bodied red-zone fade target with positive xTD regression against depleted secondary."}, {"id": "ez_long_2", "category": "LONGSHOT", "categoryBadge": "\ud83d\ude80 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "CIN_WAS", "matchup": "CIN @ WAS (MNF)", "player": "Tee Higgins", "team": "CIN", "pos": "WR", "opp": "WAS", "liveOdds": 185, "bestBook": "DraftKings", "trueProb": 45.5, "ev": "+7.1% EV", "units": "0.5u", "note": "6 TDs on season \u2022 End-zone jump-ball mismatch when WAS shades safety to Chase."}, {"id": "ez_long_3", "category": "LONGSHOT", "categoryBadge": "\ud83d\ude80 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "CIN_WAS", "matchup": "CIN @ WAS (MNF)", "player": "Stefon Diggs", "team": "WAS", "pos": "WR", "opp": "CIN", "liveOdds": 210, "bestBook": "FanDuel", "trueProb": 42.0, "ev": "+7.1% EV", "units": "0.5u", "note": "6 TDs on season \u2022 89.5% route participation in high-total MNF script."}, {"id": "ez_long_4", "category": "LONGSHOT", "categoryBadge": "\ud83d\ude80 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "ARI_KC", "matchup": "ARI @ KC", "player": "Noah Gray", "team": "KC", "pos": "TE", "opp": "ARI", "liveOdds": 450, "bestBook": "BetMGM", "trueProb": 22.5, "ev": "+23.8% EV", "units": "0.5u", "note": "KC 12-personnel red-zone leak plays while defenses double Kelce & Rice inside the 10."}, {"id": "ez_trap_1", "category": "TRAP_FADE", "categoryBadge": "\ud83e\udea4 FAMOUS JERSEY TRAP", "badgeStyle": "bg-rose-500/20 text-rose-300 border-rose-400/50", "matchupKey": "ARI_KC", "matchup": "ARI @ KC", "player": "Travis Kelce", "team": "KC", "pos": "TE", "opp": "ARI", "liveOdds": 165, "bestBook": "Retail Avg", "trueProb": 31.2, "ev": "-17.2% EV (FADE)", "units": "0.00u", "note": "Public name-brand tax: books imply 37.7% despite declining red-zone target share."}, {"id": "ez_trap_2", "category": "TRAP_FADE", "categoryBadge": "\ud83e\udea4 FAMOUS JERSEY TRAP", "badgeStyle": "bg-rose-500/20 text-rose-300 border-rose-400/50", "matchupKey": "TEN_DAL", "matchup": "TEN @ DAL", "player": "CeeDee Lamb", "team": "DAL", "pos": "WR", "opp": "TEN", "liveOdds": -155, "bestBook": "Retail Avg", "trueProb": 54.2, "ev": "-10.8% EV (FADE)", "units": "0.00u", "note": "Great Top-10 coverability floor, but -155 (60.8% implied) charges a 35\u00a2 retail tax."}, {"id": "ez_trap_3", "category": "TRAP_FADE", "categoryBadge": "\ud83e\udea4 FAMOUS JERSEY TRAP", "badgeStyle": "bg-rose-500/20 text-rose-300 border-rose-400/50", "matchupKey": "BAL_CAR", "matchup": "BAL @ CAR", "player": "Derrick Henry", "team": "BAL", "pos": "RB", "opp": "CAR", "liveOdds": -195, "bestBook": "Retail Avg", "trueProb": 60.4, "ev": "-8.6% EV (FADE)", "units": "0.00u", "note": "60.4% true probability does not justify laying -195 (66.1% implied) as a straight bet."}];
+      const NFL_ENDZONE_SNIPER_POOL = [{"id": "ez_core_1", "category": "CORE_VALUE", "categoryBadge": "💎 CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM)", "player": "Colston Loveland", "team": "CHI", "pos": "TE", "opp": "DET", "liveOdds": 140, "bestBook": "BetMGM", "trueProb": 48.2, "ev": "+15.7% EV", "units": "1.0u", "note": "DET allowed league-high 11 TDs to TEs (#31 DVOA vs TE); Loveland scored in 5 of last 8 with Caleb Williams."}, {"id": "ez_core_2", "category": "CORE_VALUE", "categoryBadge": "💎 CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM)", "player": "Josh Allen", "team": "BUF", "pos": "QB", "opp": "KC", "liveOdds": -115, "bestBook": "FanDuel", "trueProb": 58.6, "ev": "+9.5% EV", "units": "1.5u", "note": "11 rushing TDs in 10 games; 20-mph wind & 40-mph gusts tilt Buffalo to QB power inside the 10."}, {"id": "ez_core_3", "category": "CORE_VALUE", "categoryBadge": "💎 CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "PHI_DAL", "matchup": "PHI @ DAL (Thu 4:30 PM)", "player": "CeeDee Lamb", "team": "DAL", "pos": "WR", "opp": "PHI", "liveOdds": -130, "bestBook": "Fanatics", "trueProb": 61.2, "ev": "+8.3% EV", "units": "1.5u", "note": "TE Jake Ferguson OUT concentrates Dallas red-zone looks onto Lamb in DAL -8.5 home script."}, {"id": "ez_core_4", "category": "CORE_VALUE", "categoryBadge": "💎 CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM)", "player": "Amon-Ra St. Brown", "team": "DET", "pos": "WR", "opp": "CHI", "liveOdds": -130, "bestBook": "Fanatics", "trueProb": 60.0, "ev": "+6.2% EV", "units": "1.5u", "note": "CHI starting slot CB Kyler Gordon OUT (shoulder); St. Brown dominates backup slot DBs in 55.5 dome total."}, {"id": "ez_core_5", "category": "CORE_VALUE", "categoryBadge": "💎 CORE +EV VALUE", "badgeStyle": "bg-emerald-500/20 text-emerald-300 border-emerald-400/50", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM)", "player": "Emmett Johnson", "team": "KC", "pos": "RB", "opp": "BUF", "liveOdds": -145, "bestBook": "BetMGM", "trueProb": 62.4, "ev": "+5.6% EV", "units": "1.0u", "note": "Kenneth Walker III OUT (groin) locks bellcow RB1 red-zone role vs BUF #22 DVOA run defense."}, {"id": "ez_long_1", "category": "LONGSHOT", "categoryBadge": "🚀 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM)", "player": "Jameson Williams", "team": "DET", "pos": "WR", "opp": "CHI", "liveOdds": 195, "bestBook": "DraftKings", "trueProb": 39.2, "ev": "+15.6% EV", "units": "0.5u", "note": "6 TDs in last 6 games vs CHI #30 DVOA vs WR2 & #30 vs deep pass; 144 yds & TD on Thanksgiving last year."}, {"id": "ez_long_2", "category": "LONGSHOT", "categoryBadge": "🚀 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM)", "player": "Luther Burden III", "team": "CHI", "pos": "WR", "opp": "DET", "liveOdds": 145, "bestBook": "DraftKings", "trueProb": 44.5, "ev": "+9.0% EV", "units": "0.5u", "note": "Scored in 3 of last 4 games; 22% team-leading target share & 11 RZ targets vs DET 66% RZ TD rate allowed."}, {"id": "ez_long_3", "category": "LONGSHOT", "categoryBadge": "🚀 LONGSHOT SNIPER", "badgeStyle": "bg-amber-500/20 text-amber-300 border-amber-400/50", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM)", "player": "Sam LaPorta", "team": "DET", "pos": "TE", "opp": "CHI", "liveOdds": 180, "bestBook": "FanDuel", "trueProb": 38.8, "ev": "+8.6% EV", "units": "0.5u", "note": "Full clearance off injury report; prime inside-10 MOF target in 55.5 dome total."}];
 
       state.nflAtdCategoryFilter = 'TOP_10';
       state.nflEndZoneBodyCollapsed = false;
@@ -21691,18 +21626,7 @@ updateBetSlipCartWidget();
       };
 
       
-      const NFL_TOP10_MOST_LIKELY_TD = [
-        { rank: 1, player: 'James Cook III', team: 'BUF', pos: 'RB', opp: 'MIA', matchup: 'MIA @ BUF', tdProb: 73.1, odds: '-180', book: 'DraftKings', ev: '+10.3% EV', role: 'BUF -16.5 script • Primary RZ & GL back', unit: '1.0u' },
-        { rank: 2, player: 'Christian McCaffrey', team: 'SF', pos: 'RB', opp: 'MIN', matchup: 'MIN @ SF', tdProb: 72.1, odds: '-190', book: 'FanDuel', ev: '+6.4% EV', role: '8-game TD streak • 78% inside-10 touch share', unit: '1.0u' },
-        { rank: 3, player: 'Emmett Johnson', team: 'KC', pos: 'RB', opp: 'ARI', matchup: 'ARI @ KC', tdProb: 69.1, odds: '-175', book: 'BetMGM', ev: '+5.8% EV', role: 'Walker III OUT • KC -15 heavy positive script', unit: '1.0u' },
-        { rank: 4, player: "D'Andre Swift", team: 'CHI', pos: 'RB', opp: 'NO', matchup: 'NO @ CHI', tdProb: 66.5, odds: '-138', book: 'Consensus', ev: '+11.1% EV', role: '80% rain run-heavy script • CHI -10.5', unit: '1.0u' },
-        { rank: 5, player: 'Javonte Williams', team: 'DAL', pos: 'RB', opp: 'TEN', matchup: 'TEN @ DAL', tdProb: 66.0, odds: '-150', book: 'DraftKings', ev: '+6.1% EV', role: '54.5 dome total • Primary DAL goal-line back', unit: '1.0u' },
-        { rank: 6, player: 'Jonah Coleman', team: 'DEN', pos: 'RB', opp: 'LV', matchup: 'LV @ DEN', tdProb: 65.7, odds: '-133', book: 'Kalshi', ev: '+11.6% EV', role: '72% goal-line carry share • DEN -10.5', unit: '1.0u' },
-        { rank: 7, player: 'Jahmyr Gibbs', team: 'DET', pos: 'RB', opp: 'TB', matchup: 'TB @ DET', tdProb: 64.0, odds: '-155', book: 'FanDuel', ev: '+5.2% EV', role: '13 TDs in 9 games • Indoor explosive + RZ dual threat', unit: '1.0u' },
-        { rank: 8, player: 'Chuba Hubbard', team: 'CAR', pos: 'RB', opp: 'BAL', matchup: 'BAL @ CAR', tdProb: 61.4, odds: '-120', book: 'NoVig', ev: '+9.1% EV', role: 'BAL missing DT Madubuike • Heavy inside-5 share', unit: '1.0u' },
-        { rank: 9, player: 'Derrick Henry', team: 'BAL', pos: 'RB', opp: 'CAR', matchup: 'BAL @ CAR', tdProb: 60.4, odds: '-145', book: 'BetMGM', ev: '+4.8% EV', role: '78% goal-line share • 11 season TDs', unit: '0.5u' },
-        { rank: 10, player: 'CeeDee Lamb', team: 'DAL', pos: 'WR', opp: 'TEN', matchup: 'TEN @ DAL', tdProb: 54.2, odds: '-125', book: 'Consensus', ev: 'Top WR Floor', role: '#1 WR in raw TD coverability • 54.5 dome shootout', unit: '0.5u' }
-      ];
+      const NFL_TOP10_MOST_LIKELY_TD = [{"rank": 1, "player": "Jahmyr Gibbs", "team": "DET", "pos": "RB", "opp": "CHI", "matchup": "CHI @ DET (Thu 1:00 PM)", "tdProb": 72.0, "odds": "-270", "book": "Consensus", "ev": "Anchor Floor", "role": "55.5 dome total • #1 raw TD probability on Week 12 slate", "unit": "0.5u (SGP)"}, {"rank": 2, "player": "Javonte Williams", "team": "DAL", "pos": "RB", "opp": "PHI", "matchup": "PHI @ DAL (Thu 4:30 PM)", "tdProb": 64.8, "odds": "-180", "book": "FanDuel", "ev": "+3.4% EV", "role": "DAL -8.5 home favorite • Jake Ferguson OUT boosts GL carries", "unit": "1.0u"}, {"rank": 3, "player": "Bhayshul Tuten", "team": "JAX", "pos": "RB", "opp": "TEN", "matchup": "TEN @ JAX (Sun 1:00 PM)", "tdProb": 65.0, "odds": "-175", "book": "DraftKings", "ev": "+3.9% EV", "role": "JAX -14.5 massive positive script • Primary GL back", "unit": "1.0u"}, {"rank": 4, "player": "Emmett Johnson", "team": "KC", "pos": "RB", "opp": "BUF", "matchup": "KC @ BUF (Thu 8:20 PM)", "tdProb": 62.4, "odds": "-145", "book": "BetMGM", "ev": "+5.6% EV", "role": "Kenneth Walker III OUT (groin) • BUF #22 DVOA run D + 20 mph wind", "unit": "1.0u"}, {"rank": 5, "player": "CeeDee Lamb", "team": "DAL", "pos": "WR", "opp": "PHI", "matchup": "PHI @ DAL (Thu 4:30 PM)", "tdProb": 61.2, "odds": "-130", "book": "Fanatics", "ev": "+8.3% EV", "role": "Jake Ferguson OUT • #1 DAL red-zone target indoors vs PHI", "unit": "1.5u"}, {"rank": 6, "player": "Amon-Ra St. Brown", "team": "DET", "pos": "WR", "opp": "CHI", "matchup": "CHI @ DET (Thu 1:00 PM)", "tdProb": 60.0, "odds": "-130", "book": "Fanatics", "ev": "+6.2% EV", "role": "CHI Slot CB Kyler Gordon OUT • 55.5 dome total", "unit": "1.5u"}, {"rank": 7, "player": "Josh Allen", "team": "BUF", "pos": "QB", "opp": "KC", "matchup": "KC @ BUF (Thu 8:20 PM)", "tdProb": 58.6, "odds": "-115", "book": "FanDuel", "ev": "+9.5% EV", "role": "11 rush TDs in 10 games • 20-mph wind boosts QB goal-line power", "unit": "1.5u"}, {"rank": 8, "player": "D'Andre Swift", "team": "CHI", "pos": "RB", "opp": "DET", "matchup": "CHI @ DET (Thu 1:00 PM)", "tdProb": 57.4, "odds": "-130", "book": "Fanatics", "ev": "+1.6% EV", "role": "Roschon Johnson OUT • 55.5 highest total of Week 12", "unit": "0.5u"}, {"rank": 9, "player": "Jonah Coleman", "team": "DEN", "pos": "RB", "opp": "PIT", "matchup": "DEN @ PIT (Fri 3:00 PM)", "tdProb": 56.8, "odds": "-125", "book": "DraftKings", "ev": "+2.3% EV", "role": "Steelers benched Rodgers (Rudolph QB) • DEN -3.5 positive script", "unit": "1.0u"}, {"rank": 10, "player": "James Cook", "team": "BUF", "pos": "RB", "opp": "KC", "matchup": "KC @ BUF (Thu 8:20 PM)", "tdProb": 55.2, "odds": "-105", "book": "BetMGM", "ev": "+7.8% EV", "role": "20-mph wind weather cliff boosts BUF ground game vs KC", "unit": "1.0u"}];
 
       
       const NFL_TD_WEEKLY_ARCHIVE = {
