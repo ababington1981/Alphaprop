@@ -2338,7 +2338,7 @@ body { font-variant-numeric: tabular-nums; }
           <div>
             <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 font-bold text-[10px] uppercase">🚦 Buy-Stop™ Line Check</span>
-              <span id="recheckTimestampBadge">Pulse 3 Locked: Tue Nov 24, 5:15 PM CT</span>
+              <span id="recheckTimestampBadge">Pulse 1 Armed: Wed Nov 25, 5:00 AM CT</span>
             </div>
             <p class="text-xs text-slate-300 mt-1">Click any status pill below to filter the board, or use the <strong>Matchup Value Finder</strong> to spot un-steamed plays in any game.</p>
           </div>
@@ -2841,13 +2841,11 @@ body { font-variant-numeric: tabular-nums; }
             <button type="button" id="atdTabBtnTrap" onclick="window.setNflAtdFilter('TRAP_FADE')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-950 text-rose-300 border border-rose-500/40 cursor-pointer transition">🪤 Famous Traps (3)</button>
             <button type="button" id="atdTabBtnAll" onclick="window.setNflAtdFilter('ALL')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-950 text-slate-200 border border-white/15 cursor-pointer transition">All Value &amp; Traps (12)</button>
             <select id="nflAtdTabMatchupFilter" onchange="window.renderNflEndZoneSniper()" class="w-full sm:w-auto max-w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-cyan-500/40 text-xs font-mono-code font-bold text-white cursor-pointer">
-              <option value="ALL">All NFL Games</option>
-              <option value="CIN_WAS">CIN @ WAS (MNF)</option>
-              <option value="BAL_CAR">BAL @ CAR</option>
-              <option value="TB_DET">TB @ DET</option>
-              <option value="ARI_KC">ARI @ KC</option>
-              <option value="TEN_DAL">TEN @ DAL</option>
-              <option value="LV_DEN">LV @ DEN</option>
+              <option value="ALL">All Week 12 Holiday Games</option>
+              <option value="CHI_DET">CHI @ DET (Thu 1:00 PM ET)</option>
+              <option value="PHI_DAL">PHI @ DAL (Thu 4:30 PM ET)</option>
+              <option value="KC_BUF">KC @ BUF (Thu 8:20 PM ET)</option>
+              <option value="DEN_PIT">DEN @ PIT (Fri 3:00 PM ET)</option>
             </select>
           </div>
         </div>
@@ -3102,7 +3100,7 @@ body { font-variant-numeric: tabular-nums; }
           <div>
             <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">💎 DFS Pick'em Optimizer (2–8 Picks)</span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">🔥 Friday, Nov. 20 • 9-Game NBA Cup Slate</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">🔥 Wed, Nov. 25 • 9-Game Thanksgiving Eve Slate</span>
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-amber-500/15 text-amber-300 border border-amber-500/30">⭐⭐⭐⭐⭐ 0–100 Rating + Live Bump Check</span>
             </div>
             <h2 class="text-lg sm:text-xl font-black text-white mt-1.5 tracking-tight">PrizePicks • Underdog • Sleeper • Betr • Courtside Daily Hub</h2>
@@ -5998,18 +5996,7 @@ body { font-variant-numeric: tabular-nums; }
 
     const PROP_SYNDICATE_META = {"p1": {"l10": [19, 17, 22, 16, 20, 24, 15, 21, 18, 23], "cv": 0.19, "tier": "TIER_A", "pulseWave": "🌅 Pulse 1: 5 AM Opener Lock"}, "p2": {"l10": [25, 22, 24, 19, 27, 21, 26, 23, 28, 44], "cv": 0.19, "tier": "TIER_A", "pulseWave": "🌅 Pulse 1: 5 AM Opener Lock"}, "p3": {"l10": [28, 20, 34, 39, 19, 25, 23, 11, 37, 23], "cv": 0.19, "tier": "TIER_A", "pulseWave": "🌅 Pulse 1: 5 AM Opener Lock"}, "p4": {"l10": [26, 24, 28, 22, 29, 25, 21, 27, 24, 30], "cv": 0.19, "tier": "TIER_A", "pulseWave": "🌅 Pulse 1: 5 AM Opener Lock"}, "p5": {"l10": [11, 13, 9, 12, 10, 14, 8, 11, 12, 10], "cv": 0.19, "tier": "TIER_A", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "p6": {"l10": [28, 26, 30, 24, 32, 22, 25, 21, 27, 23], "cv": 0.19, "tier": "TIER_A", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "p7": {"l10": [5, 4, 3, 6, 4, 5, 2, 4, 5, 3], "cv": 0.19, "tier": "TIER_A", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "p8": {"l10": [7, 14, 6, 8, 5, 9, 4, 7, 6, 8], "cv": 0.19, "tier": "TIER_A", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "p9": {"l10": [35, 39, 15, 25, 27, 55, 32, 28, 20, 27], "cv": 0.19, "tier": "TIER_A", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "p10": {"l10": [2, 3, 1, 2, 4, 2, 1, 3, 2, 2], "cv": 0.19, "tier": "TIER_A", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "b1": {"l10": [7, 10, 1, 2, 8, 5, 9, 8, 5, 10], "cv": 0.24, "tier": "TIER_B", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "b2": {"l10": [31, 28, 34, 26, 50, 29, 27, 33, 25, 30], "cv": 0.24, "tier": "TIER_B", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "b3": {"l10": [14, 13, 15, 11, 16, 12, 14, 13, 15, 12], "cv": 0.24, "tier": "TIER_B", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "b4": {"l10": [18, 22, 19, 16, 24, 17, 20, 15, 21, 19], "cv": 0.24, "tier": "TIER_B", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}, "b5": {"l10": [14, 12, 15, 11, 16, 13, 14, 12, 13, 15], "cv": 0.24, "tier": "TIER_B", "pulseWave": "⚡ Pulse 3: 4:45 PM Pre-Tip Lock"}};
 
-    const NEXT_MAN_UP_PIVOTS = {
-      p1: { pivotPlayer: 'Max Strus', pivotTeam: 'LAC', pivotPos: 'SG', pivotStat: '3PM', pivotLine: 2.5, pivotSide: 'OVER', pivotOdds: 102, pivotProb: 54.5, pivotEv: 10.1, triggerReason: 'With Beal & Ingram OUT, Strus catches 7.5+ 3PA off Darius Garland PnR kickouts.' },
-      p2: { pivotPlayer: 'Jonathan Kuminga', pivotTeam: 'MIN', pivotPos: 'PF', pivotStat: 'PTS+REB', pivotLine: 23.5, pivotSide: 'OVER', pivotOdds: -115, pivotProb: 63.0, pivotEv: 10.2, triggerReason: 'With Anthony Edwards & DiVincenzo OUT, Kuminga absorbs secondary wing slashing.' },
-      p3: { pivotPlayer: 'Toumani Camara', pivotTeam: 'POR', pivotPos: 'SF', pivotStat: 'PTS+REB', pivotLine: 23.5, pivotSide: 'OVER', pivotOdds: -115, pivotProb: 62.8, pivotEv: 10.0, triggerReason: 'Fresh off 18 PTS & 6 REB in 36m Thursday with Jerami Grant OUT.' },
-      p4: { pivotPlayer: 'Kyrie Irving', pivotTeam: 'DAL', pivotPos: 'PG', pivotStat: 'PTS+AST', pivotLine: 27.5, pivotSide: 'OVER', pivotOdds: -115, pivotProb: 62.6, pivotEv: 9.8, triggerReason: 'Rested Dallas co-creator in a 229.0 total if Flagg faces extra help.' },
-      p5: { pivotPlayer: 'Jalen Brunson', pivotTeam: 'NYK', pivotPos: 'PG', pivotStat: 'PTS+AST', pivotLine: 30.5, pivotSide: 'OVER', pivotOdds: -115, pivotProb: 65.0, pivotEv: 11.6, triggerReason: 'Promotes immediately if OG Anunoby (Q) is ruled OUT pre-tip.' },
-      p6: { pivotPlayer: 'Joel Embiid', pivotTeam: 'PHI', pivotPos: 'C', pivotStat: 'PTS+REB', pivotLine: 35.5, pivotSide: 'OVER', pivotOdds: -115, pivotProb: 64.6, pivotEv: 11.2, triggerReason: 'Promotes if Tyrese Maxey (Q) is ruled OUT by 11:00 AM CT.' },
-      p7: { pivotPlayer: 'NOP Team Total', pivotTeam: 'NOP', pivotPos: 'TEAM', pivotStat: 'PTS', pivotLine: 105.5, pivotSide: 'UNDER', pivotOdds: -110, pivotProb: 64.2, pivotEv: 11.8, triggerReason: 'Road-B2B Pelicans face Wembanyama\'s rim deterrence as +17.5 dogs.' },
-      p8: { pivotPlayer: 'SAC Team Total', pivotTeam: 'SAC', pivotPos: 'TEAM', pivotStat: 'PTS', pivotLine: 102.5, pivotSide: 'UNDER', pivotOdds: -110, pivotProb: 63.4, pivotEv: 10.8, triggerReason: '1-14 Kings on zero rest after 38-39 starter mins Friday at LAL.' },
-      p9: { pivotPlayer: 'Zach Edey', pivotTeam: 'MEM', pivotPos: 'C', pivotStat: 'PTS+REB', pivotLine: 21.5, pivotSide: 'OVER', pivotOdds: -115, pivotProb: 62.4, pivotEv: 9.6, triggerReason: 'Boozer & GG Jackson OUT clears interior glass for Edey.' },
-      p10: { pivotPlayer: 'Neemias Queta', pivotTeam: 'BOS', pivotPos: 'C', pivotStat: 'PTS+REB', pivotLine: 18.5, pivotSide: 'OVER', pivotOdds: -114, pivotProb: 62.2, pivotEv: 9.4, triggerReason: 'Faces exhausted Sabonis on B2B with Tatum & White Questionable.' }
-    };
+    const NEXT_MAN_UP_PIVOTS = {"p1": {"pivotPlayer": "Yaxel Lendeborg", "pivotTeam": "GSW", "pivotPos": "PF", "pivotStat": "PTS+REB", "pivotLine": 29.5, "pivotSide": "OVER", "pivotOdds": -111, "pivotProb": 56.5, "pivotEv": 6.4, "triggerReason": "Absorbs remaining GSW usage with Curry, Butler, Porzingis & Moody OUT."}, "p2": {"pivotPlayer": "Ayo Dosunmu", "pivotTeam": "MIN", "pivotPos": "SG", "pivotStat": "PTS", "pivotLine": 17.5, "pivotSide": "OVER", "pivotOdds": -115, "pivotProb": 56.2, "pivotEv": 5.8, "triggerReason": "Edwards & DiVincenzo OUT; posted 23 PTS Monday."}, "p3": {"pivotPlayer": "James Harden", "pivotTeam": "CLE", "pivotPos": "PG", "pivotStat": "AST", "pivotLine": 6.5, "pivotSide": "OVER", "pivotOdds": 106, "pivotProb": 53.5, "pivotEv": 7.2, "triggerReason": "Mobley OUT expands CLE guard PnR playmaking."}, "p4": {"pivotPlayer": "Cedric Coward", "pivotTeam": "MEM", "pivotPos": "SF", "pivotStat": "REB", "pivotLine": 7.5, "pivotSide": "OVER", "pivotOdds": -118, "pivotProb": 57.0, "pivotEv": 6.1, "triggerReason": "8.1 RPG with Boozer, Grant & GG Jackson OUT."}};
 
     const LIVE_MATCHUP_SPOT_PLAYS = [{"id": "sp1", "matchupKey": "SAC_GSW", "matchup": "SAC @ GSW (10:00 PM ET)", "player": "Brandin Podziemski", "team": "GSW", "opp": "SAC", "pos": "SG", "stat": "PTS", "side": "OVER", "line": 18.5, "openLine": 18.5, "baseOdds": 100, "openOdds": 100, "maxPlayableLine": 19.5, "maxPlayableOdds": -125, "trueProb": 58.8, "missReason": "🌅 Pulse 1 #1 Lock (+17.6% EV • 4 Stars OUT)", "note": "Curry, Butler, Porzingis & Moody all OUT; Podziemski carries primary guard usage vs SAC."}, {"id": "sp2", "matchupKey": "MIN_OKC", "matchup": "MIN @ OKC (7:30 PM ET)", "player": "Jaden McDaniels", "team": "MIN", "opp": "OKC", "pos": "PF", "stat": "PTS+REB", "side": "OVER", "line": 23.5, "openLine": 23.5, "baseOdds": 100, "openOdds": 100, "maxPlayableLine": 24.5, "maxPlayableOdds": -125, "trueProb": 58.2, "missReason": "🌅 Pulse 1 Core (+16.4% EV • Edwards & Chet OUT)", "note": "24.6 P+R avg (34p/10r Monday) vs Holmgren-less OKC in tight -2.5 spread."}, {"id": "sp3", "matchupKey": "CLE_NYK", "matchup": "CLE @ NYK (7:30 PM ET)", "player": "Donovan Mitchell", "team": "CLE", "opp": "NYK", "pos": "SG", "stat": "PTS", "side": "OVER", "line": 25.5, "openLine": 25.5, "baseOdds": -105, "openOdds": -105, "maxPlayableLine": 26.5, "maxPlayableOdds": -125, "trueProb": 58.4, "missReason": "🌅 Pulse 1 Sniper (+14.0% EV • Mobley OUT)", "note": "Evan Mobley OUT (toe); Mitchell averages 25.9 PPG in L10."}, {"id": "sp4", "matchupKey": "LAC_MEM", "matchup": "LAC @ MEM (8:00 PM ET)", "player": "Ty Jerome", "team": "MEM", "opp": "LAC", "pos": "PG", "stat": "PTS", "side": "OVER", "line": 24.5, "openLine": 24.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 25.5, "maxPlayableOdds": -130, "trueProb": 57.9, "missReason": "🌅 Pulse 1 Sniper (+8.2% EV • 4 MEM OUT)", "note": "Boozer, Grant, Jackson & Pippen Jr. OUT; Jerome leads MEM at 25.1 PPG vs 4-12 LAC."}];
 
@@ -9081,7 +9068,7 @@ body { font-variant-numeric: tabular-nums; }
       const key = state.spotCheckMatchupKey || 'BOS_PHI';
       const plays = (state.spotPlays || []).filter(sp => key === 'ALL' || sp.matchupKey === key);
       const matchupObj = SLATE_MATCHUPS.find(m => m.key === key);
-      const activeSportLabel = (state.activeSport === 'NFL') ? 'NFL Week 11' : 'NBA';
+      const activeSportLabel = (state.activeSport === 'NFL') ? 'NFL Week 12' : 'NBA';
       const headerTitle = key === 'ALL'
         ? `All ${SLATE_MATCHUPS.length} ${activeSportLabel} Matchups — Current Un-Steamed +EV Value Scan`
         : `${matchupObj ? (matchupObj.away + ' @ ' + matchupObj.home) : key} — Live Value Plays Right Now`;
@@ -20374,7 +20361,7 @@ updateBetSlipCartWidget();
       const auditSubEl = document.getElementById('pulse1AuditModalSubtitle');
       if (auditSubEl) {
         auditSubEl.textContent = isNflAudit
-          ? 'Verifying 100% of active cards, matchups, charts, sparklines & date badges against Week 11 NFL slate'
+          ? 'Verifying 100% of active cards, matchups, charts, sparklines & date badges against Week 12 NFL Holiday slate'
           : "Verifying 100% of active cards, matchups, charts, sparklines & date badges against today's live NBA slate";
       }
       const c1Pass = typeof CURRENT_SLATE_DATE === 'string' && CURRENT_SLATE_DATE === expectedDate;
@@ -20413,7 +20400,7 @@ updateBetSlipCartWidget();
       checks.push({
         id: 4,
         title: '4. 90% Alt-Floor Studio (15 Legs) & Segregated Tally',
-        pass: (ALT_90_COVER_ROSTER || []).length >= 10 && altInvalid.length === 0 && (isNflAudit ? /Nov 22|Week 11/i.test(altBadgeTxt) : /Nov\.?\s*25/i.test(altBadgeTxt)),
+        pass: (ALT_90_COVER_ROSTER || []).length >= 10 && altInvalid.length === 0 && (isNflAudit ? /Nov 26|Week 12/i.test(altBadgeTxt) : /Nov\.?\s*25/i.test(altBadgeTxt)),
         detail: `15/15 Alt-Floor legs verified on active teams • Header badge: "${altBadgeTxt}"`
       });
 
@@ -20994,7 +20981,7 @@ updateBetSlipCartWidget();
         }
       };
 
-      // Dedicated Non-VIP Near-Miss Value Pool for ALL 12 NFL Week 11 Matchups (separate from the Official 10-Pick VIP Board)
+      // Dedicated Non-VIP Near-Miss Value Pool for NFL Week 12 Holiday Wave Matchups (separate from the Official 10-Pick VIP Board)
       const NFL_SPOT_PLAYS_SNAPSHOT = [{"id": "nfl_sp1", "matchupKey": "CHI_DET", "matchup": "CHI @ DET (Thu 1:00 PM ET)", "player": "Colston Loveland", "team": "CHI", "opp": "DET", "pos": "TE", "stat": "REC_YDS", "side": "OVER", "line": 52.5, "openLine": 52.5, "baseOdds": -113, "openOdds": -113, "maxPlayableLine": 56.5, "maxPlayableOdds": -125, "trueProb": 61.8, "missReason": "🏈 #1 Thanksgiving Prop (+15.4% EV • DET #31 vs TE)", "note": "54+ yds in 4 of 5 since Caleb Williams returned & Kmet went down; DET allows #32 MOF & 11 TE TDs."}, {"id": "nfl_sp2", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "player": "Khalil Shakir", "team": "BUF", "opp": "KC", "pos": "WR", "stat": "REC", "side": "OVER", "line": 3.5, "openLine": 3.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 4.5, "maxPlayableOdds": -125, "trueProb": 62.4, "missReason": "🌬️ Weather-Cliff Slot Lock (+16.7% EV • 7.0 Rec/Gm vs KC)", "note": "7, 8, 6, 7 catches in last 4 vs KC; 20-mph wind + Kincaid Q supercharge short-ADOT slot volume."}, {"id": "nfl_sp3", "matchupKey": "PHI_DAL", "matchup": "PHI @ DAL (Thu 4:30 PM ET)", "player": "Joe Milton", "team": "PHI", "opp": "DAL", "pos": "QB", "stat": "RUSH_YDS", "side": "OVER", "line": 31.5, "openLine": 31.5, "baseOdds": -114, "openOdds": -114, "maxPlayableLine": 35.5, "maxPlayableOdds": -125, "trueProb": 59.6, "missReason": "🏃 Mobile QB Funnel (+11.9% EV • DAL #30 vs QB Rush)", "note": "DAL allows 24.2 QB rush YPG (Lamar 50, Daniels 69, Dart 54); trailing -8.5 script drives scrambles."}, {"id": "nfl_sp4", "matchupKey": "KC_BUF", "matchup": "KC @ BUF (Thu 8:20 PM ET)", "player": "Josh Downs", "team": "KC", "opp": "BUF", "pos": "WR", "stat": "REC_YDS", "side": "OVER", "line": 39.5, "openLine": 39.5, "baseOdds": -125, "openOdds": -125, "maxPlayableLine": 43.5, "maxPlayableOdds": -130, "trueProb": 60.2, "missReason": "🎯 Quick-Separation Slot (+8.4% EV • Benford Q)", "note": "59 & 53 rec yds in first 2 KC games on 8/10 targets; wind-resistant quick-game slot separation."}];
 
       state.activeSport = 'NBA';
@@ -21123,7 +21110,7 @@ updateBetSlipCartWidget();
           ? '🏈 SharpSlate NFL v4.4 • 10:35 AM CT 90-Min Inactives, Live Odds & End-Zone Sniper™ Synced'
           : NBA_BANNER_SNAPSHOT.recheckTimestampBadge);
         setElTxt('alt90SlateDateBadge', isNfl
-          ? `NFL Week 11 (Wed Nov 25) • ${(ALT_90_COVER_ROSTER || []).length} Matchup-Synced High-Floor Alt-Lines`
+          ? `NFL Week 12 Thanksgiving (Thu–Fri Nov 26–27) • ${(ALT_90_COVER_ROSTER || []).length} Matchup-Synced High-Floor Alt-Lines`
           : NBA_BANNER_SNAPSHOT.alt90SlateDateBadge);
         if (isNfl) {
           const nflDfsWins = (DFS_HISTORICAL_LEDGER || []).filter(r => r.result === 'WON').length;
@@ -21209,58 +21196,7 @@ updateBetSlipCartWidget();
         p10: { snap: '88% Snap', route: '88% Route • 6.4 aDOT', proe: '+6.2% ARI +16.5', wind: '💨 17 mph Wind Cliff (Short TE ↑)', trench: '🧱 KC #3 TE Target Funnel', tier: '🟢 Soft Derivative (+5.0 Yd PrizePicks Lag!)', isSoft: true, longestRec: '21.5+ Yds (+112 Fair)' }
       };
 
-      const NFL_DOMINO_SCENARIOS = {
-        ARI_KC: {
-          title: 'Arizona Cardinals (3-7) @ Kansas City Chiefs (7-2) • KC -16.5 • Total 40.5',
-          starLabel: 'Kenneth Walker III (KC RB) RULED OUT — Confirmed Week 11 Cascade',
-          baseProe: 54.5,
-          players: [
-            { name: 'Emmett Johnson (KC RB1)', stat: 'Rushing Yards', line: 85.5, baseMed: 61.0, outBoost: 35.4, role: 'RB_RUSH', adot: 2.2, routePct: 54, yprr: 1.52, tier: 'SOFT_DERIVATIVE', altFloor: 65, longestLine: 17.5 },
-            { name: 'Trey McBride (ARI TE1)', stat: 'Receiving Yards', line: 49.5, baseMed: 57.5, outBoost: 2.5, role: 'SLOT_TE', adot: 6.4, routePct: 88, yprr: 2.24, tier: 'SOFT_DERIVATIVE', altFloor: 40, longestLine: 21.5 },
-            { name: 'Rashee Rice (KC WR1)', stat: 'Receiving Yards', line: 53.5, baseMed: 59.8, outBoost: 3.0, role: 'SLOT_WR', adot: 5.8, routePct: 86, yprr: 2.31, tier: 'SOFT_DERIVATIVE', altFloor: 40, longestLine: 20.5 }
-          ]
-        },
-        TEN_DAL: {
-          title: 'Tennessee Titans (1-8) @ Dallas Cowboys (4-6) • DAL -7.5 • Total 54.5 (Dome)',
-          starLabel: 'Cowboys WR3 Inactive — Extra Slot/Vertical Target Funnel',
-          baseProe: 61.5,
-          players: [
-            { name: 'CeeDee Lamb (DAL WR1)', stat: 'Receiving Yards', line: 92.5, baseMed: 95.5, outBoost: 5.2, role: 'SLOT_WR', adot: 9.8, routePct: 96, yprr: 2.78, tier: 'SHARP_MAINLINE', altFloor: 70, longestLine: 28.5 },
-            { name: 'George Pickens (DAL WR2)', stat: 'Receiving Yards', line: 69.5, baseMed: 73.4, outBoost: 4.1, role: 'DEEP_WR', adot: 15.6, routePct: 91, yprr: 2.18, tier: 'SOFT_DERIVATIVE', altFloor: 50, longestLine: 27.5 },
-            { name: 'Tony Pollard (TEN RB1)', stat: 'Receptions', line: 3.5, baseMed: 3.6, outBoost: 0.6, role: 'RB_CHECKDOWN', adot: 1.4, routePct: 52, yprr: 1.15, tier: 'SOFT_DERIVATIVE', altFloor: 3, longestLine: 12.5 }
-          ]
-        },
-        TB_DET: {
-          title: 'Tampa Bay Buccaneers (3-6) @ Detroit Lions (7-2) • DET -5.5 • Total 46.5 (Dome)',
-          starLabel: 'Baker Mayfield (TB QB) Questionable / Limited — Checkdown Surge',
-          baseProe: 58.2,
-          players: [
-            { name: 'Bucky Irving (TB RB1)', stat: 'Receptions', line: 3.5, baseMed: 3.8, outBoost: 1.2, role: 'RB_CHECKDOWN', adot: 1.2, routePct: 56, yprr: 1.38, tier: 'SOFT_DERIVATIVE', altFloor: 3, longestLine: 13.5 },
-            { name: 'Amon-Ra St. Brown (DET WR1)', stat: 'Receptions', line: 6.5, baseMed: 7.6, outBoost: 0.3, role: 'SLOT_WR', adot: 7.4, routePct: 95, yprr: 2.55, tier: 'SOFT_DERIVATIVE', altFloor: 5, longestLine: 23.5 },
-            { name: 'Jameson Williams (DET WR2)', stat: 'Receiving Yards', line: 50.5, baseMed: 52.0, outBoost: 1.5, role: 'DEEP_WR', adot: 16.2, routePct: 84, yprr: 1.96, tier: 'SOFT_DERIVATIVE', altFloor: 35, longestLine: 26.5 }
-          ]
-        },
-        CIN_WAS: {
-          title: 'Cincinnati Bengals (7-2) @ Washington Commanders (3-5-1) • CIN -6.5 • Total 54.5 (MNF)',
-          starLabel: 'WAS Top CB Questionable — Deep Explosive Pass Rate +14%',
-          baseProe: 63.8,
-          players: [
-            { name: "Ja'Marr Chase (CIN WR1)", stat: 'Receiving Yards', line: 96.5, baseMed: 98.5, outBoost: 6.8, role: 'DEEP_WR', adot: 13.4, routePct: 97, yprr: 2.91, tier: 'SHARP_MAINLINE', altFloor: 75, longestLine: 30.5 },
-            { name: 'Tee Higgins (CIN WR2)', stat: 'Receiving Yards', line: 75.5, baseMed: 74.0, outBoost: 5.5, role: 'DEEP_WR', adot: 14.9, routePct: 90, yprr: 2.22, tier: 'SOFT_DERIVATIVE', altFloor: 55, longestLine: 26.5 },
-            { name: 'Chase Brown (CIN RB1)', stat: 'Receiving Yards', line: 24.5, baseMed: 26.2, outBoost: 2.4, role: 'RB_CHECKDOWN', adot: 1.6, routePct: 61, yprr: 1.44, tier: 'SOFT_DERIVATIVE', altFloor: 15, longestLine: 14.5 }
-          ]
-        },
-        MIN_SF: {
-          title: 'Minnesota Vikings (7-2) @ San Francisco 49ers (8-1) • SF -3.5 • 7,200 ft Mexico City',
-          starLabel: '7,200 ft Altitude Pace Drag + MIN #1 Blitz Rate Active',
-          baseProe: 55.4,
-          players: [
-            { name: 'Christian McCaffrey (SF RB1)', stat: 'Receiving Yards', line: 34.5, baseMed: 37.8, outBoost: 4.5, role: 'RB_CHECKDOWN', adot: 2.1, routePct: 68, yprr: 1.88, tier: 'SOFT_DERIVATIVE', altFloor: 25, longestLine: 16.5 },
-            { name: 'T.J. Hockenson (MIN TE1)', stat: 'Receiving Yards', line: 48.5, baseMed: 52.4, outBoost: 3.2, role: 'SLOT_TE', adot: 7.2, routePct: 85, yprr: 2.04, tier: 'SOFT_DERIVATIVE', altFloor: 35, longestLine: 19.5 },
-            { name: 'Justin Jefferson (MIN WR1)', stat: 'Receiving Yards', line: 84.5, baseMed: 86.2, outBoost: 2.0, role: 'DEEP_WR', adot: 14.2, routePct: 96, yprr: 2.84, tier: 'SHARP_MAINLINE', altFloor: 65, longestLine: 28.5 }
-          ]
-        }
-      };
+      const NFL_DOMINO_SCENARIOS = {"KC_BUF": {"title": "Kansas City Chiefs @ Buffalo Bills • BUF -2.5 • Total 46.5 (Thanksgiving 8:20 PM ET)", "starLabel": "Kenneth Walker III (KC RB) & RT Jaylon Moore OUT — Confirmed Week 12 Cascade", "baseProe": 57.4, "players": [{"name": "Emmett Johnson (KC RB1)", "stat": "Rushing Yards", "line": 68.5, "baseMed": 52.0, "outBoost": 24.5, "role": "RB_RUSH", "adot": 2.1, "routePct": 58, "yprr": 1.48, "tier": "SOFT_DERIVATIVE", "altFloor": 50, "longestLine": 15.5}, {"name": "Rashee Rice (KC WR1)", "stat": "Receiving Yards", "line": 64.5, "baseMed": 68.4, "outBoost": 4.2, "role": "SLOT_WR", "adot": 6.1, "routePct": 89, "yprr": 2.38, "tier": "SHARP_MAINLINE", "altFloor": 50, "longestLine": 21.5}, {"name": "Josh Allen (BUF QB1)", "stat": "Rushing Yards", "line": 36.5, "baseMed": 41.2, "outBoost": 3.5, "role": "RB_RUSH", "adot": 0.0, "routePct": 0, "yprr": 0.0, "tier": "SOFT_DERIVATIVE", "altFloor": 25, "longestLine": 14.5}]}, "CHI_DET": {"title": "Chicago Bears (8-2) @ Detroit Lions (8-2) • CHI -1.5 • Total 55.5 (Thanksgiving 1:00 PM ET)", "starLabel": "Kyler Gordon (CHI CB) & Elijah Hicks (CHI S) OUT — Dome Shootout Cascade", "baseProe": 61.8, "players": [{"name": "Amon-Ra St. Brown (DET WR1)", "stat": "Receiving Yards", "line": 84.5, "baseMed": 88.2, "outBoost": 7.5, "role": "SLOT_WR", "adot": 7.4, "routePct": 95, "yprr": 2.64, "tier": "SHARP_MAINLINE", "altFloor": 65, "longestLine": 24.5}, {"name": "Jahmyr Gibbs (DET RB1)", "stat": "Rushing + Receiving Yds", "line": 102.5, "baseMed": 106.4, "outBoost": 6.8, "role": "RB_CHECKDOWN", "adot": 1.8, "routePct": 62, "yprr": 1.72, "tier": "SOFT_DERIVATIVE", "altFloor": 80, "longestLine": 22.5}, {"name": "DJ Moore (CHI WR1)", "stat": "Receiving Yards", "line": 69.5, "baseMed": 73.0, "outBoost": 4.4, "role": "DEEP_WR", "adot": 11.2, "routePct": 92, "yprr": 2.15, "tier": "SOFT_DERIVATIVE", "altFloor": 50, "longestLine": 25.5}]}, "PHI_DAL": {"title": "Philadelphia Eagles @ Dallas Cowboys • DAL -8.5 • Total 47.5 (Thanksgiving 4:30 PM ET)", "starLabel": "Jake Ferguson (DAL TE) & G Tyler Booker OUT — Target Concentration Cascade", "baseProe": 60.2, "players": [{"name": "CeeDee Lamb (DAL WR1)", "stat": "Receiving Yards", "line": 88.5, "baseMed": 92.4, "outBoost": 8.6, "role": "SLOT_WR", "adot": 9.4, "routePct": 96, "yprr": 2.75, "tier": "SHARP_MAINLINE", "altFloor": 70, "longestLine": 27.5}, {"name": "George Pickens (DAL WR2)", "stat": "Receiving Yards", "line": 66.5, "baseMed": 70.8, "outBoost": 5.4, "role": "DEEP_WR", "adot": 14.8, "routePct": 91, "yprr": 2.21, "tier": "SOFT_DERIVATIVE", "altFloor": 50, "longestLine": 26.5}, {"name": "Saquon Barkley (PHI RB1)", "stat": "Rushing Yards", "line": 78.5, "baseMed": 82.0, "outBoost": 4.5, "role": "RB_RUSH", "adot": 1.5, "routePct": 54, "yprr": 1.24, "tier": "SOFT_DERIVATIVE", "altFloor": 60, "longestLine": 19.5}]}, "DEN_PIT": {"title": "Denver Broncos @ Pittsburgh Steelers • DEN -3.5 • Total 36.5 (Black Friday 3:00 PM ET)", "starLabel": "Mason Rudolph Starting QB (PIT) — Low-Total Trench & Checkdown Cascade", "baseProe": 49.5, "players": [{"name": "Courtland Sutton (DEN WR1)", "stat": "Receiving Yards", "line": 58.5, "baseMed": 62.4, "outBoost": 4.0, "role": "DEEP_WR", "adot": 13.4, "routePct": 90, "yprr": 2.02, "tier": "SOFT_DERIVATIVE", "altFloor": 45, "longestLine": 23.5}, {"name": "Jaylen Warren (PIT RB1)", "stat": "Receptions", "line": 3.5, "baseMed": 3.9, "outBoost": 0.9, "role": "RB_CHECKDOWN", "adot": 1.3, "routePct": 58, "yprr": 1.35, "tier": "SOFT_DERIVATIVE", "altFloor": 3, "longestLine": 12.5}, {"name": "Pat Freiermuth (PIT TE1)", "stat": "Receiving Yards", "line": 34.5, "baseMed": 38.0, "outBoost": 4.2, "role": "SLOT_TE", "adot": 6.8, "routePct": 78, "yprr": 1.68, "tier": "SOFT_DERIVATIVE", "altFloor": 25, "longestLine": 16.5}]}};
 
       const NFL_UNDERTAXED_COPULA_SGPS = [{"badge": "🟢 #1 THANKSGIVING SHOOTOUT COPULA (+14.2% LIFT)", "title": "CHI @ DET (55.5 Dome): Colston Loveland Rec Yds + Amon-Ra St. Brown TD", "odds": "Fair +210 (Target +240+)", "lift": "+14.2% Joint Copula Lift (32.2% vs 28.2% Indep)", "legs": ["Colston Loveland (CHI) Over 52.5 Receiving Yards (-113 FD)", "Amon-Ra St. Brown (DET) Anytime TD (-130 Fanatics)"], "why": "55.5 indoor total: DET allows #31 DVOA & league-high 11 TDs to TEs, while CHI slot CB Kyler Gordon is OUT."}, {"badge": "🟢 #2 WEATHER-CLIFF SHORT-GAME COPULA (+13.8% LIFT)", "title": "KC @ BUF (20-MPH Wind): Khalil Shakir Receptions + Josh Allen Anytime TD", "odds": "Fair +215 (Target +245+)", "lift": "+13.8% Joint Copula Lift (31.8% vs 27.9% Indep)", "legs": ["Khalil Shakir (BUF) Over 3.5 Receptions (-115 Caesars)", "Josh Allen (BUF) Anytime TD (-115 FanDuel)"], "why": "NonLinearWeatherCliffEngine (20-mph wind / 40-mph gusts): Buffalo shifts to short-ADOT slot dump-offs (Shakir 6+ rec in 4 straight vs KC) and Allen goal-line power."}, {"badge": "🟢 #3 TRAILING-SCRIPT SCRAMBLE COPULA (+13.1% LIFT)", "title": "PHI @ DAL (DAL -8.5): Joe Milton Rush Yds + Will Shipley Rec Yds", "odds": "Fair +240 (Target +275+)", "lift": "+13.1% Joint Copula Lift (29.4% vs 26.0% Indep)", "legs": ["Joe Milton (PHI) Over 31.5 Rushing Yards (-114)", "Will Shipley (PHI) Over 5.5 Receiving Yards (-110 BetMGM)"], "why": "DAL -8.5 home favorite forces trailing dropbacks: Dallas allows 3rd-most QB rush yds (24.2/gm) & #32 DVOA vs short RB passes (38 RB rec yds/gm)."}, {"badge": "🟢 #4 BLACK FRIDAY QB-BENCHING COPULA (+12.6% LIFT)", "title": "DEN @ PIT (36.5 Total): Jonah Coleman Anytime TD + DEN -3.5", "odds": "Fair +210 (Target +235+)", "lift": "+12.6% Joint Copula Lift (32.3% vs 28.7% Indep)", "legs": ["Jonah Coleman (DEN) Anytime TD (-125)", "Denver Broncos -3.5 (-105)"], "why": "Steelers benched Aaron Rodgers for Mason Rudolph; Denver controls field position and grinds clock with Coleman at the goal line."}];
 
@@ -21660,7 +21596,7 @@ updateBetSlipCartWidget();
         const sel = document.getElementById('nflDominoGameSelect');
         const out = document.getElementById('nflDominoOutput');
         if (!sel || !out) return;
-        const sc = NFL_DOMINO_SCENARIOS[sel.value] || NFL_DOMINO_SCENARIOS.ARI_KC;
+        const sc = NFL_DOMINO_SCENARIOS[sel.value] || NFL_DOMINO_SCENARIOS.KC_BUF;
         const starOut = Boolean(document.getElementById('nflToggleStarOut')?.checked);
         const ltOut = Boolean(document.getElementById('nflToggleLtOut')?.checked);
         const cOut = Boolean(document.getElementById('nflToggleCenterOut')?.checked);
@@ -21746,7 +21682,7 @@ updateBetSlipCartWidget();
         if (typeof showToast === 'function') {
           showToast(
             target === 'NFL'
-              ? '🏈 Switched to NFL Week 11 (SharpSlate NFL v4.4) — All 9 Tabs Unlocked!'
+              ? '🏈 Switched to NFL Week 12 Thanksgiving (Gridiron Edge+ v4.5) — All 9 Tabs Unlocked!'
               : '🏀 Switched to NBA Slate (SharpSlate™ Pro) — All 9 Tabs Synced!',
             target === 'NFL' ? 'amber' : 'emerald'
           );
@@ -21855,13 +21791,12 @@ updateBetSlipCartWidget();
       <div id="nflDominoSubTab" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <div class="rounded-xl bg-slate-900/90 border border-white/10 p-3 space-y-2">
-            <label class="text-[11px] font-mono-code font-bold uppercase text-amber-300">1. Select Week 11 Matchup</label>
+            <label class="text-[11px] font-mono-code font-bold uppercase text-amber-300">1. Select Week 12 Matchup</label>
             <select id="nflDominoGameSelect" onchange="window.recalcNflDominoSim()" class="w-full rounded-lg bg-slate-950 border border-slate-700 text-white text-xs p-2 font-bold">
-              <option value="ARI_KC">ARI @ KC (KC -16.5 • Total 40.5 • Kenneth Walker OUT)</option>
-              <option value="TEN_DAL">TEN @ DAL (DAL -7.5 • Total 54.5 • Dome Shootout)</option>
-              <option value="TB_DET">TB @ DET (DET -5.5 • Total 46.5 • Baker Mayfield Q)</option>
-              <option value="CIN_WAS">CIN @ WAS (CIN -6.5 • Total 54.5 • MNF Shootout)</option>
-              <option value="MIN_SF">MIN @ SF (SF -3.5 • Total 46.5 • 7,200 ft Mexico City)</option>
+              <option value="KC_BUF">KC @ BUF (BUF -2.5 • Total 46.5 • Thu 8:20 PM ET • Walker OUT)</option>
+              <option value="CHI_DET">CHI @ DET (CHI -1.5 • Total 55.5 • Thu 1:00 PM ET • Dome Shootout)</option>
+              <option value="PHI_DAL">PHI @ DAL (DAL -8.5 • Total 47.5 • Thu 4:30 PM ET • Ferguson OUT)</option>
+              <option value="DEN_PIT">DEN @ PIT (DEN -3.5 • Total 36.5 • Fri 3:00 PM ET • Trench Grind)</option>
             </select>
             <div class="text-[11px] text-slate-400">Chains: <span class="text-emerald-300 font-bold">Plays → PROE → Route% → YPRR</span></div>
           </div>
