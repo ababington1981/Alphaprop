@@ -6243,7 +6243,7 @@ body { font-variant-numeric: tabular-nums; }
 
     const NEXT_MAN_UP_PIVOTS = {"p1": {"pivotPlayer": "Yaxel Lendeborg", "pivotTeam": "GSW", "pivotPos": "PF", "pivotStat": "PTS+REB", "pivotLine": 29.5, "pivotSide": "OVER", "pivotOdds": -111, "pivotProb": 56.5, "pivotEv": 6.4, "triggerReason": "Absorbs remaining GSW usage with Curry, Butler, Porzingis & Moody OUT."}, "p2": {"pivotPlayer": "Ayo Dosunmu", "pivotTeam": "MIN", "pivotPos": "SG", "pivotStat": "PTS", "pivotLine": 17.5, "pivotSide": "OVER", "pivotOdds": -115, "pivotProb": 56.2, "pivotEv": 5.8, "triggerReason": "Edwards & DiVincenzo OUT; posted 23 PTS Monday."}, "p3": {"pivotPlayer": "James Harden", "pivotTeam": "CLE", "pivotPos": "PG", "pivotStat": "AST", "pivotLine": 6.5, "pivotSide": "OVER", "pivotOdds": 106, "pivotProb": 53.5, "pivotEv": 7.2, "triggerReason": "Mobley OUT expands CLE guard PnR playmaking."}, "p4": {"pivotPlayer": "Cedric Coward", "pivotTeam": "MEM", "pivotPos": "SF", "pivotStat": "REB", "pivotLine": 7.5, "pivotSide": "OVER", "pivotOdds": -118, "pivotProb": 57.0, "pivotEv": 6.1, "triggerReason": "8.1 RPG with Boozer, Grant & GG Jackson OUT."}};
 
-    const LIVE_MATCHUP_SPOT_PLAYS = [{"id": "spot1", "matchupKey": "MEM_MIN", "player": "Jaden McDaniels", "team": "MIN", "opp": "MEM", "prop": "Over 23.5 P+R", "odds": "-115", "trueProb": "60.4%", "ev": "+12.9%", "lensTag": "Edwards OUT Monopoly", "detail": "25.6 P+R avg; posted 42 P+R Wed & 44 P+R Mon."}, {"id": "spot2", "matchupKey": "BKN_TOR", "player": "Scottie Barnes", "team": "TOR", "opp": "BKN", "prop": "Over 24.5 PTS", "odds": "-115", "trueProb": "58.6%", "ev": "+9.5%", "lensTag": "Kawhi/RJ OUT + Rest", "detail": "24.8 PPG on 3 days rest vs 4-13 Nets."}, {"id": "spot3", "matchupKey": "NOP_LAC", "player": "Darius Garland", "team": "LAC", "opp": "NOP", "prop": "Over 20.5 PTS", "odds": "-112", "trueProb": "58.2%", "ev": "+10.3%", "lensTag": "Herb Jones on Ingram", "detail": "Beal OUT; draws rookie Fears in 230.5 total."}, {"id": "spot4", "matchupKey": "POR_GSW", "player": "Deni Avdija", "team": "POR", "opp": "GSW", "prop": "Over 24.5 PTS", "odds": "-110", "trueProb": "57.9%", "ev": "+10.6%", "lensTag": "Cup Diff + Sharpe OUT", "detail": "24.9 PPG; 33 PTS Wed vs SAS."}];
+    const LIVE_MATCHUP_SPOT_PLAYS = [{"id": "spot1", "matchupKey": "NYK_MIA", "matchup": "NYK @ MIA (7:00 PM ET)", "player": "Giannis Antetokounmpo", "team": "MIA", "opp": "NYK", "pos": "PF", "stat": "PTS", "side": "OVER", "line": 27.5, "openLine": 27.5, "baseOdds": -102, "openOdds": -102, "maxPlayableLine": 28.5, "maxPlayableOdds": -117, "trueProb": 56.8, "openProb": 56.8, "units": 0.5, "missReason": "BUBBLE VALUE (+6.3% EV)", "note": "Probable tag; paint mismatch vs NYK if cleared at tip"}, {"id": "spot2", "matchupKey": "NYK_MIA", "matchup": "NYK @ MIA (7:00 PM ET)", "player": "Bam Adebayo", "team": "MIA", "opp": "NYK", "pos": "C", "stat": "REB", "side": "OVER", "line": 8.5, "openLine": 8.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 9.5, "maxPlayableOdds": -125, "trueProb": 56.1, "openProb": 56.1, "units": 0.5, "missReason": "VALUE LEAN (+3.7% EV)", "note": "Consistent glass minutes in half-court grind"}, {"id": "spot3", "matchupKey": "MIL_DET", "matchup": "MIL @ DET (7:30 PM ET)", "player": "Cade Cunningham", "team": "DET", "opp": "MIL", "pos": "PG", "stat": "AST", "side": "OVER", "line": 8.5, "openLine": 8.5, "baseOdds": 105, "openOdds": 105, "maxPlayableLine": 9.5, "maxPlayableOdds": -110, "trueProb": 55.6, "openProb": 55.6, "units": 0.5, "missReason": "BUBBLE VALUE (+7.1% EV)", "note": "Plus-money +105 opener; monitor knee status & -10.5 spread"}, {"id": "spot4", "matchupKey": "MIL_DET", "matchup": "MIL @ DET (7:30 PM ET)", "player": "Daniss Jenkins", "team": "DET", "opp": "MIL", "pos": "PG", "stat": "AST", "side": "OVER", "line": 5.5, "openLine": 5.5, "baseOdds": -108, "openOdds": -108, "maxPlayableLine": 6.5, "maxPlayableOdds": -123, "trueProb": 57.0, "openProb": 57.0, "units": 0.5, "missReason": "VALUE LEAN (+5.1% EV)", "note": "Immediate creation pivot if Cunningham sits"}, {"id": "spot5", "matchupKey": "BKN_TOR", "matchup": "BKN @ TOR (7:30 PM ET)", "player": "Scottie Barnes", "team": "TOR", "opp": "BKN", "pos": "PF", "stat": "PTS", "side": "OVER", "line": 24.5, "openLine": 24.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 25.5, "maxPlayableOdds": -130, "trueProb": 58.6, "openProb": 58.6, "units": 1.0, "missReason": "OFFICIAL VIP (+6.9% EV)", "note": "Confirmed Type A usage vacuum with Kawhi & RJ OUT"}, {"id": "spot6", "matchupKey": "BKN_TOR", "matchup": "BKN @ TOR (7:30 PM ET)", "player": "Julius Randle", "team": "BKN", "opp": "TOR", "pos": "PF", "stat": "PTS", "side": "OVER", "line": 20.5, "openLine": 20.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 21.5, "maxPlayableOdds": -125, "trueProb": 56.4, "openProb": 56.4, "units": 0.5, "missReason": "VALUE LEAN (+4.0% EV)", "note": "21.6 PPG baseline against depleted TOR wing defense"}, {"id": "spot7", "matchupKey": "PHI_IND", "matchup": "PHI @ IND (7:30 PM ET)", "player": "Tyrese Maxey", "team": "PHI", "opp": "IND", "pos": "PG", "stat": "PTS", "side": "OVER", "line": 25.5, "openLine": 25.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 26.5, "maxPlayableOdds": -130, "trueProb": 56.4, "openProb": 56.4, "units": 0.5, "missReason": "BUBBLE VALUE (+4.7% EV)", "note": "Usage surges if Embiid or Jaylen Brown (Q) sit"}, {"id": "spot8", "matchupKey": "PHI_IND", "matchup": "PHI @ IND (7:30 PM ET)", "player": "Pascal Siakam", "team": "IND", "opp": "PHI", "pos": "PF", "stat": "PTS", "side": "OVER", "line": 21.5, "openLine": 21.5, "baseOdds": -112, "openOdds": -112, "maxPlayableLine": 22.5, "maxPlayableOdds": -127, "trueProb": 56.0, "openProb": 56.0, "units": 0.5, "missReason": "VALUE LEAN (+3.5% EV)", "note": "High-efficiency paint scoring in 234.5 total"}, {"id": "spot9", "matchupKey": "ATL_BOS", "matchup": "ATL @ BOS (8:00 PM ET)", "player": "Paul George", "team": "BOS", "opp": "ATL", "pos": "SG", "stat": "3PM", "side": "OVER", "line": 2.5, "openLine": 2.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 3.5, "maxPlayableOdds": -130, "trueProb": 57.2, "openProb": 57.2, "units": 0.5, "missReason": "VALUE LEAN (+5.5% EV)", "note": "Hot perimeter diet vs ATL drop coverage"}, {"id": "spot10", "matchupKey": "ATL_BOS", "matchup": "ATL @ BOS (8:00 PM ET)", "player": "Jalen Johnson", "team": "ATL", "opp": "BOS", "pos": "PF", "stat": "REB", "side": "OVER", "line": 8.5, "openLine": 8.5, "baseOdds": -108, "openOdds": -108, "maxPlayableLine": 9.5, "maxPlayableOdds": -123, "trueProb": 56.5, "openProb": 56.5, "units": 0.5, "missReason": "VALUE LEAN (+4.6% EV)", "note": "High long-rebound volume vs BOS 51 3PA/gm"}, {"id": "spot11", "matchupKey": "MEM_MIN", "matchup": "MEM @ MIN (8:30 PM ET)", "player": "Jaden McDaniels", "team": "MIN", "opp": "MEM", "pos": "PF", "stat": "P+R", "side": "OVER", "line": 23.5, "openLine": 23.5, "baseOdds": -115, "openOdds": -115, "maxPlayableLine": 24.5, "maxPlayableOdds": -130, "trueProb": 60.4, "openProb": 60.4, "units": 1.0, "missReason": "OFFICIAL POTD (+8.7% EV)", "note": "#1 Free POTD • Confirmed multi-week MIN injury vacuum"}, {"id": "spot12", "matchupKey": "MEM_MIN", "matchup": "MEM @ MIN (8:30 PM ET)", "player": "Cedric Coward", "team": "MEM", "opp": "MIN", "pos": "SF", "stat": "REB", "side": "OVER", "line": 7.5, "openLine": 7.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 8.5, "maxPlayableOdds": -125, "trueProb": 56.8, "openProb": 56.8, "units": 0.5, "missReason": "VALUE LEAN (+4.4% EV)", "note": "8.1 RPG with MEM missing Boozer, Grant & GG Jackson"}, {"id": "spot13", "matchupKey": "DAL_PHX", "matchup": "DAL @ PHX (9:00 PM ET)", "player": "Cooper Flagg", "team": "DAL", "opp": "PHX", "pos": "SG", "stat": "AST", "side": "OVER", "line": 5.5, "openLine": 5.5, "baseOdds": -105, "openOdds": -105, "maxPlayableLine": 6.5, "maxPlayableOdds": -120, "trueProb": 57.4, "openProb": 57.4, "units": 0.5, "missReason": "VALUE LEAN (+6.2% EV)", "note": "6.7 APG avg & 12 AST at DEN; line lags expanded playmaking"}, {"id": "spot14", "matchupKey": "DAL_PHX", "matchup": "DAL @ PHX (9:00 PM ET)", "player": "Devin Booker", "team": "PHX", "opp": "DAL", "pos": "SG", "stat": "PTS", "side": "OVER", "line": 24.5, "openLine": 24.5, "baseOdds": -112, "openOdds": -112, "maxPlayableLine": 25.5, "maxPlayableOdds": -127, "trueProb": 56.2, "openProb": 56.2, "units": 0.5, "missReason": "VALUE LEAN (+3.7% EV)", "note": "DAL missing Dereck Lively II opens midrange & rim lanes"}, {"id": "spot15", "matchupKey": "LAL_SAS", "matchup": "LAL @ SAS (9:30 PM ET)", "player": "Victor Wembanyama", "team": "SAS", "opp": "LAL", "pos": "C", "stat": "REB", "side": "OVER", "line": 11.5, "openLine": 11.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 12.5, "maxPlayableOdds": -125, "trueProb": 57.5, "openProb": 57.5, "units": 0.5, "missReason": "VALUE LEAN (+5.1% EV)", "note": "12.3 RPG avg in high-possession marquee showcase"}, {"id": "spot16", "matchupKey": "LAL_SAS", "matchup": "LAL @ SAS (9:30 PM ET)", "player": "Stephon Castle", "team": "SAS", "opp": "LAL", "pos": "PG", "stat": "AST", "side": "OVER", "line": 5.5, "openLine": 5.5, "baseOdds": -108, "openOdds": -108, "maxPlayableLine": 6.5, "maxPlayableOdds": -123, "trueProb": 56.6, "openProb": 56.6, "units": 0.5, "missReason": "VALUE LEAN (+4.7% EV)", "note": "6.2 APG avg feeding Wembanyama lobs"}, {"id": "spot17", "matchupKey": "DEN_UTA", "matchup": "DEN @ UTA (9:30 PM ET)", "player": "Nikola Jokić", "team": "DEN", "opp": "UTA", "pos": "C", "stat": "REB", "side": "OVER", "line": 11.5, "openLine": 11.5, "baseOdds": -125, "openOdds": -125, "maxPlayableLine": 12.5, "maxPlayableOdds": -140, "trueProb": 57.2, "openProb": 57.2, "units": 0.5, "missReason": "BUBBLE VALUE (+3.9% EV)", "note": "Strong glass edge; held on bubble only for -9.5 spread"}, {"id": "spot18", "matchupKey": "DEN_UTA", "matchup": "DEN @ UTA (9:30 PM ET)", "player": "Christian Braun", "team": "DEN", "opp": "UTA", "pos": "SG", "stat": "PTS", "side": "OVER", "line": 13.5, "openLine": 13.5, "baseOdds": -105, "openOdds": -105, "maxPlayableLine": 14.5, "maxPlayableOdds": -120, "trueProb": 56.3, "openProb": 56.3, "units": 0.5, "missReason": "VALUE LEAN (+5.1% EV)", "note": "13.8 PPG transition finisher against UTA"}, {"id": "spot19", "matchupKey": "NOP_LAC", "matchup": "NOP @ LAC (9:30 PM ET)", "player": "Darius Garland", "team": "LAC", "opp": "NOP", "pos": "PG", "stat": "PTS", "side": "OVER", "line": 20.5, "openLine": 20.5, "baseOdds": -112, "openOdds": -112, "maxPlayableLine": 21.5, "maxPlayableOdds": -127, "trueProb": 58.2, "openProb": 58.2, "units": 1.0, "missReason": "OFFICIAL VIP (+6.1% EV)", "note": "Beal OUT usage lock; 21.3 PPG + 6.6 APG baseline"}, {"id": "spot20", "matchupKey": "NOP_LAC", "matchup": "NOP @ LAC (9:30 PM ET)", "player": "Rui Hachimura", "team": "LAC", "opp": "NOP", "pos": "PF", "stat": "PTS", "side": "OVER", "line": 13.5, "openLine": 13.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 14.5, "maxPlayableOdds": -125, "trueProb": 56.0, "openProb": 56.0, "units": 0.5, "missReason": "VALUE LEAN (+3.6% EV)", "note": "14.4 PPG secondary wing scoring with Beal sidelined"}, {"id": "spot21", "matchupKey": "POR_GSW", "matchup": "POR @ GSW (9:30 PM ET)", "player": "Deni Avdija", "team": "POR", "opp": "GSW", "pos": "SF", "stat": "PTS", "side": "OVER", "line": 24.5, "openLine": 24.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 25.5, "maxPlayableOdds": -125, "trueProb": 57.9, "openProb": 57.9, "units": 1.0, "missReason": "OFFICIAL VIP (+5.5% EV)", "note": "Confirmed usage monopoly vs GSW missing 4 starters"}, {"id": "spot22", "matchupKey": "POR_GSW", "matchup": "POR @ GSW (9:30 PM ET)", "player": "Brandin Podziemski", "team": "GSW", "opp": "POR", "pos": "SG", "stat": "PTS", "side": "OVER", "line": 17.5, "openLine": 17.5, "baseOdds": -110, "openOdds": -110, "maxPlayableLine": 18.5, "maxPlayableOdds": -125, "trueProb": 55.1, "openProb": 55.1, "units": 0.5, "missReason": "BUBBLE VALUE (+2.7% EV)", "note": "Line dipped -1.0 pt after Wed; Curry/Butler still OUT"}];
 
     // Enrich INITIAL_PROPS and INITIAL_BUBBLE_WATCHLIST with L10 game logs, Referee Crew, EPM Allowance Zone & Next-Man-Up Pivots BEFORE state initialization
     INITIAL_PROPS.forEach(p => {
@@ -6300,7 +6300,7 @@ body { font-variant-numeric: tabular-nums; }
       chartSplitModes: {},
       quickPickDensity: true,
       activeShareTarget: null,
-      spotCheckLastRun: 'Sun Nov. 22 Live Value Scan',
+      spotCheckLastRun: 'Fri Nov. 27 Live Value Scan',
       spotPlays: [...LIVE_MATCHUP_SPOT_PLAYS],
       autoMinimizeCompleted: true,
       autoSortActiveFirst: true,
@@ -7342,7 +7342,7 @@ body { font-variant-numeric: tabular-nums; }
                 <span class="px-1.5 py-0.5 rounded border ${statusBadge} font-mono-code font-extrabold text-[10px]">${b.status}</span>
                 <span class="text-[10px] text-slate-400">${b.placedAt} • ${b.book}</span>
               </div>
-              <div class="text-sm font-extrabold text-white truncate">${b.player} <span class="text-emerald-300 font-mono-code text-xs ml-1">${b.pick} (${formatOdds(b.odds)})</span></div>
+              <div class="text-sm font-extrabold text-white leading-tight break-words">${b.player} <span class="text-emerald-300 font-mono-code text-xs ml-1">${b.pick} (${formatOdds(b.odds)})</span></div>
               <div class="text-[11px] text-slate-400 font-mono-code">Kelly: ${Number(b.kellyUnits).toFixed(2)}u • True ${Number(b.trueProb).toFixed(1)}% • Edge ${Number(b.evPct) >= 0 ? '+' : ''}${Number(b.evPct).toFixed(1)}%</div>
             </div>
             <div class="flex flex-wrap items-center gap-2 shrink-0">
@@ -9333,7 +9333,15 @@ body { font-variant-numeric: tabular-nums; }
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          ${plays.length === 0 ? `<div class="col-span-full rounded-xl bg-slate-900/80 border border-white/10 p-4 text-xs text-slate-300">No extra near-miss plays qualify in this matchup right now — check the Official 10-Pick Board or switch to <strong>All Games</strong>.</div>` : plays.map(sp => {
+          ${plays.length === 0 ? `<div class="col-span-full rounded-xl bg-slate-900/80 border border-white/10 p-4 text-xs text-slate-300">No extra near-miss plays qualify in this matchup right now — check the Official 10-Pick Board or switch to <strong>All Games</strong>.</div>` : plays.map(rawSp => {
+            const sp = Object.assign({
+              matchup: (matchupObj && matchupObj.label) || rawSp.matchupKey || 'NBA Slate',
+              pos: 'G/F', side: 'OVER', stat: 'PTS', line: 15.5, openLine: 15.5,
+              baseOdds: -110, openOdds: -110, maxPlayableLine: 16.5, maxPlayableOdds: -125,
+              trueProb: 56.0, openProb: 56.0, units: 0.5, note: rawSp.detail || ''
+            }, rawSp);
+            if (typeof sp.trueProb === 'string') sp.trueProb = parseFloat(sp.trueProb) || 56.0;
+            if (typeof sp.baseOdds === 'string') sp.baseOdds = parseInt(sp.baseOdds.replace('+',''), 10) || -110;
             const rt = evaluatePreTipStatus(sp, book);
             const adjOdds = rt.curOdds;
             const starred = isBetStarred(sp.id);
@@ -12672,8 +12680,11 @@ updateBetSlipCartWidget();
       const full = Math.floor(s);
       const half = (s - full) >= 0.5 ? 1 : 0;
       const empty = Math.max(0, 5 - full - half);
-      const icons = '★'.repeat(full) + (half ? '⯪' : '') + '☆'.repeat(empty);
-      return `<span class="inline-flex items-center gap-0.5 text-amber-300 font-mono-code text-[10px] font-extrabold tracking-tight" title="${s.toFixed(1)} / 5.0 Star Rating">${icons} <span class="text-amber-200/90">${s.toFixed(1)}★</span></span>`;
+      const fullSvg = '<svg class="w-3 h-3 text-amber-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955a1 1 0 00.95.69h4.158c.969 0 1.371 1.24.588 1.81l-3.364 2.444a1 1 0 00-.364 1.118l1.286 3.955c.3.921-.755 1.688-1.54 1.118l-3.364-2.444a1 1 0 00-1.175 0l-3.364 2.444c-.784.57-1.838-.197-1.539-1.118l1.285-3.955a1 1 0 00-.364-1.118L2.067 9.382c-.783-.57-.38-1.81.588-1.81h4.158a1 1 0 00.95-.69l1.286-3.955z"/></svg>';
+      const halfSvg = '<svg class="w-3 h-3 shrink-0" viewBox="0 0 20 20"><path fill="#334155" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955a1 1 0 00.95.69h4.158c.969 0 1.371 1.24.588 1.81l-3.364 2.444a1 1 0 00-.364 1.118l1.286 3.955c.3.921-.755 1.688-1.54 1.118l-3.364-2.444a1 1 0 00-1.175 0l-3.364 2.444c-.784.57-1.838-.197-1.539-1.118l1.285-3.955a1 1 0 00-.364-1.118L2.067 9.382c-.783-.57-.38-1.81.588-1.81h4.158a1 1 0 00.95-.69l1.286-3.955z"/><path fill="#fbbf24" d="M10 2.236c-.45 0-.825.276-.951.691L7.763 6.882a1 1 0 01-.95.69H2.655c-.968 0-1.371 1.24-.588 1.81l3.364 2.444a1 1 0 01.364 1.118L4.51 16.9c-.299.921.755 1.688 1.539 1.118l3.364-2.444c.176-.128.38-.192.587-.192V2.236z"/></svg>';
+      const emptySvg = '<svg class="w-3 h-3 text-slate-600 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955a1 1 0 00.95.69h4.158c.969 0 1.371 1.24.588 1.81l-3.364 2.444a1 1 0 00-.364 1.118l1.286 3.955c.3.921-.755 1.688-1.54 1.118l-3.364-2.444a1 1 0 00-1.175 0l-3.364 2.444c-.784.57-1.838-.197-1.539-1.118l1.285-3.955a1 1 0 00-.364-1.118L2.067 9.382c-.783-.57-.38-1.81.588-1.81h4.158a1 1 0 00.95-.69l1.286-3.955z"/></svg>';
+      const icons = fullSvg.repeat(full) + (half ? halfSvg : '') + emptySvg.repeat(empty);
+      return `<span class="inline-flex items-center gap-0.5 text-amber-300 font-mono-code text-[11px] font-extrabold tracking-tight whitespace-nowrap" title="${s.toFixed(1)} / 5.0 Star Rating">${icons}<span class="ml-1 text-amber-200">${s.toFixed(1)}</span></span>`;
     }
 
     function renderMatchupBreakdownPanel(gameKey, isNfl) {
@@ -12694,27 +12705,27 @@ updateBetSlipCartWidget();
         const barColor = accent === 'emerald' ? 'bg-emerald-400' : 'bg-cyan-400';
         const pctWidth = Math.max(18, Math.min(100, Number(item.prob || 50)));
         return `
-          <div class="rounded-xl bg-slate-900/90 border border-slate-800/90 p-2.5 space-y-1.5 hover:border-slate-700 transition">
-            <div class="flex items-start justify-between gap-2">
-              <div class="min-w-0">
-                <div class="flex flex-wrap items-center gap-1.5">
-                  <span class="text-xs font-extrabold text-white truncate">${item.player}</span>
-                  <span class="text-[10px] font-mono-code text-slate-400">${item.team} ${item.pos}</span>
-                  <span class="px-1.5 py-0.2 rounded border text-[9px] font-mono-code font-bold uppercase ${tagCls}">${item.tag}</span>
-                </div>
-                <div class="text-[11px] font-mono-code font-bold ${accent === 'emerald' ? 'text-emerald-300' : 'text-cyan-300'} mt-0.5">
-                  ${item.market} <span class="text-slate-300">(${item.odds})</span>${item.ev ? ` <span class="ml-1 px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 text-[9px]">${item.ev}</span>` : ''}
-                </div>
+          <div class="rounded-xl bg-slate-900/90 border border-slate-800/90 p-3 space-y-2 hover:border-slate-700 transition">
+            <div class="space-y-1">
+              <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+                <div class="text-[13px] font-extrabold text-white leading-tight break-words">${item.player}</div>
+                <div class="shrink-0">${renderStarRatingBadge(item.stars)}</div>
               </div>
-              <div class="text-right shrink-0">
-                <div>${renderStarRatingBadge(item.stars)}</div>
-                <div class="text-[10px] font-mono-code font-extrabold text-white mt-0.5">${Number(item.prob).toFixed(1)}% <span class="text-slate-400 font-normal">${probLabel}</span></div>
+              <div class="flex flex-wrap items-center justify-between gap-1.5">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="text-[10px] font-mono-code text-slate-400">${item.team} ${item.pos}</span>
+                  <span class="px-1.5 py-0.5 rounded border text-[9px] font-mono-code font-bold uppercase whitespace-nowrap ${tagCls}">${item.tag}</span>
+                </div>
+                <div class="text-[11px] font-mono-code font-extrabold text-white whitespace-nowrap">${Number(item.prob).toFixed(1)}% <span class="text-slate-400 font-normal">${probLabel}</span></div>
+              </div>
+              <div class="text-xs font-mono-code font-bold ${accent === 'emerald' ? 'text-emerald-300' : 'text-cyan-300'} pt-0.5">
+                ${item.market} <span class="text-slate-300">(${item.odds})</span>${item.ev ? ` <span class="ml-1 px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[9px] whitespace-nowrap">${item.ev}</span>` : ''}
               </div>
             </div>
             <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
               <div class="h-full rounded-full ${barColor}" style="width: ${pctWidth}%"></div>
             </div>
-            <div class="text-[10px] text-slate-400 leading-snug">${item.note}</div>
+            <div class="text-[11px] text-slate-400 leading-snug">${item.note}</div>
           </div>
         `;
       };
@@ -14090,7 +14101,7 @@ updateBetSlipCartWidget();
               return `
               <div class="bg-slate-900/90 px-3 py-2 rounded-xl border border-slate-800 flex items-center justify-between gap-2 text-xs">
                 <div class="min-w-0">
-                  <div class="font-bold text-white truncate">${d.player}</div>
+                  <div class="font-bold text-white leading-tight break-words">${d.player}</div>
                   <div class="text-[11px] text-cyan-300 truncate">${d.pick}</div>
                 </div>
                 <span class="shrink-0 max-w-[48%] truncate px-2 py-0.5 rounded font-mono-code font-bold text-[10px] ${badgeCls}" title="${String(d.actual || '').replace(/"/g, '&quot;')}">${d.actual}</span>
@@ -14117,7 +14128,7 @@ updateBetSlipCartWidget();
               ${dayAltRows.map(r => `
                 <div class="bg-slate-900/90 px-3 py-2 rounded-xl border border-slate-800 flex items-center justify-between gap-2 text-xs">
                   <div class="min-w-0">
-                    <div class="font-bold text-white truncate">${r.player.replace(/\[.*?\]/g, '').trim()}</div>
+                    <div class="font-bold text-white leading-tight break-words">${r.player.replace(/\[.*?\]/g, '').trim()}</div>
                     <div class="text-[11px] text-teal-300 truncate">${r.prop || r.pick || ''}</div>
                   </div>
                   <span class="shrink-0 px-2 py-0.5 rounded font-mono-code font-bold text-[10px] ${
